@@ -7,6 +7,7 @@ class People(models.Model):
     firstname = models.CharField(max_length=30)
     secondname = models.CharField(max_length=30, blank=True, null=True)
     function = models.ForeignKey('Function')
+    schedule = models.ForeignKey('Schedule', blank=True, null=True)
     birtday = models.DateField(blank=True, null=True)
     dayofwork = models.DateField(blank=True, null=True)
     telefon = models.CharField(max_length=30, blank=True, null=True)
@@ -61,25 +62,36 @@ class Holiday(models.Model):
 # График работы
 class Schedule(models.Model):
     title = models.CharField(max_length=50)
-    struct = models.CharField(max_length=31)
+    text = models.CharField(max_length=150)
     startday = models.DateField()
-    starttime = models.TimeField()
-    stoptime = models.TimeField()
+    #change = models.ManyToManyField('Change')
 
     def __str__(self):
-        return "%s c %s по %s, (%s)" % (
-            self.title, self.starttime,
-            self.stoptime, self.struct)
+        return "%s" % (self.title)
 
 
 # Описание смен
 class Change(models.Model):
+    schedule = models.ForeignKey(Schedule)
+    #change = models.ManyToManyField('ChangeList')
     title = models.CharField(max_length=50)
     starttime = models.TimeField()
     stoptime = models.TimeField()
 
     def __str__(self):
         return self.title
+
+'''
+# Описание смен
+class ChangeList(models.Model):
+    #change = models.ManyToManyField('Change')
+    title = models.CharField(max_length=50)
+    starttime = models.TimeField(null=True)
+    stoptime = models.TimeField(null=True)
+
+    def __str__(self):
+        return self.title
+'''
 
 
 # Отгулы и выходные
