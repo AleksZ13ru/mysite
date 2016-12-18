@@ -1,5 +1,38 @@
-{% extends 'dept/base.html' %}
+{% extends 'dept/base.html' %} {% block content %}
+<form class="fieldset">
+    <div class="row">
+        <div class="small-2 large-4 columns">
+          <div class="callout">
+              <h5>Заметки</h5>
+              <p>Простой текст</p>
+              <a href="">Добавить</a>
+          </div>
+        </div>
+        <div class="small-4 large-4 columns">
+          <div class="callout">
+              <h5>Дело №1</h5>
+              <p>Преобретение запасных частей</p>
+              <p>Служебная №125</p>
+              <a href="">Изменить</a>
+          </div>
+          <div class="callout">
+              <h5>Дело №2</h5>
+              <p>Преобретение запасных частей</p>
+              <p>Служебная №125</p>
+              <a href="">Изменить</a>
+          </div>
+        </div>
+        <div class="small-6 large-4 columns">
+            <div class="callout secondary">
+                <h5>12 ноября 2016   Смена: №2</h5>
+                <p>Сменный мастер : Иванов И.И.</p>
+                <p>Инженер электроник: Петров В.Г.</p>
+                <a href="">Календарь</a>
+            </div>
+        </div>
+    </div>
+</form>
 
-{% block content %}
-<h1> Hello </h1>
+
+
 {% endblock content %}
