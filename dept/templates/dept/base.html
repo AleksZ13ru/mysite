@@ -20,6 +20,11 @@
           <li class="menu-text">Кадры</li>
         </ul>
       </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        </ul>
+      </div>
     </div>
     {% block content %} {% endblock %}
     <script src="{% static 'js/vendor/jquery.js' %}"></script>

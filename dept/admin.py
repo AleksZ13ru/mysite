@@ -13,14 +13,12 @@ class ChangeInline(admin.TabularInline):
 
 
 class ScheduleAdmin(admin.ModelAdmin):
-    #filter_horizontal = ('change',)
+    list_display = ('title', 'startday')
     inlines = [ChangeInline]
 
 
 admin.site.register(Function)
 admin.site.register(People, PeopleAdmin)
 admin.site.register(Holiday)
-#admin.site.register(Change)
-#admin.site.register(ChangeList)
 admin.site.register(Schedule, ScheduleAdmin)
 admin.site.register(Weekend)
