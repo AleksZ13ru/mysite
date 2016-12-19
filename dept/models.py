@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 # Персонал
@@ -83,6 +84,20 @@ class Schedule(models.Model):
 
     def __str__(self):
         return "%s" % (self.title)
+
+    @staticmethod
+    def today():
+        schedules = Schedule.objects.all()
+        std = None
+        for schedule in schedules:
+            t = (timezone.now().toordinal()-schedule.startday.toordinal()+1)\
+                                                                            % 4
+            if t == 0:
+                std = schedule.startday
+        if std is None:
+            return None
+        else:
+            return Schedule.objects.filter(startday=std)
 
 
 # Описание смен

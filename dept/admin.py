@@ -13,7 +13,7 @@ class ChangeInline(admin.TabularInline):
 
 
 class ScheduleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'startday')
+    list_display = ('title', 'startday',)
     inlines = [ChangeInline]
 
 
