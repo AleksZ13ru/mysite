@@ -103,11 +103,13 @@ class Schedule(models.Model):
     def itermonthdates(year=None, month=None):
         if year is None or month is None:
             return None
-        #tempdate = datetime.date(year, month, 1)
-        schedules = Schedule.objects.all()
-        shedule_return = []
+        #schedules = Schedule.objects.all()
+        schedules = Schedule.objects.filter(title__icontains='№')
+        schedules_return = []
+
         for schedule in schedules:
-            #shedule_return = []
+            schedule_return = {}
+            schedule_data = []
             changes = Change.objects.filter(schedule=schedule)
             mass = []
             for change in changes:
@@ -115,9 +117,17 @@ class Schedule(models.Model):
             mycal = calendar.Calendar(firstweekday=0)
             for d in mycal.itermonthdates(year, month):
                 if d.month == month:
-                    t = (d.toordinal() - schedule.startday.toordinal()) % 4
-                    shedule_return.append(mass[t-1])
-        return shedule_return
+                    t = (d.toordinal() - schedule.startday.toordinal()) % len(mass)
+                    schedule_data.append(mass[t])
+            schedule_return['name'] = schedule.title
+            schedule_return['data'] = schedule_data
+            persons = People.objects.filter(schedule=schedule)
+            person_array = []
+            for person in persons:
+                person_array.append(person.fio())
+            schedule_return['person'] = person_array
+            schedules_return.append(schedule_return)
+        return schedules_return
 
 
 # Описание смен
@@ -128,6 +138,7 @@ class Change(models.Model):
 
     schedule = models.ForeignKey(Schedule)
     title = models.CharField(max_length=50)
+    number = models.IntegerField()
     starttime = models.TimeField()
     stoptime = models.TimeField()
 

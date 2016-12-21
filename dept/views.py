@@ -37,5 +37,5 @@ def dept_calendar(request):
         if i.month == date.month:
             day.append(i)
     args['day'] = day
-    a = Schedule.itermonthdates(2016, 11)
+    args['schedules'] = Schedule.itermonthdates(timezone.now().year, timezone.now().month)
     return render(request, 'dept/dept_calendar.html', {'args': args})
