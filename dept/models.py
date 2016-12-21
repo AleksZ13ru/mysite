@@ -90,7 +90,7 @@ class Schedule(models.Model):
         schedules = Schedule.objects.all()
         std = None
         for schedule in schedules:
-            t = (timezone.now().toordinal()-schedule.startday.toordinal()+1)\
+            t = (timezone.now().toordinal()-schedule.startday.toordinal())\
                                                                             % 4
             if t == 0:
                 std = schedule.startday
