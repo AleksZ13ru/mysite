@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+import datetime, calendar
 
 
 # Персонал
@@ -90,14 +91,33 @@ class Schedule(models.Model):
         schedules = Schedule.objects.all()
         std = None
         for schedule in schedules:
-            t = (timezone.now().toordinal()-schedule.startday.toordinal())\
-                                                                            % 4
+            t = (timezone.now().toordinal()-schedule.startday.toordinal()) % 4
             if t == 0:
                 std = schedule.startday
         if std is None:
             return None
         else:
             return Schedule.objects.filter(startday=std)
+
+    @staticmethod
+    def itermonthdates(year=None, month=None):
+        if year is None or month is None:
+            return None
+        #tempdate = datetime.date(year, month, 1)
+        schedules = Schedule.objects.all()
+        shedule_return = []
+        for schedule in schedules:
+            #shedule_return = []
+            changes = Change.objects.filter(schedule=schedule)
+            mass = []
+            for change in changes:
+                mass.append(change.title)
+            mycal = calendar.Calendar(firstweekday=0)
+            for d in mycal.itermonthdates(year, month):
+                if d.month == month:
+                    t = (d.toordinal() - schedule.startday.toordinal()) % 4
+                    shedule_return.append(mass[t-1])
+        return shedule_return
 
 
 # Описание смен

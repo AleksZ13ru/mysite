@@ -1,0 +1,13 @@
+table thead th,
+table thead td,
+table tfoot th,
+table tfoot td {
+    padding: 0.5rem 0.5rem 0.5rem;
+    font-size: small;
+    font-weight: bold;
+    text-align: left; }
+
+table tbody th,
+table tbody td {
+    font-size: small;
+    padding: 0rem 0rem 0rem; }
