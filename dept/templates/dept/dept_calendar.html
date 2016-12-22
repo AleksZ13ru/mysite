@@ -3,8 +3,8 @@
     <div class="row">
         <div class="small-12 large-12 columns">
             <div class="callout striped table-scroll">
-                <h5>Декабрь</h5>
-                <table class="hover stack">
+                <h5>{{ args.date|date:'F Y' }}</h5>
+                <table class="hover stack unstriped">
                     <thead>
                         <tr>
                             <th width="150"></th>
@@ -21,22 +21,10 @@
                     </thead>
                     <tbody>
                         {% for schedule in args.schedules %}
-                            <!--tr>
-                                <th>{{ schedule.name }}</th>
-                                {% for foo in schedule.data %}
-                                    {% if foo != 'w' %}
-                                        <th>{{ foo }}</th>
-                                    {% else %}
-                                        <th> </th>
-                                    {% endif %}
-                                {% endfor %}
-                            </tr-->
-
                             <tr>
                                 <th></th>
                                 <th colspan={{schedule.data|length}}>{{ schedule.name }}</th>
                             </tr>
-                            <!--tr-->
                                 {% for person in schedule.person %}
                                     <tr>
                                         <th>{{ person }}</th>
@@ -49,7 +37,6 @@
                                         {% endfor %}
                                     </tr>
                                 {% endfor %}
-                            <!--/tr-->
                         {% endfor %}
                     </tbody>
                 </table>
