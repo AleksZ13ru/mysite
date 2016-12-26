@@ -20,36 +20,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for schedule in args.schedules %}
-                            <!--tr>
-                                <th>{{ schedule.name }}</th>
-                                {% for foo in schedule.data %}
-                                    {% if foo != 'w' %}
-                                        <th>{{ foo }}</th>
-                                    {% else %}
-                                        <th> </th>
-                                    {% endif %}
-                                {% endfor %}
-                            </tr-->
-
+                        {% for schedule in args.persons.schedules %}
                             <tr>
                                 <th></th>
-                                <th colspan={{schedule.data|length}}>{{ schedule.name }}</th>
+                                <th colspan={{args.persons.count_day}}>{{ schedule }}</th>
                             </tr>
-                            <!--tr-->
-                                {% for person in schedule.person %}
+                            {% for person in args.persons.persons %}
+                                {% if person.name_schedule == schedule %}
                                     <tr>
-                                        <th>{{ person }}</th>
-                                        {% for foo in schedule.data %}
-                                            {% if foo != 'w' %}
-                                                <th>{{ foo }}</th>
+                                        <th>{{ person.person }}</th>
+                                        {% for code in person.data %}
+                                            {% if code == 'd' %}
+                                                <th><span class="badge warning">d</span></th>
+                                            {% elif code == 'n' %}
+                                                <th> <span class="badge">n</span></th>
+                                            {% elif code == 'h' %}
+                                                <th> <span class="badge secondary">h</span></th>
                                             {% else %}
                                                 <th> </th>
                                             {% endif %}
                                         {% endfor %}
                                     </tr>
-                                {% endfor %}
-                            <!--/tr-->
+                                {% endif %}
+                            {% endfor %}
                         {% endfor %}
                     </tbody>
                 </table>

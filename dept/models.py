@@ -72,6 +72,24 @@ class Holiday(models.Model):
         return "%s %s - %s (%s)" % (People.fio(self.people),
                                     self.year, self.startday, self.typ)
 
+    @staticmethod
+    def modify_schedule(year=None, month=None, persons=None):
+        result_return = {}
+        out_persons = []
+
+        list_holiday = Holiday.objects.filter(year=year)
+        for holiday in list_holiday:
+            for person in persons['persons']:
+                if holiday.people.fio() == person['person']:
+                    for i in range(0, holiday.lenght):
+                        person['data'][holiday.startday.day+i-1] = 'h'
+                out_persons.append(person)
+
+        result_return['persons'] = out_persons
+        result_return['schedules'] = persons['schedules']
+        result_return['count_day'] = persons['count_day']
+        return result_return
+
 
 # График работы
 class Schedule(models.Model):
@@ -101,9 +119,25 @@ class Schedule(models.Model):
 
     @staticmethod
     def itermonthdates(year=None, month=None):
+        """
+        Получение массива кодов(d - день, n - ночь, w - выходной) для указанного месяца
+        для смен выбранных по фильтру: (.filter(title__icontains='№'))
+
+        :param year: 2016
+        :param month: 11 = декабрь
+        :return: format=<class 'list'>: [{'person': ['Иняшев О.Ю.', 'Тимофеев Е.Л.'],
+                                            name': 'Cмена №1', 'data': ['w', 'w', 'd', 'n', ...]},
+                                        {'person': ['Володин Ю.А.', 'Ганин С.В.'],
+                                            'name': 'Смена №2', 'data': ['n', 'w', 'w', 'd', ...]},
+                                        {'person': ['Петров А.Б.', 'Пронин П.И.'],
+                                            'name': 'Смена №3', 'data': ['d', 'n', 'w', 'w', ...]},
+                                        {'person': ['Игошев С.О.', 'Сундиков А.В.'],
+                                            'name': 'Смена №4', 'data': ['w', 'd', 'n', 'w', ...]}]
+
+        """
         if year is None or month is None:
             return None
-        #schedules = Schedule.objects.all()
+        # schedules = Schedule.objects.all()
         schedules = Schedule.objects.filter(title__icontains='№')
         schedules_return = []
 
@@ -114,8 +148,8 @@ class Schedule(models.Model):
             mass = []
             for change in changes:
                 mass.append(change.title)
-            mycal = calendar.Calendar(firstweekday=0)
-            for d in mycal.itermonthdates(year, month):
+            my_cal = calendar.Calendar(firstweekday=0)
+            for d in my_cal.itermonthdates(year, month):
                 if d.month == month:
                     t = (d.toordinal() - schedule.startday.toordinal()) % len(mass)
                     schedule_data.append(mass[t])
