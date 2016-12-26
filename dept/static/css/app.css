@@ -3,11 +3,11 @@ table thead td,
 table tfoot th,
 table tfoot td {
     padding: 0.5rem 0.5rem 0.5rem;
-    font-size: small;
+    font-size: 75%;
     font-weight: bold;
     text-align: left; }
 
 table tbody th,
 table tbody td {
-    font-size: small;
-    padding: 0rem 0rem 0rem; }
+    font-size: 75%;
+    padding: 0.5rem 0.5rem 0.5rem; }
