@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
-import datetime, calendar
+import calendar
+import datetime
 import copy
+
 
 # Персонал
 class People(models.Model):
@@ -65,8 +67,13 @@ class Holiday(models.Model):
     typ = models.CharField(max_length=4, choices=TYP_CHOICES)
     year = models.IntegerField()
     startday = models.DateField()
-    lenght = models.IntegerField()
-    stopday = models.DateField()
+    lenght = models.IntegerField(default=14)
+    stopday = models.DateField(blank=True, null=True)
+
+    def save(self, *args, **kw):
+        # self.full_name = '{0} {1}'.format(self.first_name, self.last_name)
+        self.stopday = self.startday+datetime.timedelta(days=self.lenght-1)
+        super(Holiday, self).save(*args, **kw)
 
     def __str__(self):
         return "%s %s - %s (%s)" % (People.fio(self.people),
@@ -74,39 +81,21 @@ class Holiday(models.Model):
 
     @staticmethod
     def modify_schedule(year=None, month=None, persons=None):
-        result_return = {}
-        out_persons = []
-
-        list_holiday = Holiday.objects.filter(year=year)
-        for holiday in list_holiday:
-            for person in persons['persons']:
-                if holiday.people.fio() == person['person']:
-                    for i in range(0, holiday.lenght):
-                        person['data'][holiday.startday.day+i-1] = 'h'
-                out_persons.append(person)
-
-        result_return['persons'] = out_persons
-        result_return['schedules'] = persons['schedules']
-        result_return['count_day'] = persons['day_in_month']
-        return result_return
-
-    @staticmethod
-    def modify_schedule_v3(year=None, month=None, persons=None):
         # persons = {'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
         result_return = {}
-        out_persons = []
+        out_persons = copy.deepcopy(persons['persons'])
 
-        list_holiday = Holiday.objects.filter(year=year)
+        list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month).filter(stopday__month=month)
         for holiday in list_holiday:
-            for person in persons['persons']:
+            for person in out_persons:
                 l_fio = copy.deepcopy(person['fio'])
                 l_schedule = copy.deepcopy(person['schedule'])
                 l_data = copy.deepcopy(person['data'])
                 if holiday.people.fio() == l_fio:
+                    out_persons.remove(person)
                     for i in range(0, holiday.lenght):
                         l_data[holiday.startday.day+i-1] = 'h'
-                out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data})
-
+                    out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data})
         result_return['persons'] = out_persons
         result_return['schedules'] = persons['schedules']
         result_return['day_in_month'] = persons['day_in_month']
@@ -114,28 +103,26 @@ class Holiday(models.Model):
 
     @staticmethod
     def modify_schedule_v2(year=None, month=None, persons=None):
-        # persons = {'person':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
-        result = []
-        #out_persons = persons
+        # persons = {'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
+        result_return = {}
+        t_persons = copy.deepcopy(persons['persons'])
+        out_persons = []
 
-        # list_holiday = Holiday.objects.filter(year=year)
-
-        for person, data in persons['persons']:
-            t_person = person['person']
-            t_data = person['data']
-            t_schedule = person['schedule']
-            list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month)
-            for holiday in list_holiday:
-                if holiday.people.fio() == t_person:
+        list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month).filter(stopday__month=month)
+        for holiday in list_holiday:
+            for person in t_persons:
+                l_fio = copy.deepcopy(person['fio'])
+                l_schedule = copy.deepcopy(person['schedule'])
+                l_data = copy.deepcopy(person['data'])
+                if holiday.people.fio() == l_fio:
                     for i in range(0, holiday.lenght):
-                        t_data[holiday.startday.day+i-1] = 'h'
+                        l_data[holiday.startday.day+i-1] = 'h'
+                t_persons.person = {'fio': l_fio, 'schedule': l_schedule, 'data': l_data}
 
-            result.append({'person': t_person, 'schedule': t_schedule, 'data': t_data})
-        # result_return['persons'] = out_persons
-        # result_return['schedules'] = persons['schedules']
-        # result_return['day_in_month'] = persons['day_in_month']
-
-        return result
+        result_return['persons'] = out_persons
+        result_return['schedules'] = persons['schedules']
+        result_return['day_in_month'] = persons['day_in_month']
+        return result_return
 
 
 # График работы
@@ -149,7 +136,7 @@ class Schedule(models.Model):
     startday = models.DateField()
 
     def __str__(self):
-        return "%s" % (self.title)
+        return self.title
 
     @staticmethod
     def today():
@@ -172,65 +159,10 @@ class Schedule(models.Model):
 
         :param year: 2016
         :param month: 11 = декабрь
-        :return: format=<class 'list'>: [{'person': ['Иняшев О.Ю.', 'Тимофеев Е.Л.'],
-                                            name': 'Cмена №1', 'data': ['w', 'w', 'd', 'n', ...]},
-                                        {'person': ['Володин Ю.А.', 'Ганин С.В.'],
-                                            'name': 'Смена №2', 'data': ['n', 'w', 'w', 'd', ...]},
-                                        {'person': ['Петров А.Б.', 'Пронин П.И.'],
-                                            'name': 'Смена №3', 'data': ['d', 'n', 'w', 'w', ...]},
-                                        {'person': ['Игошев С.О.', 'Сундиков А.В.'],
-                                            'name': 'Смена №4', 'data': ['w', 'd', 'n', 'w', ...]}]
-
-        """
-        if year is None or month is None:
-            return None
-        # schedules = Schedule.objects.all()
-        schedules = Schedule.objects.filter(title__icontains='№')
-        schedules_return = []
-
-        for schedule in schedules:
-            schedule_return = {}
-            schedule_data = []
-            changes = Change.objects.filter(schedule=schedule)
-            mass = []
-            for change in changes:
-                mass.append(change.title)
-            my_cal = calendar.Calendar(firstweekday=0)
-            for d in my_cal.itermonthdates(year, month):
-                if d.month == month:
-                    t = (d.toordinal() - schedule.startday.toordinal()) % len(mass)
-                    schedule_data.append(mass[t])
-            schedule_return['name'] = schedule.title
-            schedule_return['data'] = schedule_data
-            persons = People.objects.filter(schedule=schedule)
-            person_array = []
-            for person in persons:
-                person_array.append(person.fio())
-            schedule_return['person'] = person_array
-            schedules_return.append(copy.deepcopy(schedule_return))
-        return schedules_return
-
-    @staticmethod
-    def itermonthdates_v2(year=None, month=None):
-        """
-        Получение массива кодов(d - день, n - ночь, w - выходной) для указанного месяца
-        для смен выбранных по фильтру: (.filter(title__icontains='№'))
-
-        :param year: 2016
-        :param month: 11 = декабрь
-        :return: format=<class 'list'>: [{'person': ['Иняшев О.Ю.', 'Тимофеев Е.Л.'],
-                                            name': 'Cмена №1', 'data': ['w', 'w', 'd', 'n', ...]},
-                                        {'person': ['Володин Ю.А.', 'Ганин С.В.'],
-                                            'name': 'Смена №2', 'data': ['n', 'w', 'w', 'd', ...]},
-                                        {'person': ['Петров А.Б.', 'Пронин П.И.'],
-                                            'name': 'Смена №3', 'data': ['d', 'n', 'w', 'w', ...]},
-                                        {'person': ['Игошев С.О.', 'Сундиков А.В.'],
-                                            'name': 'Смена №4', 'data': ['w', 'd', 'n', 'w', ...]}]
-
-        :return: format=<class 'list'>: [{'person':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n']},
-                                         {'person':'Володин Ю.А.','schedule':'Cмена №2', 'data':['w', 'w', 'd', 'n']},
-                                         {'person':'Петров А.Б.', 'schedule':'Cмена №3', 'data':['w', 'w', 'd', 'n']},
-                                         {'person':'Игошев С.О.', 'schedule':'Cмена №4', 'data':['w', 'w', 'd', 'n']}]
+        :return: format=<class 'list'>: [{'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n']},
+                                         {'fio':'Володин Ю.А.','schedule':'Cмена №2', 'data':['w', 'w', 'd', 'n']},
+                                         {'fio':'Петров А.Б.', 'schedule':'Cмена №3', 'data':['w', 'w', 'd', 'n']},
+                                         {'fio':'Игошев С.О.', 'schedule':'Cмена №4', 'data':['w', 'w', 'd', 'n']}]
 
 
         """
@@ -243,25 +175,18 @@ class Schedule(models.Model):
 
         for schedule in schedules:
             result['schedules'].append(schedule.title)
-            # people = {}
             schedule_data = []
             changes = Change.objects.filter(schedule=schedule)
             schedule_data_bloc = []
             for change in changes:
                 schedule_data_bloc.append(change.title)
-            # result['count_day'] = len(schedule_data_bloc)
             my_cal = calendar.Calendar(firstweekday=0)
             for d in my_cal.itermonthdates(year, month):
                 if d.month == month:
                     t = (d.toordinal() - schedule.startday.toordinal()) % len(schedule_data_bloc)
                     schedule_data.append(copy.deepcopy(schedule_data_bloc[t]))
-            # people['schedule'] = schedule.title
-            # people['data'] = schedule_data
             persons = People.objects.filter(schedule=schedule)
             for person in persons:
-                # people['person'] = person.fio()
-                # people['schedule'] = schedule.title
-                # people['data'] = schedule_data
                 result['persons'].append({'fio': person.fio(), 'schedule': schedule.title, 'data': schedule_data})
         return result
 

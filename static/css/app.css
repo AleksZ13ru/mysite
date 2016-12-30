@@ -2,12 +2,37 @@ table thead th,
 table thead td,
 table tfoot th,
 table tfoot td {
-    padding: 0.5rem 0.5rem 0.5rem;
-    font-size: 75%;
+    padding: 0.3rem 0.3rem 0.3rem;
+    font-size: 70%;
     font-weight: bold;
-    text-align: left; }
-
+    text-align: left;
+}
+table thead {
+    background: #e6e6e6;
+    color: #0a0a0a; }
 table tbody th,
 table tbody td {
-    font-size: 75%;
-    padding: 0.5rem 0.5rem 0.5rem; }
+    font-size: 65%;
+    padding: 0.3rem 0.3rem 0.3rem; }
+table tbody tr:nth-child(even) {
+    border-bottom: 0;
+    background-color: #f1f1f1; }
+table.unstriped tbody {
+    background-color: #f8f8f8; }
+table.unstriped tbody tr {
+    border-bottom: 0;
+    border-bottom: 1px solid #f1f1f1;
+    background-color: #f8f8f8;
+}
+
+table.hover thead tr:hover {
+    background-color: #f3f3f3; }
+
+table.hover tfoot tr:hover {
+    background-color: #ececec; }
+
+table.hover tbody tr:hover {
+    background-color: #e6e6e6; }
+
+table.hover:not(.unstriped) tr:nth-of-type(even):hover {
+    background-color: #ececec; }

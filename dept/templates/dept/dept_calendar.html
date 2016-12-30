@@ -1,24 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% load get_range %}
+    {% load name_mouth %}
 <form class="fieldset">
     <div class="row">
         <div class="small-12 large-12 columns">
+            <div class="top-bar float-center">
+                <ul class="menu float-center">
+                    {%  for m in 12|get_range %}
+                        {% if m|name_mouth|date:'n' == '12' %}
+                            <li class="menu-text">{{ m|name_mouth|date:'F' }}</li>
+                        {% else %}
+                            <li><a href="#">{{ m|name_mouth|date:'F' }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
             <div class="callout striped table-scroll">
-                <h5>Декабрь</h5>
-                <table class="hover stack">
+
+                <table class="hover stack unstriped">
                     <thead>
                         <tr>
-                            <th width="150"></th>
+                            <th width="250"></th>
                             {% for day in args.day %}
-                                <th>{{ day|date:'d'}}</th>
+                                {% if day|date:'w' == '6' or day|date:'w' == '0' %}
+                                    <th style="background: #CF9696">{{ day|date:'d'}}</th>
+                                {% else %}
+                                    <th>{{ day|date:'d'}}</th>
+                                {% endif %}
                             {% endfor %}
                         </tr>
                         <tr>
                             <th></th>
                             {% for day in args.day %}
-                                <th>{{ day|date:'D'}}</th>
+                                {% if day|date:'w' == '6' or day|date:'w' == '0' %}
+                                    <th style="background: #CF9696">{{ day|date:'D'}}</th>
+                                {% else %}
+                                    <th>{{ day|date:'D'}}</th>
+                                {% endif %}
                             {% endfor %}
                         </tr>
+
                     </thead>
                     <tbody>
                         {% for schedule in args.schedules %}
@@ -30,15 +52,28 @@
                                 {% if person.schedule == schedule %}
                                     <tr>
                                         <th>{{ person.fio }}</th>
+                                        {% load index %}
                                         {% for code in person.data %}
-                                            {% if code == 'd' %}
-                                                <th><span class="badge warning">d</span></th>
-                                            {% elif code == 'n' %}
-                                                <th> <span class="badge">n</span></th>
-                                            {% elif code == 'h' %}
-                                                <th> <span class="badge secondary">h</span></th>
+                                            {% if args.day|index:forloop.counter0|date:'w' == '6'  or args.day|index:forloop.counter0|date:'w' == '0' %}
+                                                {% if code == 'd' %}
+                                                    <th style="background: #CF9696"><span class="badge warning">d</span></th>
+                                                {% elif code == 'n' %}
+                                                    <th style="background: #CF9696"> <span class="badge">n</span></th>
+                                                {% elif code == 'h' %}
+                                                    <th style="background: #CF9696"> <span class="badge secondary">h</span></th>
+                                                {% else %}
+                                                    <th style="background: #CF9696"> </th>
+                                                {% endif %}
                                             {% else %}
-                                                <th> </th>
+                                                {% if code == 'd' %}
+                                                    <th><span class="badge warning">d</span></th>
+                                                {% elif code == 'n' %}
+                                                    <th> <span class="badge">n</span></th>
+                                                {% elif code == 'h' %}
+                                                    <th> <span class="badge secondary">h</span></th>
+                                                {% else %}
+                                                    <th> </th>
+                                                {% endif %}
                                             {% endif %}
                                         {% endfor %}
                                     </tr>
