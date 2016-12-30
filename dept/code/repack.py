@@ -25,7 +25,7 @@ def repack(input_dates):
             count_day = len(date['data'])
     result_return['persons'] = persons
     result_return['schedules'] = schedules
-    result_return['count_day'] = count_day
+    result_return['day_in_month'] = count_day
     return result_return
 
 

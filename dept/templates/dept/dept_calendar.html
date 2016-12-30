@@ -1,4 +1,5 @@
-{% extends 'dept/base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 <form class="fieldset">
     <div class="row">
         <div class="small-12 large-12 columns">
@@ -20,15 +21,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for schedule in args.persons.schedules %}
+                        {% for schedule in args.schedules %}
                             <tr>
                                 <th></th>
-                                <th colspan={{args.persons.count_day}}>{{ schedule }}</th>
+                                <th colspan={{args.day_in_month}}>{{ schedule }}</th>
                             </tr>
-                            {% for person in args.persons.persons %}
-                                {% if person.name_schedule == schedule %}
+                            {% for person in args.persons %}
+                                {% if person.schedule == schedule %}
                                     <tr>
-                                        <th>{{ person.person }}</th>
+                                        <th>{{ person.fio }}</th>
                                         {% for code in person.data %}
                                             {% if code == 'd' %}
                                                 <th><span class="badge warning">d</span></th>
@@ -50,7 +51,4 @@
         </div>
     </div>
 </form>
-
-
-
 {% endblock content %}
