@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Schedule, People, Holiday
 import calendar
+import datetime
 from dept.code.repack import repack
 
 # Пример вывода: 16 сентября 2012
@@ -24,15 +25,18 @@ def dept_list(request):
     return render(request, 'dept/dept_list.html', {'args': args})
 
 
-def dept_calendar(request):
-    date = timezone.now()
+def dept_calendar(request, year=timezone.now().year, month=timezone.now().month):
+    year = int(year)
+    month = int(month)
+    date = timezone.datetime(year=year, month=month, day=1)
     my_cal = calendar.Calendar(firstweekday=0)
     args = {}
     day = []
-    for i in my_cal.itermonthdates(timezone.now().year, timezone.now().month):
+    for i in my_cal.itermonthdates(year, month):
         if i.month == date.month:
             day.append(i)
     args['day'] = day
-    test_list = Schedule.itermonthdates(timezone.now().year, timezone.now().month)
-    args.update(Holiday.modify_schedule(timezone.now().year, timezone.now().month, test_list))
+    args['view_month'] = {'year': year, 'month': month, 'year_last': year-1, 'year_next': year+1 }
+    test_list = Schedule.itermonthdates(year, month)
+    args.update(Holiday.modify_schedule(year, month, test_list))
     return render(request, 'dept/dept_calendar.html', {'args': args})

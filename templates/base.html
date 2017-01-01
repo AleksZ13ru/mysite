@@ -15,11 +15,11 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text">Dept</li>
-          <li class="menu-text">Заметки</li>
-          <li class="menu-text">Дела</li>
-          <li class="menu-text">Кадры</li>
-          <li class="menu-text">Календарь</li>
+          <li><a href="/">Dept</a></li>
+          <li><a href="">Заметки</a></li>
+          <li><a href="">Дела</a></li>
+          <li><a href="">Кадры</a></li>
+          <li><a href="/calendar/">Календарь</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -34,6 +34,12 @@
     <script src="{% static 'js/vendor/foundation.js' %}"></script>
     <script>
         $(document).foundation();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var link = window.location.pathname;
+            $('.menu li a[href="'+link+'"]').parent().addClass('active');
+        });
     </script>
 
 </body>

@@ -5,20 +5,26 @@
 <form class="fieldset">
     <div class="row">
         <div class="small-12 large-12 columns">
-            <div class="top-bar float-center">
-                <ul class="menu float-center">
-                    {%  for m in 12|get_range %}
-                        {% if m|name_mouth|date:'n' == '12' %}
-                            <li class="menu-text">{{ m|name_mouth|date:'F' }}</li>
-                        {% else %}
-                            <li><a href="#">{{ m|name_mouth|date:'F' }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <div class="menu-centered">
+                        <ul class="menu expanded">
+                            <li><a href="/calendar/{{args.view_month.year_last}}/{{ args.view_month.month }}">{{args.view_month.year_last}}</a></li>
+                            {%  for m in 12|get_range %}
+                                {% if forloop.counter == args.view_month.month %}
+                                    <li class="active" ><a>{{m|name_mouth|date:'F'}} {{args.view_month.year}}</a></li>
+                                {% else %}
+                                    <li><a href="/calendar/{{args.view_month.year}}/{{forloop.counter}}">{{m|name_mouth|date:'F'}}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            <li><a href="/calendar/{{args.view_month.year_next}}/{{ args.view_month.month }}">{{args.view_month.year_next}}</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="callout striped table-scroll">
 
-                <table class="hover stack unstriped">
+                <table class="hover unstriped">
                     <thead>
                         <tr>
                             <th width="250"></th>
