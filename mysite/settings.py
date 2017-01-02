@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dept',
     'si8device',
     'chartjs',
+    'require'
 ]
 
 MIDDLEWARE = [

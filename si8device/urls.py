@@ -7,8 +7,12 @@ urlpatterns = [
     # Line chart
     url(r'^line_chart/$', views.line_chart, name='line_chart'),
     url(r'^line_chart/json/$', views.line_chart_json, name='line_chart_json'),
+
     # url(r'^line_highchart/json/$', views.line_highchart_json, name='line_highchart_json'),
 
+    url(r'^line_chartc3/$', views.line_chartc3, name='line_chartc3'),
+    url(r'^line_chartc3/json/$', views.line_chartc3_json, name='line_chartc3_json'),
+    url(r'^line_chartc3/json/((?P<id>[0-9]+))/$', views.line_chartc3_json, name='line_chartc3_json'),
 
     # url(r'^calendar/$', views.dept_calendar, name='dept_calendar'),
     # url(r'^calendar/(?P<year>[0-9]+)/(?P<month>[0-9]+)/$', views.dept_calendar, name='dept_calendar')

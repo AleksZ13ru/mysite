@@ -1,0 +1,50 @@
+{% load staticfiles %}
+{% load get_range %}
+<html>
+<head>
+    <title>django-chartjs line chart demo</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'si8device/css/c3.css' %}">
+</head>
+<body>
+<h1>Some Line Charts loaded in Ajax!</h1>
+{% for i in 200|get_range %}
+    <div id="chart{{ i }}"></div>
+{% endfor %}
+
+</body>
+<footer id="footer">
+    <script src="{% static 'si8device/js/d3.v3.min.js' %}"></script>
+    <script src="{% static 'si8device/js/c3.min.js' %}"></script>
+    {% for i in 200|get_range %}
+    <script>
+        var chart = c3.generate(
+            {
+            bindto: '#chart{{ i }}',
+            size: {
+                height: 50
+            },
+            legend: {
+                show: false
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    show: false
+                },
+                y:{
+                    show: false
+                }
+            },
+            point: {
+                show: false
+            },
+            data: {
+                x: "x",
+                url: '{% url "line_chartc3_json" %}',
+                mimeType: 'json'
+            }
+        });
+    </script>
+    {% endfor %}
+</footer>
+</html>
