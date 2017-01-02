@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation Starter Template</title>
     <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    {% block link %}
+    {% endblock %}
 </head>
 
 <body>
@@ -20,6 +21,7 @@
           <li><a href="">Дела</a></li>
           <li><a href="">Кадры</a></li>
           <li><a href="/calendar/">Календарь</a></li>
+          <li><a href="/si8/">Машинное время</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
