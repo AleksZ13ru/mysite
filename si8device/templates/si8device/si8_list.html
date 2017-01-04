@@ -18,10 +18,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for i in 20|get_range %}
+                        {% for i in 2|get_range %}
                             <tr>
                                 <td>Machina {{ i }}</td>
-                                <td><div id="chart{{ i }}"></div></td>
+                                <td>
+                                    <div class="mychart" id="chart{{ i }}" data-name = "#chart{{ i }}" data-url = "http://127.0.0.1:8000/si8/line_chartc3/json/"></div>
+                                </td>
                                 <td>Info</td>
                             </tr>
                         {% endfor %}
@@ -32,40 +34,9 @@
         </div>
     </form>
     <footer id="footer">
-        <script src="{% static 'si8device/js/d3.v3.min.js' %}"></script>
-        <script src="{% static 'si8device/js/c3.min.js' %}"></script>
-        {% for i in 20|get_range %}
-            <script>
-                var chart = c3.generate(
-                    {
-                        bindto: '#chart{{ i }}',
-                        size: {
-                            width: 700,
-                            height: 30
-                        },
-                        legend: {
-                            show: false
-                        },
-                        axis: {
-                            x: {
-                                type: 'category',
-                                show: false
-                            },
-                            y:{
-                                show: false
-                            }
-                        },
-                        point: {
-                            show: false
-                        },
-                        data: {
-                            x: "x",
-                            url: '{% url "line_chartc3_json" %}',
-                            mimeType: 'json'
-                        }
-                    });
-            </script>
-        {% endfor %}
+        <script src="{% static 'si8device/js/d3.v3.js' %}"></script>
+        <script src="{% static 'si8device/js/c3.js' %}"></script>
+        <script src="{% static 'si8device/js/my_c3.js' %}" ></script>
     </footer>
 
 {% endblock content %}

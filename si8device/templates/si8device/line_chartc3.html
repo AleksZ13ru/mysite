@@ -8,43 +8,13 @@
 <body>
 <h1>Some Line Charts loaded in Ajax!</h1>
 {% for i in 200|get_range %}
-    <div id="chart{{ i }}"></div>
+    <div class="mychart" id="chart{{ i }}" data-name = "#chart{{ i }}" data-url = "http://127.0.0.1:8000/si8/line_chartc3/json/"></div>
 {% endfor %}
 
 </body>
 <footer id="footer">
     <script src="{% static 'si8device/js/d3.v3.min.js' %}"></script>
     <script src="{% static 'si8device/js/c3.min.js' %}"></script>
-    {% for i in 200|get_range %}
-    <script>
-        var chart = c3.generate(
-            {
-            bindto: '#chart{{ i }}',
-            size: {
-                height: 50
-            },
-            legend: {
-                show: false
-            },
-            axis: {
-                x: {
-                    type: 'category',
-                    show: false
-                },
-                y:{
-                    show: false
-                }
-            },
-            point: {
-                show: false
-            },
-            data: {
-                x: "x",
-                url: '{% url "line_chartc3_json" %}',
-                mimeType: 'json'
-            }
-        });
-    </script>
-    {% endfor %}
+    <script src="{% static 'si8device/js/my_c3.js' %}" ></script>
 </footer>
 </html>

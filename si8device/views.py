@@ -5,6 +5,7 @@ from chartjs.views.lines import BaseLineChartView
 from django.http import JsonResponse
 import random
 import datetime
+import csv
 # Пример вывода: 16 сентября 2012
 DATE_FORMAT = 'd E Y'
 
@@ -36,6 +37,9 @@ line_chart_json = LineChartJSONView.as_view()
 line_chartc3 = TemplateView.as_view(template_name='si8device/line_chartc3.html')
 # line_chartc3_json = LineChartJSONView.as_view()
 
+line_chartd3 = TemplateView.as_view(template_name='si8device/line_chartd3.html')
+# line_chartc3_json = LineChartJSONView.as_view()
+
 
 def c3_json_generate(id):
     tt = datetime.time()
@@ -44,17 +48,32 @@ def c3_json_generate(id):
     # result = {}
     for h in range(0, 1):
         tt = tt.replace(hour=h)
+        yy = random.randint(1, 20)
         for m in range(0, 60):
             tt = tt.replace(minute=m)
             x.append(tt.strftime("%H:%M"))
-            y.append(random.randint(1, 20))
+            y.append(yy+random.randint(1, 3))
     result = JsonResponse({"x": x, "y": y})
     return result.content
 
 
+def c3_json_generate_v2(id):
+    tt = datetime.time()
+    result = []
+    for h in range(0, 24):
+        tt = tt.replace(hour=h)
+        yy = random.randint(1, 20)
+        for m in range(0, 60):
+            tt = tt.replace(minute=m)
+            x = (tt.strftime("%H:%M"))
+            y = (yy+random.randint(1, 3))
+            e = {"date": x, "close": y}
+            result.append(e)
+    return JsonResponse(result, safe=False).content
+
+
 def line_chartc3_json(request, id=0):
-    content2 = c3_json_generate(id)
+    content2 = c3_json_generate_v2(id)
     content = '{"x": ["00:00", "00:01", "00:02", "00:03"],"y": [180, 150, 300, 70]}'
     return HttpResponse(content2, content_type='application/json')
     # return HttpResponse(html)
-

@@ -14,6 +14,9 @@ urlpatterns = [
     url(r'^line_chartc3/json/$', views.line_chartc3_json, name='line_chartc3_json'),
     url(r'^line_chartc3/json/((?P<id>[0-9]+))/$', views.line_chartc3_json, name='line_chartc3_json'),
 
+    url(r'^line_chartd3/$', views.line_chartd3, name='line_chartd3'),
+
+
     # url(r'^calendar/$', views.dept_calendar, name='dept_calendar'),
     # url(r'^calendar/(?P<year>[0-9]+)/(?P<month>[0-9]+)/$', views.dept_calendar, name='dept_calendar')
     # url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),

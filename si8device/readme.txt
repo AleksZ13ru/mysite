@@ -1,0 +1,1 @@
+http://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
