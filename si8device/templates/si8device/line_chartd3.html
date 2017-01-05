@@ -4,27 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: 60px;
+            height: 12px;
+            padding: 8px;
+            margin-top: -20px;
+            font: 10px sans-serif;
+            background: #ddd;
+            pointer-events: none;
+        }
+
+    </style>
 </head>
 <body>
-<canvas width="960" height="500"></canvas>
+<div id="chart"></div>
+<!--canvas width="960" height="500"></canvas-->
 <script src="https://d3js.org/d3.v4.js"></script>
 <script>
 
-    var canvas = document.querySelector("canvas");
-        context = canvas.getContext("2d");
+    //var canvas = document.querySelector("canvas");
+    //context = canvas.getContext("2d");
+    var canvas  = d3.select("#chart").append("canvas")
+        .attr("id", "canvas")
+        .attr("width", 400)
+        .attr("height", 400);
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width = canvas.width - margin.left - margin.right,
-        height = canvas.height - margin.top - margin.bottom;
+    var context = canvas.node().getContext("2d");
+
+    //var margin = {top: 20, right: 20, bottom: 30, left: 50},
+     //   width = canvas.width - margin.left - margin.right,
+    //    height = canvas.height - margin.top - margin.bottom;
 
     var parseTime = d3.timeParse("%d-%b-%y");
     var parseTime_json = d3.timeParse("%H:%M")
 
     var x = d3.scaleTime()
-        .range([0, width]);
+        .range([0, 400]);
 
     var y = d3.scaleLinear()
-        .range([height, 0]);
+        .range([400, 0]);
 
     var line = d3.line()
         .x(function (d) {
@@ -36,14 +58,15 @@
         .curve(d3.curveStep)
         .context(context);
 
-    context.translate(margin.left, margin.top);
+    //context.translate(margin.left, margin.top);
     var data;
 
-    d3.json("{% static 'si8device/data/data2.json' %}", function(error, json) {
+    d3.json("{% static 'si8device/data/data2.json' %}", function (error, json) {
         if (error) return console.warn(error);
-        //data = json;
+        data = json;
 
         y.domain(d3.extent(json, function (d) {
+            d.close = d.close;
             return d.close;
         }));
 
@@ -52,129 +75,38 @@
             return d.date;
         }));
 
-
-        //xAxis();
-        //yAxis();
-
         context.beginPath();
         line(json);
         context.lineWidth = 1.5;
         context.strokeStyle = "steelblue";
         context.stroke();
     });
-    //d3.select(window).on("mousemove", function() {
 
-    d3.onmousemove(function() {
+    bisectDate = d3.bisector(function(d) { return d.date; }).left;
+
+    var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("display", "none");
+
+    d3.select("canvas").on("mouseover", function () {
+        div.style("display", "inline");
+    });
+
+    d3.select("canvas").on("mouseout", function () {
+        div.style("display", "none");
+    });
+
+    d3.select("canvas").on("mousemove", function() {
         var point = d3.mouse(this);
+        var x0 = x.invert(point[0]),
+            i = bisectDate(data, x0, 1),
+            y0 = data[i].close;
+        console.log('x0:', x0,'y0:', y0);
+        div
+            .text(x0.getHours()+':'+ x0.getMinutes()+ '  speed: '+ y0)
+            .style("left", (point[0]+10) + "px")
+            .style("top", (point[1]-5) + "px");
     });
-
-/*
-    d3.json("{% static 'si8device/data/data_2.json' %}", function (d) {
-        d.date = parseTime_json(d.date);
-        return d;
-    }, function (error, json) {
-        if (error) throw error;
-
-        x.domain(d3.extent(json, function (d) {
-            return d.date;
-        }));
-        y.domain(d3.extent(json, function (d) {
-            return d.close;
-        }));
-
-        xAxis();
-        yAxis();
-
-        context.beginPath();
-        line(json);
-        context.lineWidth = 1.5;
-        context.strokeStyle = "steelblue";
-        context.stroke();
-    });
-
-    /*
-    d3.tsv("{% static 'si8device/data/data.tsv' %}", function (d) {
-        d.date = parseTime(d.date);
-        d.close = +d.close;
-        return d;
-    }, function (error, data) {
-        if (error) throw error;
-
-        x.domain(d3.extent(data, function (d) {
-            return d.date;
-        }));
-        y.domain(d3.extent(data, function (d) {
-            return d.close;
-        }));
-
-        xAxis();
-        yAxis();
-
-        context.beginPath();
-        line(data);
-        context.lineWidth = 1.5;
-        context.strokeStyle = "steelblue";
-        context.stroke();
-    });
-*/
-    function xAxis() {
-        var tickCount = 10,
-            tickSize = 6,
-            ticks = x.ticks(tickCount),
-            tickFormat = x.tickFormat();
-
-        context.beginPath();
-        ticks.forEach(function (d) {
-            context.moveTo(x(d), height);
-            context.lineTo(x(d), height + tickSize);
-        });
-        context.strokeStyle = "black";
-        context.stroke();
-
-        context.textAlign = "center";
-        context.textBaseline = "top";
-        ticks.forEach(function (d) {
-            context.fillText(tickFormat(d), x(d), height + tickSize);
-        });
-    }
-
-    function yAxis() {
-        var tickCount = 10,
-            tickSize = 6,
-            tickPadding = 3,
-            ticks = y.ticks(tickCount),
-            tickFormat = y.tickFormat(tickCount);
-
-        context.beginPath();
-        ticks.forEach(function (d) {
-            context.moveTo(0, y(d));
-            context.lineTo(-6, y(d));
-        });
-        context.strokeStyle = "black";
-        context.stroke();
-
-        context.beginPath();
-        context.moveTo(-tickSize, 0);
-        context.lineTo(0.5, 0);
-        context.lineTo(0.5, height);
-        context.lineTo(-tickSize, height);
-        context.strokeStyle = "black";
-        context.stroke();
-
-        context.textAlign = "right";
-        context.textBaseline = "middle";
-        ticks.forEach(function (d) {
-            context.fillText(tickFormat(d), -tickSize - tickPadding, y(d));
-        });
-
-        context.save();
-        context.rotate(-Math.PI / 2);
-        context.textAlign = "right";
-        context.textBaseline = "top";
-        context.font = "bold 10px sans-serif";
-        context.fillText("Price (US$)", -10, 10);
-        context.restore();
-    }
 </script>
 </body>
 </html>

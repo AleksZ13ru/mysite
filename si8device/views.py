@@ -61,7 +61,7 @@ def c3_json_generate(id):
 def c3_json_generate_v2(id):
     tt = datetime.time()
     result = []
-    for h in range(0, 24):
+    for h in range(0, 1):
         tt = tt.replace(hour=h)
         yy = random.randint(1, 20)
         for m in range(0, 60):
