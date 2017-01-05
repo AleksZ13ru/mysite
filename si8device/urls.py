@@ -5,8 +5,8 @@ urlpatterns = [
     url(r'^$', views.si8_list, name='si8_list'),
     # url(r'^chartjs/$', views.si8_, name='si8_list'),
     # Line chart
-    url(r'^line_chart/$', views.line_chart, name='line_chart'),
-    url(r'^line_chart/json/$', views.line_chart_json, name='line_chart_json'),
+    # url(r'^line_chart/$', views.line_chart, name='line_chart'),
+    # url(r'^line_chart/json/$', views.line_chart_json, name='line_chart_json'),
 
     # url(r'^line_highchart/json/$', views.line_highchart_json, name='line_highchart_json'),
 

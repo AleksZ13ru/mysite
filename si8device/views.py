@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from chartjs.views.lines import BaseLineChartView
+# from chartjs.views.lines import BaseLineChartView
 from django.http import JsonResponse
 import random
 import datetime
@@ -13,7 +13,7 @@ DATE_FORMAT = 'd E Y'
 def si8_list(request):
     return render(request, 'si8device/si8_list.html')
 
-
+'''
 class LineChartJSONView(BaseLineChartView):
     def get_labels(self):
         """Return 7 labels."""
@@ -30,9 +30,10 @@ class LineChartJSONView(BaseLineChartView):
             a.append(random.randint(1, 10))
         result.append(a)
         return result
+'''
 
 line_chart = TemplateView.as_view(template_name='si8device/line_chart.html')
-line_chart_json = LineChartJSONView.as_view()
+# line_chart_json = LineChartJSONView.as_view()
 
 line_chartc3 = TemplateView.as_view(template_name='si8device/line_chartc3.html')
 # line_chartc3_json = LineChartJSONView.as_view()
