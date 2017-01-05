@@ -22,7 +22,8 @@
                             <tr>
                                 <td>Machina {{ i }}</td>
                                 <td>
-                                    <div class="mychart" id="chart{{ i }}" data-id = "{{ i }}" data-name = "#chart{{ i }}" data-url = "http://127.0.0.1:8000/si8/line_chartc3/json/{{ i }}/">
+                                    <div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
+                                         data-url="http://127.0.0.1:8000/si8/line_chartc3/json/{{ i }}/">
                                         <!--canvas width="700" height="30"></canvas-->
                                     </div>
                                 </td>
@@ -40,6 +41,7 @@
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="{% static 'si8device/js/c3.js' %}"></script>
         <script src="{% static 'si8device/js/my_d3_v2.js' %}" ></script>
+
     </footer>
 
 {% endblock content %}
