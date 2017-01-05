@@ -15,7 +15,7 @@ function getChart(obj, url) {
     var canvas = obj.querySelector("canvas"),
         context = canvas.getContext("2d");
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    var margin = {top: 2, right: 2, bottom: 2, left: 2},
         width = canvas.width - margin.left - margin.right,
         height = canvas.height - margin.top - margin.bottom;
 

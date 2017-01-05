@@ -10,7 +10,7 @@
 <script src="https://d3js.org/d3.v4.js"></script>
 <script>
 
-    var canvas = document.querySelector("canvas"),
+    var canvas = document.querySelector("canvas");
         context = canvas.getContext("2d");
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -62,6 +62,12 @@
         context.strokeStyle = "steelblue";
         context.stroke();
     });
+    //d3.select(window).on("mousemove", function() {
+
+    d3.onmousemove(function() {
+        var point = d3.mouse(this);
+    });
+
 /*
     d3.json("{% static 'si8device/data/data_2.json' %}", function (d) {
         d.date = parseTime_json(d.date);
