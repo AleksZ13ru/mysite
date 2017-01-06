@@ -1,23 +1,30 @@
-{% load staticfiles %}
+<!doctype html>
 <html>
+{% load staticfiles %}
 <head>
-    <title>django-chartjs line chart demo</title>
-    <!--[if lte IE 8]>
-            <script src="{% static 'js/excanvas.js' %}"></script>
-        <![endif]-->
+    <title>Line Chart</title>
+    <script src="{% static 'si8device/js/chart.bundle.js' %}"></script>
+    <script src="{% static 'si8device/js/utils.js' %}"></script>
+    <style>
+        canvas{
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
 </head>
+
 <body>
-<h1>Some Line Charts loaded in Ajax!</h1>
-
-<canvas id="myChart" width="500" height="400"></canvas>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
-<script type="text/javascript">
-    $.get('{% url "line_chart_json" %}', function(data) {
-        var ctx = $("#myChart").get(0).getContext("2d");
-        new Chart(ctx).Line(data);
-    });
-</script>
+<div>
+</div>
+<div id="my_chart">
+    <canvas width="600" height="40" data-url="http://127.0.0.1:8000/si8/line_chartjs_v2/json/"></canvas>
+    <canvas width="600" height="40" data-url="http://127.0.0.1:8000/si8/line_chartjs_v2/json/"></canvas>
+</div>
+<br>
+<br>
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'si8device/js/my_chart.js'%}"></script>
 </body>
+
 </html>
