@@ -10,6 +10,7 @@ urlpatterns = [
 
     # line_chartjs_v2
     url(r'^line_chartjs_v2/json/$', views.line_chartjs_v2_json, name='line_chartjs_v2_json'),
+    url(r'^line_chartjs_v2/json/((?P<id>[0-9]+))/$', views.line_chartjs_v2_json, name='line_chartjs_v2_json'),
 
     # url(r'^line_highchart/json/$', views.line_highchart_json, name='line_highchart_json'),
 

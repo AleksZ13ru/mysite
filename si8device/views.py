@@ -76,7 +76,7 @@ def c3_json_generate_v2(id):
     return JsonResponse(result, safe=False).content
 
 
-def chartjs_json_generate_v2():
+def chartjs_json_generate_v2(id):
     labels = []
     data = []
     tt = datetime.time()
@@ -93,8 +93,8 @@ def chartjs_json_generate_v2():
     return JsonResponse(result).content
 
 
-def line_chartjs_v2_json(request):
-    content = chartjs_json_generate_v2()
+def line_chartjs_v2_json(request, id=0):
+    content = chartjs_json_generate_v2(id)
     # content = '{"x": ["00:00", "00:01", "00:02", "00:03"],"y": [180, 150, 300, 70]}'
     return HttpResponse(content, content_type='application/json')
 

@@ -3,7 +3,7 @@
 {% load get_range %}
 {% block link %}
     <link rel="stylesheet" type="text/css" href="{% static 'si8device/css/c3.css' %}">
-    <script src="{% static 'si8device/js/chart.bundle.js' %}"></script>
+    <script src="{% static 'si8device/js/chart.bundle.min.js' %}"></script>
     <script src="{% static 'si8device/js/utils.js' %}"></script>
     <style>
         canvas {
@@ -49,12 +49,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for i in 10|get_range %}
+                        {% for i in 200|get_range %}
                             <tr>
                                 <td>Machina {{ i }}</td>
                                 <td>
                                     <canvas width="700" height="40"
-                                            data-url="http://127.0.0.1:8000/si8/line_chartjs_v2/json/"></canvas>
+                                            data-url="http://127.0.0.1:8000/si8/line_chartjs_v2/json/{{ i }}/"></canvas>
                                     <!--div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
                                          data-url="http://127.0.0.1:8000/si8/line_chartc3/json/{{ i }}/">
                                         <canvas width="700" height="30"></canvas>
@@ -70,10 +70,10 @@
         </div>
     </form>
     <footer id="footer">
-        <!--script src="{% static 'si8device/js/d3.v3.js' %}"></script-->
+        <!--script src="{% static 'si8device/js/d3.v3.js' %}"></script>
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="{% static 'si8device/js/c3.js' %}"></script>
-        <!--script src="{% static 'si8device/js/my_d3_v2.js' %}" ></script-->
+        <script src="{% static 'si8device/js/my_d3_v2.js' %}" ></script-->
         <script src="{% static 'js/vendor/jquery.js' %}"></script>
         <script src="{% static 'si8device/js/my_chart_v2.js' %}"></script>
     </footer>

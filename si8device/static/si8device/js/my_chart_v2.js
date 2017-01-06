@@ -115,58 +115,6 @@ window.onload = function () {
         var ctx = input.getContext("2d");
         var url = input.dataset.url;
         var gjson = getJSON(url);
-        var labels = gjson.labels;
-        var data = gjson.data;
-        var config2 = {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: "My First dataset",
-                    backgroundColor: window.chartColors.red,
-                    borderColor: window.chartColors.red,
-                    pointRadius: 0,
-                    data: data,
-                    fill: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                title: {
-                    display: false,
-                    text: 'Chart.js Line Chart'
-                },
-                legend: {
-                    display: false,
-                },
-                tooltips: {
-                    enabled: false,
-                    mode: 'index',
-                    intersect: false,
-                    custom: customTooltips
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: false
-                },
-                scales: {
-                    xAxes: [{
-                        display: false,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Month'
-                        }
-                    }],
-                    yAxes: [{
-                        display: false,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Value'
-                        }
-                    }]
-                }
-            }
-        };
         window.myLine = new Chart(ctx, loadConfig(gjson.labels, gjson.data));
 
     }
