@@ -15,6 +15,10 @@ def si8_list(request):
     return render(request, 'si8device/si8_list.html')
 
 
+def si8_d3_list(request):
+    return render(request, 'si8device/si8_d3_list.html')
+
+
 class LineChartJSONView(BaseLineChartView):
     def get_labels(self):
         """Return 7 labels."""
@@ -50,7 +54,7 @@ def c3_json_generate(id):
     x = []
     y = []
     # result = {}
-    for h in range(0, 1):
+    for h in range(0, 24):
         tt = tt.replace(hour=h)
         yy = random.randint(1, 20)
         for m in range(0, 60):
@@ -64,7 +68,7 @@ def c3_json_generate(id):
 def c3_json_generate_v2(id):
     tt = datetime.time()
     result = []
-    for h in range(0, 1):
+    for h in range(0, 24):
         tt = tt.replace(hour=h)
         yy = random.randint(1, 20)
         for m in range(0, 60):

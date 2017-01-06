@@ -32,7 +32,7 @@ function loadConfig(labels, data) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false,
             title: {
                 display: false,
                 text: 'Chart.js Line Chart'
@@ -54,14 +54,14 @@ function loadConfig(labels, data) {
                 xAxes: [{
                     display: false,
                     scaleLabel: {
-                        display: true,
+                        display: false,
                         labelString: 'Month'
                     }
                 }],
                 yAxes: [{
                     display: false,
                     scaleLabel: {
-                        display: true,
+                        display: false,
                         labelString: 'Value'
                     }
                 }]
