@@ -19,24 +19,21 @@
         <tr>
             <th>chart1</th>
             <th class="chart">
-                <canvas width="700" height="40" data-url="http://127.0.0.1:8000/si8/line_chartc3/json/1/"
-                        data-id="0"></canvas>
+                <canvas width="700" height="40" data-url="" data-id="0"></canvas>
             </th>
             <th>one</th>
         </tr>
         <tr>
             <th>chart2</th>
             <th class="chart">
-                <canvas width="700" height="40" data-url="http://127.0.0.1:8000/si8/line_chartc3/json/1/"
-                        data-id="1"></canvas>
+                <canvas width="700" height="40" data-url="" data-id="1"></canvas>
             </th>
             <th>two</th>
         </tr>
         <tr>
             <th>chart3</th>
             <th class="chart">
-                <canvas width="700" height="40" data-url="http://127.0.0.1:8000/si8/line_chartc3/json/1/"
-                        data-id="2"></canvas>
+                <canvas width="700" height="40" data-url="" data-id="2"></canvas>
             </th>
             <th>tree</th>
         </tr>
@@ -44,67 +41,6 @@
     </table>
 </div>
 <div>Curent p</div>
-<script>
-    class Chart {
-        set data(newdata) {
-            this.data = newdata;
-        }
-
-        get data() {
-            return this.data;
-        }
-
-        static parseTime(value) {
-            var parseTime_json = d3.timeParse("%H:%M");
-            return parseTime_json(value);
-        }
-
-
-        constructor(canvas) {
-            this.canvas = canvas;
-            this.context = this.canvas.node().getContext("2d");
-
-            //this.data;
-
-            this.url = this.canvas.attr('data-url');
-
-            d3.json(this.url, function (error, json) {
-                if (error) return console.warn(error);
-                data = json;
-            });
-
-            this.x = d3.scaleTime()
-                .range([0, this.canvas.attr('width') - 0])
-                .domain(d3.extent(data, function (d) {
-                    d.date = Chart.parseTime(d.date);
-                    return d.date;
-                }));
-
-            this.y = d3.scaleLinear()
-                .range([this.canvas.attr('height') - 0, 0])
-                .domain(d3.extent(data, function (d) {
-                    d.close = d.close;
-                    return d.close;
-                }));
-
-            this.line = d3.line()
-                .x(function (d) {
-                    return x(d.date);
-                })
-                .y(function (d) {
-                    return y(d.close);
-                })
-                .curve(d3.curveStep)
-                .context(this.context);
-            this.context.beginPath();
-            this.line(data);
-            this.context.lineWidth = 1.5;
-            this.context.strokeStyle = "steelblue";
-            this.context.stroke();
-        }
-
-    }
-</script>
 <script>
     //data = [[1, 2, 3], [2, 3, 4], [3, 4, 5]];
     var data = [[
@@ -129,18 +65,15 @@
         {date: new Date(2007, 3, 24, 0, 4, 0, 0), close: 1},
         {date: new Date(2007, 3, 24, 0, 5, 0, 0), close: 3}
     ]];
-
     var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 1)
         .style("position", "absolute")
-        .style("z-index", "100")
+        .style("z-index","100")
         .style("background", "black")
-        .style("color", "white")
+        .style("color","white")
         .style("padding:", "4px")
         .style("border-radius", "3px");
-
-
     {% comment %}background: rgba(0, 0, 0, .7);
     color: white;
     border-radius: 3px;
@@ -150,7 +83,6 @@
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     padding: 4px;{% endcomment %}
-
     //var canvas, context;
     var canvass = d3.select("body").selectAll("canvas");
     canvass.each(function (p, j) {
@@ -158,37 +90,33 @@
         var canvas = d3.select(this);
         var context = canvas.node().getContext("2d");
         var num_data = canvas.attr('data-id');
-        //var data_json;
-        var url = canvas.attr('data-url');
-        //new Chart(canvas);
-        generate(canvas, context);
-
+        generate(canvas, context, data[num_data]);
     })
-    {% comment %}.on('mousemove', function () {
-        var canvas = d3.select(this);
-        var context = canvas.node().getContext("2d");
-        var point = d3.mouse(document.body);
-        // var x = canvas.pageX;
-        var num_data = canvas.attr('data-id');
-        var url = canvas.attr('data-url');
-
-        mouse(canvas, context, point);
-    })
-    .on("mouseover", function () {
-        tooltip.style("display", "inline");
-    })
-    .on("mouseout", function () {
-        tooltip.style("display", "none");
-    }){% endcomment %};
-
-    function mouse(canvas, context, point) {
-
+        .on('mousemove', function () {
+            var canvas = d3.select(this);
+            var context = canvas.node().getContext("2d");
+            var point = d3.mouse(document.body);
+            // var x = canvas.pageX;
+            var num_data = canvas.attr('data-id');
+            mouse(canvas, context, data[num_data], point);
+        })
+        .on("mouseover", function () {
+            tooltip.style("display", "inline");
+        })
+        .on("mouseout", function () {
+            tooltip.style("display", "none");
+        });
+    function mouse(canvas, context, data, point) {
         var x = d3.scaleTime()
-            .range([5, canvas.attr('width') - 5]);
-
+            .range([0, canvas.attr('width') - 0])
+            .domain(d3.extent(data, function (d) {
+                return d.date;
+            }));
         var y = d3.scaleLinear()
-            .range([canvas.attr('height') - 5, 5]);
-
+            .range([canvas.attr('height') - 0, 0])
+            .domain(d3.extent(data, function (d) {
+                return d.close;
+            }));
         var line = d3.line()
             .x(function (d) {
                 return x(d.date);
@@ -198,42 +126,19 @@
             })
             .curve(d3.curveStep)
             .context(context);
-
         var parseTime_json = d3.timeParse("%H:%M");
-
-
+        bisectDate = d3.bisector(function (d) {
+            return d.date;
+        }).left;
+        var x0 = x.invert(point[0]),
+            i = bisectDate(data, x0, 1),
+            y0 = data[i].close;
         //console.log('x0:', x0, 'y0:', y0);
-
-        var url = canvas.attr('data-url');
-        d3.json(url, function (error, json) {
-            if (error) return console.warn(error);
-            //data = json;
-
-            y.domain(d3.extent(json, function (d) {
-                //d.close = d.close;
-                return d.close;
-            }));
-
-            x.domain(d3.extent(json, function (d) {
-                d.date = parseTime_json(d.date);
-                return d.date;
-            }));
-
-            bisectDate = d3.bisector(function (d) {
-                return d.date;
-            }).left;
-
-            var x0 = x.invert(point[0] - 50),
-                i = bisectDate(json, x0, 1),
-                y0 = json[i].close;
-
-            console.log(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0);
-
-            tooltip.text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
-                .style("left", (point[0] + 20) + "px")
-                .style("top", (point[1] + 50) + "px")
-                .style("display", "inline");
-        });
+        console.log(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0);
+        tooltip.text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
+            .style("left", (point[0]+20) + "px")
+            .style("top", (point[1]+50) + "px")
+            .style("display", "inline");
         {% comment %}
         context.beginPath();
         line(data);
@@ -242,17 +147,19 @@
         context.stroke();
         {% endcomment %}
     }
-
-
     //var canvas = d3.select("body").select("canvas");
     //var context = canvas.node().getContext("2d");
     function generate(canvas, context, data) {
         var x = d3.scaleTime()
-            .range([0, canvas.attr('width') - 0]);
-
+            .range([0, canvas.attr('width') - 0])
+            .domain(d3.extent(data, function (d) {
+                return d.date;
+            }));
         var y = d3.scaleLinear()
-            .range([canvas.attr('height') - 0, 0]);
-
+            .range([canvas.attr('height') - 0, 0])
+            .domain(d3.extent(data, function (d) {
+                return d.close;
+            }));
         var line = d3.line()
             .x(function (d) {
                 return x(d.date);
@@ -262,62 +169,13 @@
             })
             .curve(d3.curveStep)
             .context(context);
-        var data;
         var parseTime_json = d3.timeParse("%H:%M");
-        var url = canvas.attr('data-url');
-        d3.json(url, function (error, json) {
-            if (error) return console.warn(error);
-            data = json;
-
-            y.domain(d3.extent(json, function (d) {
-                d.close = d.close;
-                return d.close;
-            }));
-
-            x.domain(d3.extent(json, function (d) {
-                d.date = parseTime_json(d.date);
-                return d.date;
-            }));
-
-            context.beginPath();
-            line(json);
-            context.lineWidth = 1.5;
-            context.strokeStyle = "steelblue";
-            context.stroke();
-        })
-            .on('mousemove', function () {
-                {% comment %}var canvas = d3.select(this);
-                var context = canvas.node().getContext("2d");
-                var point = d3.mouse(document.body);
-                // var x = canvas.pageX;
-                var num_data = canvas.attr('data-id');
-                var url = canvas.attr('data-url');{% endcomment %}
-
-                bisectDate = d3.bisector(function (d) {
-                    return d.date;
-                }).left;
-
-                var x0 = x.invert(point[0] - 50),
-                    i = bisectDate(data, x0, 1),
-                    y0 = data[i].close;
-
-                console.log(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0);
-
-                tooltip.text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
-                    .style("left", (point[0] + 20) + "px")
-                    .style("top", (point[1] + 50) + "px")
-                    .style("display", "inline");
-            })
-            .on("mouseover", function () {
-                tooltip.style("display", "inline");
-            })
-            .on("mouseout", function () {
-                tooltip.style("display", "none");
-            });
-
+        context.beginPath();
+        line(data);
+        context.lineWidth = 1.5;
+        context.strokeStyle = "steelblue";
+        context.stroke();
     }
-
-
 </script>
 </body>
 </html>
