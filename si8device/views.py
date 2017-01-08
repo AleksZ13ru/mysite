@@ -19,6 +19,10 @@ def si8_d3_list(request):
     return render(request, 'si8device/si8_d3_list.html')
 
 
+def si8_d3d3(request):
+    return render(request, 'si8device/d3.html')
+
+
 class LineChartJSONView(BaseLineChartView):
     def get_labels(self):
         """Return 7 labels."""

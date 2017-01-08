@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.si8_list, name='si8_list'),
     url(r'^d3/$', views.si8_d3_list, name='si8_d3_list'),
+
+    url(r'^d3d3/$', views.si8_d3d3, name='si8_d3d3'),
     # url(r'^chartjs/$', views.si8_, name='si8_list'),
     # Line chart
     url(r'^line_chart/$', views.line_chart, name='line_chart'),

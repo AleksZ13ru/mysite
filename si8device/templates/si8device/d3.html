@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+</head>
+<body>
+<div>
+    <table style="width:40%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Chart</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>chart1</th>
+            <th class="chart">
+                <canvas width="700" height="40" data-url="" data-id="0"></canvas>
+            </th>
+            <th>one</th>
+        </tr>
+        <tr>
+            <th>chart2</th>
+            <th class="chart">
+                <canvas width="700" height="40" data-url="" data-id="1"></canvas>
+            </th>
+            <th>two</th>
+        </tr>
+        <tr>
+            <th>chart3</th>
+            <th class="chart">
+                <canvas width="700" height="40" data-url="" data-id="2"></canvas>
+            </th>
+            <th>tree</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>Curent p</div>
+<script>
+    //data = [[1, 2, 3], [2, 3, 4], [3, 4, 5]];
+    var data = [[
+        {date: new Date(2007, 3, 24, 0, 0, 0, 0), close: 93.24},
+        {date: new Date(2007, 3, 24, 0, 1, 0, 0), close: 95.35},
+        {date: new Date(2007, 3, 24, 0, 2, 0, 0), close: 98.84},
+        {date: new Date(2007, 3, 24, 0, 3, 0, 0), close: 99.92},
+        {date: new Date(2007, 3, 24, 0, 4, 0, 0), close: 99.80},
+        {date: new Date(2007, 3, 24, 0, 5, 0, 0), close: 99.47}
+    ], [
+        {date: new Date(2007, 3, 24, 0, 0, 0, 0), close: 1},
+        {date: new Date(2007, 3, 24, 0, 1, 0, 0), close: 2},
+        {date: new Date(2007, 3, 24, 0, 2, 0, 0), close: 3},
+        {date: new Date(2007, 3, 24, 0, 3, 0, 0), close: 4},
+        {date: new Date(2007, 3, 24, 0, 4, 0, 0), close: 3},
+        {date: new Date(2007, 3, 24, 0, 5, 0, 0), close: 2}
+    ], [
+        {date: new Date(2007, 3, 24, 0, 0, 0, 0), close: 1},
+        {date: new Date(2007, 3, 24, 0, 1, 0, 0), close: 3},
+        {date: new Date(2007, 3, 24, 0, 2, 0, 0), close: 1},
+        {date: new Date(2007, 3, 24, 0, 3, 0, 0), close: 3},
+        {date: new Date(2007, 3, 24, 0, 4, 0, 0), close: 1},
+        {date: new Date(2007, 3, 24, 0, 5, 0, 0), close: 3}
+    ]];
+
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 1)
+        .style("position", "absolute")
+        .style("z-index","100")
+        .style("background", "black")
+        .style("color","white")
+        .style("padding:", "4px")
+        .style("border-radius", "3px");
+
+
+    {% comment %}background: rgba(0, 0, 0, .7);
+    color: white;
+    border-radius: 3px;
+    -webkit-transition: all .1s ease;
+    transition: all .1s ease;
+    pointer-events: none;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    padding: 4px;{% endcomment %}
+
+    //var canvas, context;
+    var canvass = d3.select("body").selectAll("canvas");
+    canvass.each(function (p, j) {
+        //var a = d3.select(this);
+        var canvas = d3.select(this);
+        var context = canvas.node().getContext("2d");
+        var num_data = canvas.attr('data-id');
+        generate(canvas, context, data[num_data]);
+
+    })
+        .on('mousemove', function () {
+            var canvas = d3.select(this);
+            var context = canvas.node().getContext("2d");
+            var point = d3.mouse(document.body);
+            // var x = canvas.pageX;
+            var num_data = canvas.attr('data-id');
+            mouse(canvas, context, data[num_data], point);
+        })
+        .on("mouseover", function () {
+            tooltip.style("display", "inline");
+        })
+        .on("mouseout", function () {
+            tooltip.style("display", "none");
+    });
+
+    function mouse(canvas, context, data, point) {
+
+        var x = d3.scaleTime()
+            .range([0, canvas.attr('width') - 0])
+            .domain(d3.extent(data, function (d) {
+                return d.date;
+            }));
+
+        var y = d3.scaleLinear()
+            .range([canvas.attr('height') - 0, 0])
+            .domain(d3.extent(data, function (d) {
+                return d.close;
+            }));
+
+        var line = d3.line()
+            .x(function (d) {
+                return x(d.date);
+            })
+            .y(function (d) {
+                return y(d.close);
+            })
+            .curve(d3.curveStep)
+            .context(context);
+
+        var parseTime_json = d3.timeParse("%H:%M");
+
+        bisectDate = d3.bisector(function (d) {
+            return d.date;
+        }).left;
+
+        var x0 = x.invert(point[0]),
+            i = bisectDate(data, x0, 1),
+            y0 = data[i].close;
+        //console.log('x0:', x0, 'y0:', y0);
+        console.log(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0);
+        tooltip.text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
+            .style("left", (point[0]+20) + "px")
+            .style("top", (point[1]+50) + "px")
+            .style("display", "inline");
+
+        {% comment %}
+        context.beginPath();
+        line(data);
+        context.lineWidth = 1.5;
+        context.strokeStyle = "steelblue";
+        context.stroke();
+        {% endcomment %}
+    }
+
+    //var canvas = d3.select("body").select("canvas");
+    //var context = canvas.node().getContext("2d");
+    function generate(canvas, context, data) {
+        var x = d3.scaleTime()
+            .range([0, canvas.attr('width') - 0])
+            .domain(d3.extent(data, function (d) {
+                return d.date;
+            }));
+
+        var y = d3.scaleLinear()
+            .range([canvas.attr('height') - 0, 0])
+            .domain(d3.extent(data, function (d) {
+                return d.close;
+            }));
+
+        var line = d3.line()
+            .x(function (d) {
+                return x(d.date);
+            })
+            .y(function (d) {
+                return y(d.close);
+            })
+            .curve(d3.curveStep)
+            .context(context);
+
+        var parseTime_json = d3.timeParse("%H:%M");
+
+        context.beginPath();
+        line(data);
+        context.lineWidth = 1.5;
+        context.strokeStyle = "steelblue";
+        context.stroke();
+    }
+
+
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
  * Created by AleksZ on 06.01.2017.
  */
 var objs = document.getElementsByClassName("mychart");
-for (var key = 0; key < 200; key++) {
+for (var key = 0; key < 2; key++) {
     var name = objs[key].dataset.name;
     var url = objs[key].dataset.url;
     var obj = objs[key]
@@ -25,7 +25,7 @@ function getChart(obj, url, id_num) {
     //    height = canvas.height - margin.top - margin.bottom;
 
     var parseTime = d3.timeParse("%d-%b-%y");
-    var parseTime_json = d3.timeParse("%H:%M")
+    var parseTime_json = d3.timeParse("%H:%M");
 
     var x = d3.scaleTime()
         .range([0, 700]);
@@ -71,30 +71,36 @@ function getChart(obj, url, id_num) {
         return d.date;
     }).left;
 
-    var div = d3.select(obj).append("div")
-        .attr("id", id_num)
-        .attr("class", "tooltip")
-        .style("display", "none");
-
-    d3.select("canvas").on("mouseover", function () {
-        div.style("display", "inline");
-    });
-
-    d3.select("canvas").on("mouseout", function () {
-        div.style("display", "none");
-    });
-
-    d3.select("canvas").on("mousemove", function () {
-        var point = d3.mouse(this);
-        var x0 = x.invert(point[0]),
-            i = bisectDate(data, x0, 1),
-            y0 = data[i].close;
-        console.log('x0:', x0, 'y0:', y0);
-        div
-            .text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
-            .style("left", (point[0]) + "px")
-            .style("top", (point[1]) + "px");
-    });
-
+    // <div class="chartjs-tooltip" id="tooltip-0"></div>
+    // Define the div for the tooltip
 
 }
+
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+//var div = d3.select('tooltip-0')//.append("div") getElementById('table-chartjs')
+//    .attr("id", id_num)
+//    .attr("class", "tooltip")
+//    .style("display", "none");
+
+d3.select("canvas").on("mouseover", function () {
+    div.style("display", "inline");
+});
+
+d3.select("canvas").on("mouseout", function () {
+    div.style("display", "none");
+});
+
+d3.select("canvas").on("mousemove", function () {
+    var point = d3.mouse(this);
+    var x0 = x.invert(point[0]),
+        i = bisectDate(data, x0, 1),
+        y0 = data[i].close;
+    console.log('x0:', x0, 'y0:', y0);
+    div
+        .text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
+        .style("left", (point[0]) + "px")
+        .style("top", (point[1]) + "px");
+});
