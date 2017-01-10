@@ -20,7 +20,7 @@ def si8_d3_list(request):
 
 
 def si8_d3d3(request):
-    return render(request, 'si8device/d3.html')
+    return render(request, 'si8device/d3_v3.html')
 
 
 class LineChartJSONView(BaseLineChartView):

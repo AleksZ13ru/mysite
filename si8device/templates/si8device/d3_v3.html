@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+</head>
+<body>
+<div>
+    <table style="width:40%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Chart</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>chart1</th>
+            <th class="chart">
+                <canvas width="700" height="40" data-url="/si8/line_chartc3/json/" data-id="0"></canvas>
+            </th>
+            <th>one</th>
+        </tr>
+        <tr>
+            <th>chart2</th>
+            <th class="chart">
+                <canvas width="700" height="40" data-url="" data-id="1"></canvas>
+            </th>
+            <th>two</th>
+        </tr>
+        <tr>
+            <th>chart3</th>
+            <th class="chart">
+                <canvas width="700" height="40" data-url="" data-id="2"></canvas>
+            </th>
+            <th>tree</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="{% static 'si8device/js/my_d3_v3.js' %}" ></script>
+</body>
+</html>

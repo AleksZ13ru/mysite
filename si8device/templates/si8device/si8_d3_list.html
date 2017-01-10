@@ -33,14 +33,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for i in 200|get_range %}
+                        {% for i in 5|get_range %}
                             <tr>
                                 <td>Machina {{ i }}</td>
                                 <td>
-                                    <div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
+                                    <!--div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
                                          data-url="/si8/line_chartc3/json/{{ i }}/">
-                                        <!--canvas width="700" height="30"></canvas-->
-                                    </div>
+                                    </div-->
+                                    <canvas width="700" height="30" data-url="/si8/line_chartc3/json/{{ i }}/"></canvas>
                                 </td>
                                 <td>Info</td>
                             </tr>
