@@ -1,0 +1,22 @@
+{
+  "labels": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "datasets": [
+    {
+      "pointStrokeColor": "#fff",
+      "data": [
+        5,
+        5,
+        9,
+        7
+      ],
+      "fillColor": "rgba(203, 202, 198, 0.5)",
+      "pointColor": "rgba(203, 202, 198, 1)",
+      "strokeColor": "rgba(203, 202, 198, 1)"
+    }
+  ]
+}
