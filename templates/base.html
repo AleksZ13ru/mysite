@@ -3,9 +3,9 @@
 <html class="no-js" lang="ru">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Foundation Starter Template</title>
     <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
     {% block link %}
@@ -13,38 +13,39 @@
 </head>
 
 <body>
-    <div class="top-bar">
-      <div class="top-bar-left">
+<div class="top-bar">
+    <div class="top-bar-left">
         <ul class="menu">
-          <li><a href="/">Dept</a></li>
-          <li><a href="">Заметки</a></li>
-          <li><a href="">Дела</a></li>
-          <li><a href="">Кадры</a></li>
-          <li><a href="/calendar/">Календарь</a></li>
-          <li><a href="/si8/">Машинное время</a></li>
+            <li><a href="/">Dept</a></li>
+            <li><a href="/">Заметки</a></li>
+            <li><a href="/">Дела</a></li>
+            <li><a href="/">Кадры</a></li>
+            <li><a href="{% url 'dept_calendar' %}">Календарь</a></li>
+            <li><a href="{% url 'si8_list' %}">Машинное время через chartjs</a></li>
+            <li><a href="{% url 'si8_d3_list' %}">Машинное время через d3</a></li>
         </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><a href="{% url 'admin:index' %}">Admin</a></li>
-        </ul>
-      </div>
     </div>
-    {% block content %} {% endblock %}
-    <script src="{% static 'js/vendor/jquery.js' %}"></script>
-    <script src="{% static 'js/vendor/what-input.js' %}"></script>
-    <script src="{% static 'js/vendor/foundation.js' %}"></script>
-    <script>
-        $(document).foundation();
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var link = window.location.pathname;
-            $('.menu li a[href="'+link+'"]').parent().addClass('active');
-        });
-    </script>
-    {% block script %}
-    {% endblock %}
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        </ul>
+    </div>
+</div>
+{% block content %} {% endblock %}
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/vendor/what-input.js' %}"></script>
+<script src="{% static 'js/vendor/foundation.js' %}"></script>
+<script>
+    $(document).foundation();
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var link = window.location.pathname;
+        $('.menu li a[href="' + link + '"]').parent().addClass('active');
+    });
+</script>
+{% block script %}
+{% endblock %}
 
 </body>
 

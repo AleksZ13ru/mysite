@@ -2,7 +2,7 @@
  * Created by AleksZ on 06.01.2017.
  */
 var objs = document.getElementsByClassName("mychart");
-for (var key = 0; key < 200; key++) {
+for (var key = 0; key < 199; key++) {
     var name = objs[key].dataset.name;
     var url = objs[key].dataset.url;
     var obj = objs[key]

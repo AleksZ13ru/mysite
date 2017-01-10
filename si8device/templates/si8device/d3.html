@@ -127,9 +127,11 @@
             .curve(d3.curveStep)
             .context(context);
         var parseTime_json = d3.timeParse("%H:%M");
+
         bisectDate = d3.bisector(function (d) {
             return d.date;
         }).left;
+
         var x0 = x.invert(point[0]),
             i = bisectDate(data, x0, 1),
             y0 = data[i].close;
