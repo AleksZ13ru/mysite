@@ -20,3 +20,7 @@ django.superuser{
     mail: admin@admin.ru
     pass: User1377
 }
+
+django run server {
+
+}

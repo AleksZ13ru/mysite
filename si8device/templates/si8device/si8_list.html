@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load get_range %}
 {% block link %}
-    <link rel="stylesheet" type="text/css" href="{% static 'si8device/css/c3.css' %}">
+    <!--link rel="stylesheet" type="text/css" href="{% static 'si8device/css/c3.css' %}"-->
     <script src="{% static 'si8device/js/chart.bundle.min.js' %}"></script>
     <script src="{% static 'si8device/js/utils.js' %}"></script>
     <style>
@@ -73,9 +73,14 @@
         <!--script src="{% static 'si8device/js/d3.v3.js' %}"></script>
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="{% static 'si8device/js/c3.js' %}"></script>
-        <script src="{% static 'si8device/js/my_d3_v2.js' %}" ></script-->
+        <script src="{% static 'si8device/js/my_d3_v2.js' %}" ></script>
         <script src="{% static 'js/vendor/jquery.js' %}"></script>
-        <script src="{% static 'si8device/js/my_chart_v2.js' %}"></script>
+        <script src="{% static 'si8device/js/my_chart_v2.js' %}"></script-->
     </footer>
 
 {% endblock content %}
+
+{% block script  %}
+    <script src="{% static 'si8device/js/my_chart_v2.js' %}"></script>
+
+{% endblock %}
