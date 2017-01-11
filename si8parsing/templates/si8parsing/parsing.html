@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load get_range %}
+{% block link %}
+
+{% endblock %}
+{% block content %}
+    <form class="fieldset">
+        <div class="chartjs-tooltip" id="tooltip-0"></div>
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <div>
+                    <a href="{% url 'si8_find_file' %}" class="button">Find file!</a>
+                </div>
+                <div class="callout striped table-scroll">
+                    <table id="table-chartjs" class="hover unstriped">
+                        <thead>
+                        <tr>
+                            <th width=20%>Имя</th>
+                            <th width=20%>Статус</th>
+                            <th width=20%>Парсить</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for file in listsfile %}
+                            <tr>
+                                <th>{{ file.name }}</th>
+                                <th>{{ file.parsing_status }}</th>
+                                <th><a href="{% url 'si8_pars_file' pk=file.id %}" class="button">Парсить</a></th>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock content %}
+
+{% block script %}
+
+{% endblock %}

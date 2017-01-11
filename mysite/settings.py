@@ -24,8 +24,9 @@ SECRET_KEY = 'y*x_u@x@#iq0*-x%t$f=0+_(^@j1zx271@ng_g=9m38*8nukho'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -39,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dept',
     'si8device',
-    'chartjs',
-    'require'
+    'si8parsing',
+    # 'chartjs',
+    # 'require'
 ]
 
 MIDDLEWARE = [

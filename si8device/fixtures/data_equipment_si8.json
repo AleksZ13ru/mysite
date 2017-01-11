@@ -1,0 +1,2306 @@
+[
+  {
+    "model": "si8device.equipment",
+    "pk": 1,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-70"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 2,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-22 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 3,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-62 (оболочка)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 4,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 5,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №7"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 6,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 7,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 8,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Телефон №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 9,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Бронемашина №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 10,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TD-ZSSX25"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 11,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДКМ №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 12,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Nt2-V"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 13,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 14,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Бронемашина №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 15,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Телефон №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 16,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 17,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 18,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 19,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 20,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ-32 №10"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 21,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "П-6043 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 22,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "П-6043 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 23,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 24,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Силовик №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 25,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DRUM TWISTER"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 26,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №6"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 27,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ-32 №10"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 28,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-62 (скрутка)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 29,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "MENS 1,63"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 30,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "CST 1000/CFST"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 31,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "CST-1000"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 32,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 33,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №4"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 34,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 35,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-125 №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 36,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 37,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 38,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "PDT-500 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 39,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 40,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 41,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Rosendahl"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 42,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "MZE 201"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 43,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ЛС-70"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 44,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "АНДУАРД-200"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 45,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МКРА№2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 46,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МКРА№3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 47,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 48,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МБА-120"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 49,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 50,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-90 №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 51,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСМ-500 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 52,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 53,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСМ-1000"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 54,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 55,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №4"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 56,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 57,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №6"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 58,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВСК-13"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 59,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Телефон №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 60,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-70 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 61,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 62,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Телефон №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 63,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Бумагорезка HY-ETP"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 64,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 65,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-125 №2 (SZ)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 66,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Hanson №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 67,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Hanson №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 68,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 69,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 70,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВСК-13"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 71,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МКД-500"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 72,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-125 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 73,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "SRN 6/400"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 74,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 75,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДШЕ-63 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 76,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСО-63 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 77,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДКМ №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 78,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 79,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "JLK-630"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 80,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 81,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 82,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-90 №2 (новый)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 83,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 84,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСТ №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 85,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДКМ №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 86,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ЛП-10 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 87,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Matraff"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 88,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 89,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "BRONDEL"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 90,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 91,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МКРД-630"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 92,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 93,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "EEL-60 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 94,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DSO-40 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 95,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DSO-40 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 96,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "T8-8/22"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 97,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 98,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 99,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-90 №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 100,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ЛБМ №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 101,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 102,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 103,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка бухт №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 104,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка JGD-630 (1 кор.)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 105,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка JGD-630 (2 кор.)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 106,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DSO-40"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 107,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL 30"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 108,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСО-63 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 109,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "КФА 6-12 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 110,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 111,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-90 №4"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 112,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TLJ-350"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 113,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "LLJ-350"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 114,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 115,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DHLC 0,25 №4"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 116,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 117,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка бухт №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 118,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВЦО-2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 119,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МСД-1250"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 120,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-125 №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 121,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Гид №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 122,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Гид №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 123,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Гид №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 124,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Гид №4"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 125,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Гид №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 126,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 127,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МКРА №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 128,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 129,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 130,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 131,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВСК-9"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 132,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 133,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка бухт"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 134,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 135,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 136,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 137,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка проволоки"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 138,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МКРА №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 139,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка (Силовик №2)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 140,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСТ №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 141,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DHLC 0,25 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 142,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "JCG-1600"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 143,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка СИП"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 144,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 145,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 146,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 147,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DHLC 0,4 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 148,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 149,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-22 №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 150,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DSM-500"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 151,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Drum Twister-2200"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 152,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВМ-13"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 153,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДСМ-500 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 154,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВК №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 155,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВК №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 156,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "СВМ 1/5 №3"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 157,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "МЕ-160 №4"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 158,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "СВМ 1/5 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 159,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TB 63"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 160,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Кордельная машина"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 161,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "TEL-22 №2 (Rosendahl)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 162,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ-32 №9"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 163,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 164,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка фольги"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 165,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДВ-750 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 166,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ДВ-750 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 167,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 168,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DSO-40 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 169,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "DSO-40 №1"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 170,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ЛБМ №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 171,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ВСК-13"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 172,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "СВМ 1/5"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 173,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Бумагорезка (МРБ02У)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 174,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 175,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Тростильная машина"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 176,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Линия перемотки проволоки"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 177,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 178,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "SRN 12/500"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 179,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Frigeco"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 180,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Drum Twister 2500"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 181,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "СВМ 1/5 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 182,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 183,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 184,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 185,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 186,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "PDT-500 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 187,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 188,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Bartell"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 189,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "CV Line Proton"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 190,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 191,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Dunst"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 192,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 193,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №8"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 194,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ИЖ №7"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 195,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Caballe"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 196,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "ЛГП-190"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 197,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Technocable"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 198,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Troester"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 199,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Перемотка кабеля №1 (Новатор)"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 200,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 201,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "EEL-60 №2"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 202,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": true,
+      "equipment_name": "Иж №11"
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 203,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 204,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 205,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 206,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 207,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 208,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 209,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 210,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 211,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 212,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 213,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 214,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 215,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 216,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 217,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 218,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 219,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 220,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 221,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 222,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 223,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 224,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 225,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 226,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 227,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 228,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 229,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 230,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 231,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 232,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 233,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 234,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 235,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 236,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 237,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 238,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 239,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 240,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 241,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 242,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 243,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 244,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 245,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 246,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 247,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 248,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 249,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 250,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 251,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 252,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 253,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 254,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 255,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  },
+  {
+    "model": "si8device.equipment",
+    "pk": 256,
+    "fields": {
+      "equipment_sector": 1,
+      "equipment_enable": false,
+      "equipment_name": ""
+    }
+  }
+]

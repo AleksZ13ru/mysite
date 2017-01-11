@@ -1,0 +1,2818 @@
+[
+  {
+    "model": "si8device.register",
+    "pk": 1,
+    "fields": {
+      "register_equipment": 1,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 1,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 2,
+    "fields": {
+      "register_equipment": 2,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 2,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 3,
+    "fields": {
+      "register_equipment": 3,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 3,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 4,
+    "fields": {
+      "register_equipment": 4,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 4,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 5,
+    "fields": {
+      "register_equipment": 5,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 5,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 6,
+    "fields": {
+      "register_equipment": 6,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 6,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 7,
+    "fields": {
+      "register_equipment": 7,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 7,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 8,
+    "fields": {
+      "register_equipment": 8,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 8,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 9,
+    "fields": {
+      "register_equipment": 9,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 9,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 10,
+    "fields": {
+      "register_equipment": 10,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 10,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 11,
+    "fields": {
+      "register_equipment": 11,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 11,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 12,
+    "fields": {
+      "register_equipment": 12,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 12,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 13,
+    "fields": {
+      "register_equipment": 13,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 13,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 14,
+    "fields": {
+      "register_equipment": 14,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 14,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 15,
+    "fields": {
+      "register_equipment": 15,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 15,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 16,
+    "fields": {
+      "register_equipment": 16,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 16,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 17,
+    "fields": {
+      "register_equipment": 17,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 17,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 18,
+    "fields": {
+      "register_equipment": 18,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 18,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 19,
+    "fields": {
+      "register_equipment": 19,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 19,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 20,
+    "fields": {
+      "register_equipment": 20,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 20,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 21,
+    "fields": {
+      "register_equipment": 21,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 21,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 22,
+    "fields": {
+      "register_equipment": 22,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 22,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 23,
+    "fields": {
+      "register_equipment": 23,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 23,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 24,
+    "fields": {
+      "register_equipment": 24,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 24,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 25,
+    "fields": {
+      "register_equipment": 25,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 25,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 26,
+    "fields": {
+      "register_equipment": 26,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 26,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 27,
+    "fields": {
+      "register_equipment": 27,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 27,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 28,
+    "fields": {
+      "register_equipment": 28,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 28,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 29,
+    "fields": {
+      "register_equipment": 29,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 29,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 30,
+    "fields": {
+      "register_equipment": 30,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 30,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 31,
+    "fields": {
+      "register_equipment": 31,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 31,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 32,
+    "fields": {
+      "register_equipment": 32,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 32,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 33,
+    "fields": {
+      "register_equipment": 33,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 33,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 34,
+    "fields": {
+      "register_equipment": 34,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 34,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 35,
+    "fields": {
+      "register_equipment": 35,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 35,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 36,
+    "fields": {
+      "register_equipment": 36,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 36,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 37,
+    "fields": {
+      "register_equipment": 37,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 37,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 38,
+    "fields": {
+      "register_equipment": 38,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 38,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 39,
+    "fields": {
+      "register_equipment": 39,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 39,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 40,
+    "fields": {
+      "register_equipment": 40,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 40,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 41,
+    "fields": {
+      "register_equipment": 41,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 41,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 42,
+    "fields": {
+      "register_equipment": 42,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 42,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 43,
+    "fields": {
+      "register_equipment": 43,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 43,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 44,
+    "fields": {
+      "register_equipment": 44,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 44,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 45,
+    "fields": {
+      "register_equipment": 45,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 45,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 46,
+    "fields": {
+      "register_equipment": 46,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 46,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 47,
+    "fields": {
+      "register_equipment": 47,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 47,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 48,
+    "fields": {
+      "register_equipment": 48,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 48,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 49,
+    "fields": {
+      "register_equipment": 49,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 49,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 50,
+    "fields": {
+      "register_equipment": 50,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 50,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 51,
+    "fields": {
+      "register_equipment": 51,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 51,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 52,
+    "fields": {
+      "register_equipment": 52,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 52,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 53,
+    "fields": {
+      "register_equipment": 53,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 53,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 54,
+    "fields": {
+      "register_equipment": 54,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 54,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 55,
+    "fields": {
+      "register_equipment": 55,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 55,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 56,
+    "fields": {
+      "register_equipment": 56,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 56,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 57,
+    "fields": {
+      "register_equipment": 57,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 57,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 58,
+    "fields": {
+      "register_equipment": 58,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 58,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 59,
+    "fields": {
+      "register_equipment": 59,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 59,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 60,
+    "fields": {
+      "register_equipment": 60,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 60,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 61,
+    "fields": {
+      "register_equipment": 61,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 61,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 62,
+    "fields": {
+      "register_equipment": 62,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 62,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 63,
+    "fields": {
+      "register_equipment": 63,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 63,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 64,
+    "fields": {
+      "register_equipment": 64,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 64,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 65,
+    "fields": {
+      "register_equipment": 65,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 65,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 66,
+    "fields": {
+      "register_equipment": 66,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 66,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 67,
+    "fields": {
+      "register_equipment": 67,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 67,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 68,
+    "fields": {
+      "register_equipment": 68,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 68,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 69,
+    "fields": {
+      "register_equipment": 69,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 69,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 70,
+    "fields": {
+      "register_equipment": 70,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 70,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 71,
+    "fields": {
+      "register_equipment": 71,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 71,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 72,
+    "fields": {
+      "register_equipment": 72,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 72,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 73,
+    "fields": {
+      "register_equipment": 73,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 73,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 74,
+    "fields": {
+      "register_equipment": 74,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 74,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 75,
+    "fields": {
+      "register_equipment": 75,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 75,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 76,
+    "fields": {
+      "register_equipment": 76,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 76,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 77,
+    "fields": {
+      "register_equipment": 77,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 77,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 78,
+    "fields": {
+      "register_equipment": 78,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 78,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 79,
+    "fields": {
+      "register_equipment": 79,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 79,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 80,
+    "fields": {
+      "register_equipment": 80,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 80,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 81,
+    "fields": {
+      "register_equipment": 81,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 81,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 82,
+    "fields": {
+      "register_equipment": 82,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 82,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 83,
+    "fields": {
+      "register_equipment": 83,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 83,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 84,
+    "fields": {
+      "register_equipment": 84,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 84,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 85,
+    "fields": {
+      "register_equipment": 85,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 85,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 86,
+    "fields": {
+      "register_equipment": 86,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 86,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 87,
+    "fields": {
+      "register_equipment": 87,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 87,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 88,
+    "fields": {
+      "register_equipment": 88,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 88,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 89,
+    "fields": {
+      "register_equipment": 89,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 89,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 90,
+    "fields": {
+      "register_equipment": 90,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 90,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 91,
+    "fields": {
+      "register_equipment": 91,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 91,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 92,
+    "fields": {
+      "register_equipment": 92,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 92,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 93,
+    "fields": {
+      "register_equipment": 93,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 93,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 94,
+    "fields": {
+      "register_equipment": 94,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 94,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 95,
+    "fields": {
+      "register_equipment": 95,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 95,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 96,
+    "fields": {
+      "register_equipment": 96,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 96,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 97,
+    "fields": {
+      "register_equipment": 97,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 97,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 98,
+    "fields": {
+      "register_equipment": 98,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 98,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 99,
+    "fields": {
+      "register_equipment": 99,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 99,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 100,
+    "fields": {
+      "register_equipment": 100,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 100,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 101,
+    "fields": {
+      "register_equipment": 101,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 101,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 102,
+    "fields": {
+      "register_equipment": 102,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 102,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 103,
+    "fields": {
+      "register_equipment": 103,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 103,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 104,
+    "fields": {
+      "register_equipment": 104,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 104,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 105,
+    "fields": {
+      "register_equipment": 105,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 105,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 106,
+    "fields": {
+      "register_equipment": 106,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 106,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 107,
+    "fields": {
+      "register_equipment": 107,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 107,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 108,
+    "fields": {
+      "register_equipment": 108,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 108,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 109,
+    "fields": {
+      "register_equipment": 109,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 109,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 110,
+    "fields": {
+      "register_equipment": 110,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 110,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 111,
+    "fields": {
+      "register_equipment": 111,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 111,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 112,
+    "fields": {
+      "register_equipment": 112,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 112,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 113,
+    "fields": {
+      "register_equipment": 113,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 113,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 114,
+    "fields": {
+      "register_equipment": 114,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 114,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 115,
+    "fields": {
+      "register_equipment": 115,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 115,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 116,
+    "fields": {
+      "register_equipment": 116,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 116,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 117,
+    "fields": {
+      "register_equipment": 117,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 117,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 118,
+    "fields": {
+      "register_equipment": 118,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 118,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 119,
+    "fields": {
+      "register_equipment": 119,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 119,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 120,
+    "fields": {
+      "register_equipment": 120,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 120,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 121,
+    "fields": {
+      "register_equipment": 121,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 121,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 122,
+    "fields": {
+      "register_equipment": 122,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 122,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 123,
+    "fields": {
+      "register_equipment": 123,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 123,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 124,
+    "fields": {
+      "register_equipment": 124,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 124,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 125,
+    "fields": {
+      "register_equipment": 125,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 125,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 126,
+    "fields": {
+      "register_equipment": 126,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 126,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 127,
+    "fields": {
+      "register_equipment": 127,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 127,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 128,
+    "fields": {
+      "register_equipment": 128,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 128,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 129,
+    "fields": {
+      "register_equipment": 129,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 129,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 130,
+    "fields": {
+      "register_equipment": 130,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 130,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 131,
+    "fields": {
+      "register_equipment": 131,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 131,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 132,
+    "fields": {
+      "register_equipment": 132,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 132,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 133,
+    "fields": {
+      "register_equipment": 133,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 133,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 134,
+    "fields": {
+      "register_equipment": 134,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 134,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 135,
+    "fields": {
+      "register_equipment": 135,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 135,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 136,
+    "fields": {
+      "register_equipment": 136,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 136,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 137,
+    "fields": {
+      "register_equipment": 137,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 137,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 138,
+    "fields": {
+      "register_equipment": 138,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 138,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 139,
+    "fields": {
+      "register_equipment": 139,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 139,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 140,
+    "fields": {
+      "register_equipment": 140,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 140,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 141,
+    "fields": {
+      "register_equipment": 141,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 141,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 142,
+    "fields": {
+      "register_equipment": 142,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 142,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 143,
+    "fields": {
+      "register_equipment": 143,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 143,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 144,
+    "fields": {
+      "register_equipment": 144,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 144,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 145,
+    "fields": {
+      "register_equipment": 145,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 145,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 146,
+    "fields": {
+      "register_equipment": 146,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 146,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 147,
+    "fields": {
+      "register_equipment": 147,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 147,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 148,
+    "fields": {
+      "register_equipment": 148,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 148,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 149,
+    "fields": {
+      "register_equipment": 149,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 149,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 150,
+    "fields": {
+      "register_equipment": 150,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 150,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 151,
+    "fields": {
+      "register_equipment": 151,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 151,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 152,
+    "fields": {
+      "register_equipment": 152,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 152,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 153,
+    "fields": {
+      "register_equipment": 153,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 153,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 154,
+    "fields": {
+      "register_equipment": 154,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 154,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 155,
+    "fields": {
+      "register_equipment": 155,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 155,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 156,
+    "fields": {
+      "register_equipment": 156,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 156,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 157,
+    "fields": {
+      "register_equipment": 157,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 157,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 158,
+    "fields": {
+      "register_equipment": 158,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 158,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 159,
+    "fields": {
+      "register_equipment": 159,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 159,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 160,
+    "fields": {
+      "register_equipment": 160,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 160,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 161,
+    "fields": {
+      "register_equipment": 161,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 161,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 162,
+    "fields": {
+      "register_equipment": 162,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 162,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 163,
+    "fields": {
+      "register_equipment": 163,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 163,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 164,
+    "fields": {
+      "register_equipment": 164,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 164,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 165,
+    "fields": {
+      "register_equipment": 165,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 165,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 166,
+    "fields": {
+      "register_equipment": 166,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 166,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 167,
+    "fields": {
+      "register_equipment": 167,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 167,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 168,
+    "fields": {
+      "register_equipment": 168,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 168,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 169,
+    "fields": {
+      "register_equipment": 169,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 169,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 170,
+    "fields": {
+      "register_equipment": 170,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 170,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 171,
+    "fields": {
+      "register_equipment": 171,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 171,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 172,
+    "fields": {
+      "register_equipment": 172,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 172,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 173,
+    "fields": {
+      "register_equipment": 173,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 173,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 174,
+    "fields": {
+      "register_equipment": 174,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 174,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 175,
+    "fields": {
+      "register_equipment": 175,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 175,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 176,
+    "fields": {
+      "register_equipment": 176,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 176,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 177,
+    "fields": {
+      "register_equipment": 177,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 177,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 178,
+    "fields": {
+      "register_equipment": 178,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 178,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 179,
+    "fields": {
+      "register_equipment": 179,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 179,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 180,
+    "fields": {
+      "register_equipment": 180,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 180,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 181,
+    "fields": {
+      "register_equipment": 181,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 181,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 182,
+    "fields": {
+      "register_equipment": 182,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 182,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 183,
+    "fields": {
+      "register_equipment": 183,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 183,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 184,
+    "fields": {
+      "register_equipment": 184,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 184,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 185,
+    "fields": {
+      "register_equipment": 185,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 185,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 186,
+    "fields": {
+      "register_equipment": 186,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 186,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 187,
+    "fields": {
+      "register_equipment": 187,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 187,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 188,
+    "fields": {
+      "register_equipment": 188,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 188,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 189,
+    "fields": {
+      "register_equipment": 189,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 189,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 190,
+    "fields": {
+      "register_equipment": 190,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 190,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 191,
+    "fields": {
+      "register_equipment": 191,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 191,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 192,
+    "fields": {
+      "register_equipment": 192,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 192,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 193,
+    "fields": {
+      "register_equipment": 193,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 193,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 194,
+    "fields": {
+      "register_equipment": 194,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 194,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 195,
+    "fields": {
+      "register_equipment": 195,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 195,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 196,
+    "fields": {
+      "register_equipment": 196,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 196,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 197,
+    "fields": {
+      "register_equipment": 197,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 197,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 198,
+    "fields": {
+      "register_equipment": 198,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 198,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 199,
+    "fields": {
+      "register_equipment": 199,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 199,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 200,
+    "fields": {
+      "register_equipment": 200,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 200,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 201,
+    "fields": {
+      "register_equipment": 201,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 201,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 202,
+    "fields": {
+      "register_equipment": 202,
+      "register_enable": true,
+      "register_name": "Speed",
+      "register_addr": 202,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 203,
+    "fields": {
+      "register_equipment": 203,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 203,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 204,
+    "fields": {
+      "register_equipment": 204,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 204,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 205,
+    "fields": {
+      "register_equipment": 205,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 205,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 206,
+    "fields": {
+      "register_equipment": 206,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 206,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 207,
+    "fields": {
+      "register_equipment": 207,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 207,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 208,
+    "fields": {
+      "register_equipment": 208,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 208,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 209,
+    "fields": {
+      "register_equipment": 209,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 209,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 210,
+    "fields": {
+      "register_equipment": 210,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 210,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 211,
+    "fields": {
+      "register_equipment": 211,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 211,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 212,
+    "fields": {
+      "register_equipment": 212,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 212,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 213,
+    "fields": {
+      "register_equipment": 213,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 213,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 214,
+    "fields": {
+      "register_equipment": 214,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 214,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 215,
+    "fields": {
+      "register_equipment": 215,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 215,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 216,
+    "fields": {
+      "register_equipment": 216,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 216,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 217,
+    "fields": {
+      "register_equipment": 217,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 217,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 218,
+    "fields": {
+      "register_equipment": 218,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 218,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 219,
+    "fields": {
+      "register_equipment": 219,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 219,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 220,
+    "fields": {
+      "register_equipment": 220,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 220,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 221,
+    "fields": {
+      "register_equipment": 221,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 221,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 222,
+    "fields": {
+      "register_equipment": 222,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 222,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 223,
+    "fields": {
+      "register_equipment": 223,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 223,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 224,
+    "fields": {
+      "register_equipment": 224,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 224,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 225,
+    "fields": {
+      "register_equipment": 225,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 225,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 226,
+    "fields": {
+      "register_equipment": 226,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 226,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 227,
+    "fields": {
+      "register_equipment": 227,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 227,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 228,
+    "fields": {
+      "register_equipment": 228,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 228,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 229,
+    "fields": {
+      "register_equipment": 229,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 229,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 230,
+    "fields": {
+      "register_equipment": 230,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 230,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 231,
+    "fields": {
+      "register_equipment": 231,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 231,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 232,
+    "fields": {
+      "register_equipment": 232,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 232,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 233,
+    "fields": {
+      "register_equipment": 233,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 233,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 234,
+    "fields": {
+      "register_equipment": 234,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 234,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 235,
+    "fields": {
+      "register_equipment": 235,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 235,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 236,
+    "fields": {
+      "register_equipment": 236,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 236,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 237,
+    "fields": {
+      "register_equipment": 237,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 237,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 238,
+    "fields": {
+      "register_equipment": 238,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 238,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 239,
+    "fields": {
+      "register_equipment": 239,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 239,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 240,
+    "fields": {
+      "register_equipment": 240,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 240,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 241,
+    "fields": {
+      "register_equipment": 241,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 241,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 242,
+    "fields": {
+      "register_equipment": 242,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 242,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 243,
+    "fields": {
+      "register_equipment": 243,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 243,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 244,
+    "fields": {
+      "register_equipment": 244,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 244,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 245,
+    "fields": {
+      "register_equipment": 245,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 245,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 246,
+    "fields": {
+      "register_equipment": 246,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 246,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 247,
+    "fields": {
+      "register_equipment": 247,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 247,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 248,
+    "fields": {
+      "register_equipment": 248,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 248,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 249,
+    "fields": {
+      "register_equipment": 249,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 249,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 250,
+    "fields": {
+      "register_equipment": 250,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 250,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 251,
+    "fields": {
+      "register_equipment": 251,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 251,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 252,
+    "fields": {
+      "register_equipment": 252,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 252,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 253,
+    "fields": {
+      "register_equipment": 253,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 253,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 254,
+    "fields": {
+      "register_equipment": 254,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 254,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 255,
+    "fields": {
+      "register_equipment": 255,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 255,
+      "register_regname": "SPD"
+    }
+  },
+  {
+    "model": "si8device.register",
+    "pk": 256,
+    "fields": {
+      "register_equipment": 256,
+      "register_enable": false,
+      "register_name": "Speed",
+      "register_addr": 256,
+      "register_regname": "SPD"
+    }
+  }
+]
