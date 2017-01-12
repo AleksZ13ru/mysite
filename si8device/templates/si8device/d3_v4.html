@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart D3 myV4</title>
+    <script src="https://d3js.org/d3.v3.js"></script>
+</head>
+<body>
+<script>
+    d3.select('body').selectAll('p')
+        .data([{key:1, file:'data1.json'}, {key:2, file:'data2.json'}, {key:3, file:'data3.json'}])
+        .enter()
+        .append('p')
+        .text("hello");
+</script>
+</body>
+</html>
