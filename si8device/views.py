@@ -123,14 +123,16 @@ def c3_json_from_model(id):
         x = (t2.strftime(DB_TIME_FORMAT))
         e = {"date": x, "close": y}
         result.append(e)
+
+    '''
     lastTime = lastTime.replace(minute=lastTime.minute+1)
     while lastTime.hour < 23:
-        while lastTime.minute < 59:
-            x0 = lastTime.strftime(DB_TIME_FORMAT)
-            e = {"date": x0, "close": 0.0}
-            result.append(e)
-            lastTime = lastTime.replace(minute=lastTime.minute+1)
-        lastTime = lastTime.replace(hour=oldTime.hour+1)
+    while lastTime.minute < 59:
+        x0 = lastTime.strftime(DB_TIME_FORMAT)
+        e = {"date": x0, "close": 0.0}
+        result.append(e)
+        lastTime = lastTime.replace(minute=lastTime.minute+1)
+    lastTime = lastTime.replace(hour=oldTime.hour+1)'''
     return JsonResponse(result, safe=False).content
 
 
