@@ -99,6 +99,8 @@ DB_TIME_FORMAT = "%H:%M"
 def c3_json_from_model(id):
     # tt = timezone.now()
     tt = timezone.datetime(2016, 12, 17, 0, 0)
+    oldTime = tt
+    oldTime2 = timezone.datetime(2016, 12, 17, 23, 59)
     result = []
     # format PollResult.pollresult_time = '12/16/2016 07:30' '%m/%d/%Y %H:%M'
     starttimefilter = tt.strftime(DB_DATE_FORMAT)
@@ -106,12 +108,29 @@ def c3_json_from_model(id):
     # stoptimefilter = tt.strftime(DB_DATE_FORMAT)
     points = PollResult.objects.filter(pollresult_register_id=id).filter(pollresult_time__startswith=starttimefilter)  # .filter(pollresult_time=starttimefilter)
     for point in points:
+        # oldTime  = timezone.datetime.time(0, 0)
         y = point.pollresult_value
         t2 = timezone.datetime.strptime(point.pollresult_time, DB_DATETIME_FORMAT)
+        lastTime = t2
+        while oldTime.hour < t2.hour:
+            while oldTime.minute < t2.minute:
+                x0 = oldTime.strftime(DB_TIME_FORMAT)
+                e = {"date": x0, "close": 0.0}
+                result.append(e)
+                oldTime = oldTime.replace(minute=oldTime.minute+1)
+            oldTime = oldTime.replace(hour=oldTime.hour+1)
         # x = point.pollresult_time
         x = (t2.strftime(DB_TIME_FORMAT))
         e = {"date": x, "close": y}
         result.append(e)
+    lastTime = lastTime.replace(minute=lastTime.minute+1)
+    while lastTime.hour < 23:
+        while lastTime.minute < 59:
+            x0 = lastTime.strftime(DB_TIME_FORMAT)
+            e = {"date": x0, "close": 0.0}
+            result.append(e)
+            lastTime = lastTime.replace(minute=lastTime.minute+1)
+        lastTime = lastTime.replace(hour=oldTime.hour+1)
     return JsonResponse(result, safe=False).content
 
 
