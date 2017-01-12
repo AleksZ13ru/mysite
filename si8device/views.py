@@ -5,7 +5,8 @@ from chartjs.views.lines import BaseLineChartView
 from django.http import JsonResponse
 import random
 import datetime
-import csv
+from django.utils import timezone
+from .models import PollResult, Register, Equipment
 
 # Пример вывода: 16 сентября 2012
 DATE_FORMAT = 'd E Y'
@@ -16,7 +17,9 @@ def si8_list(request):
 
 
 def si8_d3_list(request):
-    return render(request, 'si8device/si8_d3_list.html')
+    # Obs = Register.objects.filter(register_enable=True)
+    Obs = Equipment.objects.filter(equipment_enable=True)
+    return render(request, 'si8device/si8_d3_list.html', {'Obs': Obs})
 
 
 def si8_d3d3(request):
@@ -87,6 +90,30 @@ def c3_json_generate_v2(id):
             result.append(e)
     return JsonResponse(result, safe=False).content
 
+DB_DATETIME_FORMAT = '%m/%d/%Y %H:%M'
+DB_DATE_FORMAT = '%m/%d/%Y'
+DB_DATETIME_Z_FORMAT = '%m/%d/%Y 0:0'
+DB_TIME_FORMAT = "%H:%M"
+
+
+def c3_json_from_model(id):
+    # tt = timezone.now()
+    tt = timezone.datetime(2016, 12, 17, 0, 0)
+    result = []
+    # format PollResult.pollresult_time = '12/16/2016 07:30' '%m/%d/%Y %H:%M'
+    starttimefilter = tt.strftime(DB_DATE_FORMAT)
+    tt = tt.replace(day=tt.day+1)
+    # stoptimefilter = tt.strftime(DB_DATE_FORMAT)
+    points = PollResult.objects.filter(pollresult_register_id=id).filter(pollresult_time__startswith=starttimefilter)  # .filter(pollresult_time=starttimefilter)
+    for point in points:
+        y = point.pollresult_value
+        t2 = timezone.datetime.strptime(point.pollresult_time, DB_DATETIME_FORMAT)
+        # x = point.pollresult_time
+        x = (t2.strftime(DB_TIME_FORMAT))
+        e = {"date": x, "close": y}
+        result.append(e)
+    return JsonResponse(result, safe=False).content
+
 
 def chartjs_json_generate_v2(id):
     labels = []
@@ -113,6 +140,8 @@ def line_chartjs_v2_json(request, id=0):
 
 def line_chartc3_json(request, id=0):
     content2 = c3_json_generate_v2(id)
-    content = '{"x": ["00:00", "00:01", "00:02", "00:03"],"y": [180, 150, 300, 70]}'
-    return HttpResponse(content2, content_type='application/json')
+    content3 = c3_json_from_model(id=id)
+    # content = [{"close": 7, "date": "00:00"}, {"close": 6, "date": "00:01"},...]
+    # content = '{"x": ["00:00", "00:01", "00:02", "00:03"],"y": [180, 150, 300, 70]}'
+    return HttpResponse(content3, content_type='application/json')
     # return HttpResponse(html)

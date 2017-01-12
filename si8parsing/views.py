@@ -5,7 +5,7 @@ from .models import File
 
 
 def parsing(request):
-    listsfile = File.objects.all()
+    listsfile = File.objects.all().order_by('name')
     return render(request, 'si8parsing/parsing.html', {'listsfile': listsfile})
 
 

@@ -33,14 +33,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for i in 5|get_range %}
+                        {% for Ob in Obs %}
                             <tr>
-                                <td>Machina {{ i }}</td>
+                                <td>{{ Ob.equipment_name }}</td>
                                 <td>
                                     <!--div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
                                          data-url="/si8/line_chartc3/json/{{ i }}/">
                                     </div-->
-                                    <canvas width="700" height="30" data-url="/si8/line_chartc3/json/{{ i }}/"></canvas>
+                                    <canvas width="700" height="30" data-url="/si8/line_chartc3/json/{{ Ob.id }}/"></canvas>
                                 </td>
                                 <td>Info</td>
                             </tr>
