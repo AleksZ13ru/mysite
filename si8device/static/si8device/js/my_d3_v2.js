@@ -27,7 +27,7 @@ canvass.each(function (p, j) {
     var url = canvas.attr('data-url');
     getChart(canvas, url);
 })
-    .on('mousemove', function () {
+    /*.on('mousemove', function () {
         var canvas = d3.select(this);
         var url = canvas.attr('data-url');
         //var context = canvas.node().getContext("2d");
@@ -41,7 +41,7 @@ canvass.each(function (p, j) {
     })
     .on("mouseout", function () {
         tooltip.style("display", "none");
-    });
+    })*/;
 
 function getChart(canvas, url, id_num) {
     //var canvas = document.querySelector("canvas");
@@ -68,29 +68,29 @@ function getChart(canvas, url, id_num) {
 
     var line = d3.line()
         .x(function (d) {
-            return x(d.date);
+            return x(d.x);
         })
         .y(function (d) {
-            return y(d.close);
+            return y(d.y);
         })
         .curve(d3.curveStep)
         .context(context);
 
     //context.translate(margin.left, margin.top);
-    var data;
+    //var data;
 
     d3.json(url, function (error, json) {
         if (error) return console.warn(error);
-        data = json;
+        //data = json;
 
         y.domain(d3.extent(json, function (d) {
-            d.close = d.close;
-            return d.close;
+            //d.close = d.close;
+            return d.y;
         }));
 
         x.domain(d3.extent(json, function (d) {
-            d.date = parseTime_json(d.date);
-            return d.date;
+            d.x = parseTime_json(d.x);
+            return d.x;
         }));
 
         context.beginPath();
@@ -101,7 +101,7 @@ function getChart(canvas, url, id_num) {
     });
 
     bisectDate = d3.bisector(function (d) {
-        return d.date;
+        return d.x;
     }).left;
 
     // <div class="chartjs-tooltip" id="tooltip-0"></div>
@@ -134,7 +134,7 @@ function getMouse(canvas, url, point) {
 
     var line = d3.line()
         .x(function (d) {
-            return x(d.date);
+            return x(d.x);
         })
         .y(function (d) {
             return y(d.close);
@@ -143,20 +143,20 @@ function getMouse(canvas, url, point) {
         .context(context);
 
     //context.translate(margin.left, margin.top);
-    var data;
+    //var data;
 
     d3.json(url, function (error, json) {
         if (error) return console.warn(error);
-        data = json;
+        //data = json;
 
         y.domain(d3.extent(json, function (d) {
-            d.close = d.close;
-            return d.close;
+            //d.close = d.close;
+            return d.y;
         }));
 
         x.domain(d3.extent(json, function (d) {
-            d.date = parseTime_json(d.date);
-            return d.date;
+            d.x = parseTime_json(d.x);
+            return d.x;
         }));
 
         //context.beginPath();
@@ -166,7 +166,7 @@ function getMouse(canvas, url, point) {
         //context.stroke();
         var x0 = x.invert(point[0]),
             i = bisectDate(data, x0, 1),
-            y0 = data[i].close;
+            y0 = data[i].y;
         tooltip.text(x0.getHours() + ':' + x0.getMinutes() + '  speed: ' + y0)
             .style("left", (point[0]+0) + "px")
             .style("top", (point[1]+0) + "px")
@@ -174,7 +174,7 @@ function getMouse(canvas, url, point) {
     });
 
     bisectDate = d3.bisector(function (d) {
-        return d.date;
+        return d.x;
     }).left;
 
     // <div class="chartjs-tooltip" id="tooltip-0"></div>
