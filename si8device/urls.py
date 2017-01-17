@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.si8_list, name='si8_list'),
     url(r'^d3/$', views.si8_d3_list, name='si8_d3_list'),
+    url(r'^c3/$', views.si8_c3_list, name='si8_c3_list'),
 
     url(r'^d3d3/$', views.si8_d3d3, name='si8_d3d3'),
     url(r'^d3d4/$', views.si8_d3d4, name='si8_d3d4'),

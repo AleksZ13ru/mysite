@@ -22,6 +22,12 @@ def si8_d3_list(request):
     return render(request, 'si8device/si8_d3_list.html', {'Obs': Obs})
 
 
+def si8_c3_list(request):
+    # Obs = Register.objects.filter(register_enable=True)
+    Obs = Equipment.objects.filter(equipment_enable=True)
+    return render(request, 'si8device/si8_c3_list.html', {'Obs': Obs})
+
+
 def si8_d3d3(request):
     return render(request, 'si8device/d3_v3.html')
 

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load get_range %}
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'si8device/css/c3.css' %}">
+    <style>
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 60px;
+            height: 28px;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <form class="fieldset">
+        <div class="chartjs-tooltip" id="tooltip-0"></div>
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <div class="callout striped table-scroll">
+                <p>Внимание! Данные загружены за декабрь 2016 года.
+                    <br>
+                   Построение графиков производится за 17 декабря c 00:00 по 23:59.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <div class="callout striped table-scroll">
+                    <table class="hover unstriped">
+                        <thead>
+                        <tr>
+                            <th width=20%>Название</th>
+                            <th>Скорость</th>
+                            <th width=5%>Описание</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for Ob in Obs %}
+                            <tr>
+                                <td>{{ Ob.equipment_name }}</td>
+                                <td>
+                                    <!--div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
+                                         data-url="/si8/line_chartc3/json/{{ i }}/">
+                                    </div-->
+
+                                    <div class="mychart" id="chart{{ i }}" data-id="{{ i }}" data-name="#chart{{ i }}"
+                                         data-url="{% static 'si8device/data/data.json' %}">
+                                    </div>
+                                    <!--canvas width="700" height="30" data-url="/si8/line_chartc3/json/{{ Ob.id }}/"></canvas-->
+                                </td>
+                                <td>
+                                    <p><a href="{% url 'line_chartc3_json' Ob.id %}">Json</a></p></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <footer id="footer">
+        <script src="{% static 'si8device/js/d3.v3.js' %}"></script>
+        <!--script src="https://d3js.org/d3.v4.js"></script-->
+        <script src="{% static 'si8device/js/c3.js' %}"></script>
+        <script src="{% static 'si8device/js/my_c3.js' %}" ></script>
+
+    </footer>
+
+{% endblock content %}
