@@ -6,11 +6,12 @@ from django.core.exceptions import ObjectDoesNotExist
 from .code.parsing import openfilesi8
 from si8device.models import PollResult, Register
 from django.utils import timezone
-
+from celery import shared_task
 
 # вызывать 1  раз в минуту
 # ищет в папке файлы с расширением si8,
 # если файла с таким хешем нет, то добавляет в базу - модель File
+@shared_task
 def findfile():
     folders = Folder.objects.filter(enable=True)
     for folder in folders:
