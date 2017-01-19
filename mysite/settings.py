@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dept',
     'si8device',
     'si8parsing',
+    'django_celery_results',
     # 'chartjs',
     # 'require'
 ]
@@ -99,6 +100,8 @@ DATABASES = {
     }
 }
 
+
+CELERY_RESULT_BACKEND = 'django-db'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
