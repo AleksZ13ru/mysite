@@ -6,7 +6,11 @@ from .models import File
 
 def parsing(request):
     listsfile = File.objects.all().order_by('name')
-    return render(request, 'si8parsing/parsing.html', {'listsfile': listsfile})
+    listcount = {'ready': len(listsfile.filter(parsing_status=0)),
+                 'ok': len(listsfile.filter(parsing_status=1)),
+                 'error': len(listsfile.filter(parsing_status=2))
+                 }
+    return render(request, 'si8parsing/parsing.html', {'listsfile': listsfile, 'listcount': listcount})
 
 
 def si8_find_file(request):
