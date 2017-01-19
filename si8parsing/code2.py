@@ -20,7 +20,7 @@ def findfile():
             for file in tree[2]:
                 if file.endswith('.SI8') is True:
                     name = file
-                    path = tree[0]+'\\'
+                    path = tree[0]+'/'
                     hash = get_hash_md5(path, name)
 
                     try:
