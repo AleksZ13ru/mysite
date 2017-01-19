@@ -28,7 +28,6 @@ def findfile():
                     except ObjectDoesNotExist:
                         f = File(name=name, path=path, parsing_status=0, hash=hash)
                         f.save()
-    return True
 
 
 def get_hash_md5(path, filename):
