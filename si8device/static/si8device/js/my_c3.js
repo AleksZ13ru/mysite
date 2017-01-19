@@ -1,14 +1,15 @@
 /**
  * Created by AleksZ on 03.01.2017.
  */
-var objs = document.getElementsByClassName("mychart");
-for (var key=0; key<10; key++){
-    var name = objs[key].dataset.name;
-    var url = objs[key].dataset.url;
-    getChart(name, url);
+window.onload = function () {
+    var objs = document.getElementsByClassName("mychart");
+    for (var key = 0; key < 10; key++) {
+        var name = objs[key].dataset.name;
+        var url = objs[key].dataset.url;
+        getChart(name, url);
 
-}
-var a =1;
+    }
+};
 
 function getChart(name, url) {
 
@@ -27,7 +28,7 @@ function getChart(name, url) {
                     type: 'category',
                     show: false
                 },
-                y:{
+                y: {
                     show: false
                 }
             },
