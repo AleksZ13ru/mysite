@@ -8,9 +8,9 @@ def add(x, y):
     return x + y
 
 
-@shared_task
-def find():
-    return findfile()
+# @shared_task
+# def find():
+#     return findfile()
 
 
 @shared_task
