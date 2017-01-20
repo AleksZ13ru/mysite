@@ -14,20 +14,15 @@ from celery import shared_task
 # если файла с таким хешем нет, то добавляет в базу - модель File
 @shared_task
 def findfile():
-    print("Start")
     folders = Folder.objects.filter(enable=True)
     for folder in folders:
         trees = os.walk(folder.path)
         for tree in trees:
-            print("Tree")
-            # print(tree)
             for file in tree[2]:
-                print("File")
                 if file.endswith('.SI8') is True:
                     name = file
                     path = tree[0]+'/'
                     hash = get_hash_md5(path, name)
-
                     try:
                         File.objects.get(hash=hash)
                     except ObjectDoesNotExist:
