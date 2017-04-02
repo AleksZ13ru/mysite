@@ -18,6 +18,7 @@ class People(models.Model):
     schedule = models.ForeignKey('Schedule', blank=True, null=True)
     birtday = models.DateField(blank=True, null=True)
     dayofwork = models.DateField(blank=True, null=True)
+    dayofquit = models.DateField(blank=True, null=True)
     telefon = models.CharField(max_length=30, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
 
@@ -291,17 +292,57 @@ class Schedule(models.Model):
         return schedule_data
 
     @staticmethod
-    def delete_standart_person_in5day(persons=None, day5=None):
+    def delete_standart_person_in5day(year=None, month=None, persons=None):
         """
         Удаляет персоны у которых график работы не отличается от стандартного графика
         :param persons:
-        :param day5:
+        :param day5: массив данных с типовым графиком
         :return:
         """
+        day5 = Schedule.schedule_in_day(year, month)
         result_return = {}
         out_persons = []
         for person in persons['persons']:
             if person['data'] != day5:
+                out_persons.append(person)
+        result_return['persons'] = out_persons
+        result_return['schedules'] = persons['schedules']
+        result_return['day_in_month'] = persons['day_in_month']
+        return result_return
+
+    @staticmethod
+    def delete_quit_person(year=None, month=None, persons=None):
+        result_return = {}
+        out_persons = []
+        for person in persons['persons']:
+            qw = People.objects.filter(id=person['fio_id'])[0]
+            if qw.dayofquit is not None:
+                d_quit = qw.dayofquit.toordinal()
+                d_mount_start = datetime.date(year, month, 1).toordinal()
+                d_mount_end = datetime.date(year, month + 1, 1).toordinal()
+
+                # уволился в этом месяце
+                if d_mount_start <= d_quit <= d_mount_end:
+                    l_fio = copy.deepcopy(person['fio'])
+                    l_schedule = copy.deepcopy(person['schedule'])
+                    l_data = copy.deepcopy(person['data'])
+                    l_fio_id = copy.deepcopy(person['fio_id'])
+                    try:
+                        for i in range(d_quit-d_mount_start, d_mount_end-d_mount_start):
+                            l_data[i] = 'w'
+                    except IndexError:
+                        pass
+                    out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+
+                # уволился до этого месяца
+                if d_quit < d_mount_start:
+                    pass
+
+                # уволился после этого месяца
+                if d_quit > d_mount_end:
+                    out_persons.append(person)
+
+            else:
                 out_persons.append(person)
         result_return['persons'] = out_persons
         result_return['schedules'] = persons['schedules']
