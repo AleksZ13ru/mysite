@@ -1,4 +1,5 @@
-from django.db import transaction
+# from django.db import transaction
+from __future__ import absolute_import
 from .models import Folder, File
 import os
 import hashlib
@@ -6,28 +7,29 @@ from django.core.exceptions import ObjectDoesNotExist
 from .code.parsing import openfilesi8
 from si8device.models import PollResult, Register
 from django.utils import timezone
-
+from celery import shared_task
 
 # вызывать 1  раз в минуту
 # ищет в папке файлы с расширением si8,
 # если файла с таким хешем нет, то добавляет в базу - модель File
+@shared_task
 def findfile():
     folders = Folder.objects.filter(enable=True)
     for folder in folders:
         trees = os.walk(folder.path)
         for tree in trees:
-            # print(tree)
             for file in tree[2]:
                 if file.endswith('.SI8') is True:
                     name = file
-                    path = tree[0]+'\\'
+                    path = tree[0]+'/'
                     hash = get_hash_md5(path, name)
-
                     try:
                         File.objects.get(hash=hash)
                     except ObjectDoesNotExist:
+                        print("Add File in DB")
                         f = File(name=name, path=path, parsing_status=0, hash=hash)
                         f.save()
+
 
 
 def get_hash_md5(path, filename):

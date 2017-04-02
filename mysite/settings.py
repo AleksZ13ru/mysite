@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dept',
     'si8device',
-    'si8parsing',
+    'si8parsing'
+    # 'django_celery_results',
     # 'chartjs',
     # 'require'
 ]
@@ -99,6 +100,18 @@ DATABASES = {
     }
 }
 
+
+# Celery settings
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+# backend='redis://localhost', broker='redis://localhost'
+#: Only add pickle to this list if your broker is secured
+#: from unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_TASK_SERIALIZER = 'json'
+# CELERY_BROKER_URL = 'redis://localhost'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
