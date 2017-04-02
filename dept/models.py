@@ -164,6 +164,24 @@ class Holiday(models.Model):
         # ----------------------------------------------------------
 
     @staticmethod
+    def modify_schedule_in5day(persons=None, day5=None):
+        """
+        Удаляет персоны у которых график работы не отличается от стандартного графика
+        :param persons:
+        :param day5:
+        :return: 
+        """
+        result_return = {}
+        out_persons = []
+        for person in persons['persons']:
+            if person['data'] != day5:
+                out_persons.append(person)
+        result_return['persons'] = out_persons
+        result_return['schedules'] = persons['schedules']
+        result_return['day_in_month'] = persons['day_in_month']
+        return result_return
+
+    @staticmethod
     def day_in_year(year=None, month=None, day=None):
         d = datetime.date(year, month, day)
         result = d.toordinal()
@@ -238,8 +256,8 @@ class Schedule(models.Model):
             return None
         # result = {}
         result = {'schedules': [], 'day_in_month': calendar.monthrange(year, month)[1], 'persons': []}  # структура
-        # schedules = Schedule.objects.all()
-        schedules = Schedule.objects.filter(title__icontains='№')
+        schedules = Schedule.objects.all()
+        # schedules = Schedule.objects.filter(title__icontains='№')
 
         for schedule in schedules:
             result['schedules'].append(schedule.title)
@@ -259,6 +277,28 @@ class Schedule(models.Model):
                                           'fio_id': person.id})
         return result
 
+    @staticmethod
+    def schedule_in5day(year=None, month=None):
+        """
+        возвращает data для обычной рабочей недели для организации фильтра.
+        После проверки на наличие отпусков и т.д. все записи с стандартным графиком будут удалены из календаря
+
+        :param year:
+        :param month:
+        :return: возвращает data для обычной рабочей недели 'data':['w', 'w', 'd', 'n']
+        """
+        schedule = Schedule.objects.filter(title__icontains='Дневная')[0]
+        schedule_data = []
+        changes = Change.objects.filter(schedule=schedule)
+        schedule_data_bloc = []
+        for change in changes:
+            schedule_data_bloc.append(change.title)
+        my_cal = calendar.Calendar(firstweekday=0)
+        for d in my_cal.itermonthdates(year, month):
+            if d.month == month:
+                t = (d.toordinal() - schedule.startday.toordinal()) % len(schedule_data_bloc)
+                schedule_data.append(copy.deepcopy(schedule_data_bloc[t]))
+        return schedule_data
 
 # Описание смен
 class Change(models.Model):

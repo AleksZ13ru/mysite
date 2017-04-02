@@ -45,3 +45,16 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.idea/
+db.sqlite3-journal
+dept/code/__pycache__/
+dept/migrations/__pycache__/0003_auto_20161221_2232.cpython-35.pyc
+dept/migrations/__pycache__/0004_auto_20161221_2233.cpython-35.pyc
+dept/migrations/__pycache__/0005_auto_20170111_2306.cpython-35.pyc
+dept/templatetags/__pycache__/
+mysite.iml
+si8device/__pycache__/
+si8device/migrations/__pycache__/
+si8parsing/__pycache__/
+si8parsing/code/__pycache__/
+si8parsing/migrations/__pycache__/
