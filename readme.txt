@@ -33,9 +33,9 @@ django run server {
 Окружение python в папке ~/celeryenv
 Настройки nginx в /etc/nginx/sites-available/default
 Для запуска gunicorn, активировать окружение python3:
-source ~/celery/bin/activate
+source ~/celeryenv/bin/activate
 и собственно запустить:
-gunicorn mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2 # время ожидания 120 сек, 2 процесса
+gunicorn ~/mysite/mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2 # время ожидания 120 сек, 2 процесса
 
 -------------- nginx setting ----------------------------
 

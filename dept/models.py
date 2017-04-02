@@ -169,7 +169,7 @@ class Holiday(models.Model):
         Удаляет персоны у которых график работы не отличается от стандартного графика
         :param persons:
         :param day5:
-        :return: 
+        :return:
         """
         result_return = {}
         out_persons = []
@@ -345,3 +345,23 @@ class Weekend(models.Model):
             self.typ,
             self.datestart,
             self.motive)
+
+
+class MicroSchedule(models.Model):
+    class Meta:
+        verbose_name = "Подмена"
+        verbose_name_plural = "Подмена"
+
+    people = models.ForeignKey('People')
+    schedule = models.ForeignKey('Schedule')
+    startday = models.DateField()
+    lenght = models.IntegerField(default=14)
+    stopday = models.DateField(blank=True, null=True)
+
+    def save(self, *args, **kw):
+        self.stopday = self.startday + datetime.timedelta(days=self.lenght - 1)
+        super(MicroSchedule, self).save(*args, **kw)
+
+    def __str__(self):
+        return "%s %s - %s (%s)" % (People.fio(self.people),
+                                    self.schedule, self.startday, self.stopday)

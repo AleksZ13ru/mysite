@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import People, Function, Holiday,\
-    Schedule, Weekend, Change
+    Schedule, Weekend, Change, MicroSchedule
 
 
 class PeopleAdmin(admin.ModelAdmin):
@@ -22,3 +22,4 @@ admin.site.register(People, PeopleAdmin)
 admin.site.register(Holiday)
 admin.site.register(Schedule, ScheduleAdmin)
 admin.site.register(Weekend)
+admin.site.register(MicroSchedule)
