@@ -75,3 +75,6 @@ dept приложение отображающее работу Саранскк
 формат даты для отображения в html: https://docs.djangoproject.com/en/1.10/ref/templates/builtins/
 
 как делать свои фильтры для сайта http://stackoverflow.com/questions/4651172/reference-list-item-by-index-within-django-template/29664945#29664945
+
+01.04.17
+Для каждого рабочего составить массив дней для года [0..356] c описание графика работы, учета отпсков, и так-далее

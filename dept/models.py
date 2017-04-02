@@ -27,7 +27,7 @@ class People(models.Model):
             self.firstname[0],
             self.secondname[0],
             self.function,
-            )
+        )
         return fio
 
     def fio(self):
@@ -35,7 +35,7 @@ class People(models.Model):
             self.family,
             self.firstname[0],
             self.secondname[0],
-            )
+        )
         return fio
 
 
@@ -72,7 +72,7 @@ class Holiday(models.Model):
 
     def save(self, *args, **kw):
         # self.full_name = '{0} {1}'.format(self.first_name, self.last_name)
-        self.stopday = self.startday+datetime.timedelta(days=self.lenght-1)
+        self.stopday = self.startday + datetime.timedelta(days=self.lenght - 1)
         super(Holiday, self).save(*args, **kw)
 
     def __str__(self):
@@ -81,25 +81,93 @@ class Holiday(models.Model):
 
     @staticmethod
     def modify_schedule(year=None, month=None, persons=None):
-        # persons = {'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
+        """
+        Производится поиск отпусков для persons['fio_id'], и произвдится замена полей persons['data'][n] на 'h'
+        'h' - код для отпуска
+        :param year: год
+        :param month: месяц
+        :param persons: = {'fio_id':16, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
+        :return: = {'fio_id':16, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'h', 'h', ...]}
+        """
+
         result_return = {}
         out_persons = copy.deepcopy(persons['persons'])
 
-        list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month).filter(stopday__month=month)
-        for holiday in list_holiday:
-            for person in out_persons:
+        for person in persons['persons']:
+            holidays = Holiday.objects.filter(people_id=person['fio_id'])
+            for holiday in holidays:
+                d_start = holiday.startday.toordinal()
+                d_end = d_start + holiday.lenght
+                d_mount_start = datetime.date(year, month, 1).toordinal()
+                d_mount_end = datetime.date(year, month + 1, 1).toordinal()
+
                 l_fio = copy.deepcopy(person['fio'])
                 l_schedule = copy.deepcopy(person['schedule'])
                 l_data = copy.deepcopy(person['data'])
-                if holiday.people.fio() == l_fio:
-                    out_persons.remove(person)
-                    for i in range(0, holiday.lenght):
-                        l_data[holiday.startday.day+i-1] = 'h'
-                    out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data})
+                l_fio_id = copy.deepcopy(person['fio_id'])
+
+                # месяц   |-----|
+                # отпуск  | --  |
+                if d_start >= d_mount_start and d_end <= d_mount_end:
+                    pass
+                    p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+                    a = holiday.startday.day
+                    out_persons.pop(p)
+                    for i in range(a, a + holiday.lenght):
+                        l_data[i - 1] = 'h'
+                    out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+
+                # месяц   |  -----|
+                # отпуск  | --    |
+                elif d_start < d_mount_start and d_end > d_mount_start:
+                    # начинается до этого месяца
+                    p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+                    out_persons.pop(p)
+                    a = 1
+                    for i in range(a, a + d_end - d_mount_start):
+                        l_data[i - 1] = 'h'
+                    out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+
+                # месяц   |-----  |
+                # отпуск  |    -- |
+                elif d_start < d_mount_end and d_end > d_mount_end:
+                    # после
+                    p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+                    out_persons.pop(p)
+                    # out_persons.remove(person)
+                    try:
+                        a = holiday.startday.day
+                        for i in range(a, a + holiday.lenght):
+                            l_data[i - 1] = 'h'
+                    except IndexError:
+                        pass
+                    # out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+                    out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+                # месяц   |-----    |
+                # отпуск  |      -- |
+                elif d_start > d_mount_end:
+                    pass
+
+                # месяц   |   -----|
+                # отпуск  |--      |
+                elif d_end < d_mount_start:
+                    pass
+
+                else:
+                    pass
+
         result_return['persons'] = out_persons
         result_return['schedules'] = persons['schedules']
         result_return['day_in_month'] = persons['day_in_month']
+        # result_return['fio_id'] = persons['fio_id']
         return result_return
+        # ----------------------------------------------------------
+
+    @staticmethod
+    def day_in_year(year=None, month=None, day=None):
+        d = datetime.date(year, month, day)
+        result = d.toordinal()
+        return result
 
     @staticmethod
     def modify_schedule_v2(year=None, month=None, persons=None):
@@ -116,7 +184,7 @@ class Holiday(models.Model):
                 l_data = copy.deepcopy(person['data'])
                 if holiday.people.fio() == l_fio:
                     for i in range(0, holiday.lenght):
-                        l_data[holiday.startday.day+i-1] = 'h'
+                        l_data[holiday.startday.day + i - 1] = 'h'
                 t_persons.person = {'fio': l_fio, 'schedule': l_schedule, 'data': l_data}
 
         result_return['persons'] = out_persons
@@ -143,7 +211,7 @@ class Schedule(models.Model):
         schedules = Schedule.objects.all()
         std = None
         for schedule in schedules:
-            t = (timezone.now().toordinal()-schedule.startday.toordinal()) % 4
+            t = (timezone.now().toordinal() - schedule.startday.toordinal()) % 4
             if t == 0:
                 std = schedule.startday
         if std is None:
@@ -187,7 +255,8 @@ class Schedule(models.Model):
                     schedule_data.append(copy.deepcopy(schedule_data_bloc[t]))
             persons = People.objects.filter(schedule=schedule)
             for person in persons:
-                result['persons'].append({'fio': person.fio(), 'schedule': schedule.title, 'data': schedule_data})
+                result['persons'].append({'fio': person.fio(), 'schedule': schedule.title, 'data': schedule_data,
+                                          'fio_id': person.id})
         return result
 
 

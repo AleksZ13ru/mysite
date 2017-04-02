@@ -36,7 +36,8 @@ def dept_calendar(request, year=timezone.now().year, month=timezone.now().month)
         if i.month == date.month:
             day.append(i)
     args['day'] = day
-    args['view_month'] = {'year': year, 'month': month, 'year_last': year-1, 'year_next': year+1 }
+    args['view_month'] = {'year': year, 'month': month, 'year_last': year-1, 'year_next': year+1}
     test_list = Schedule.itermonthdates(year, month)
-    args.update(Holiday.modify_schedule(year, month, test_list))
+    t = Holiday.modify_schedule(year, month, test_list)
+    args.update(t)
     return render(request, 'dept/dept_calendar.html', {'args': args})
