@@ -300,6 +300,7 @@ class Schedule(models.Model):
                 schedule_data.append(copy.deepcopy(schedule_data_bloc[t]))
         return schedule_data
 
+
 # Описание смен
 class Change(models.Model):
     class Meta:
@@ -363,5 +364,5 @@ class MicroSchedule(models.Model):
         super(MicroSchedule, self).save(*args, **kw)
 
     def __str__(self):
-        return "%s %s - %s (%s)" % (People.fio(self.people),
-                                    self.schedule, self.startday, self.stopday)
+        return "%s %s - c %s по %s)" % (People.fio(self.people),
+                                        self.schedule, self.startday, self.stopday)

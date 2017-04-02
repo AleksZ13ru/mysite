@@ -35,7 +35,8 @@ django run server {
 Для запуска gunicorn, активировать окружение python3:
 source ~/celeryenv/bin/activate
 и собственно запустить:
-gunicorn ~/mysite/mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2 # время ожидания 120 сек, 2 процесса
+cd mysite
+gunicorn mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2 # время ожидания 120 сек, 2 процесса
 
 -------------- nginx setting ----------------------------
 

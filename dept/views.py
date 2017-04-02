@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Schedule, People, Holiday
 import calendar
-import datetime
-from dept.code.repack import repack
+
+# import datetime
+# from dept.code.repack import repack
 
 # Пример вывода: 16 сентября 2012
 DATE_FORMAT = 'd E Y'
@@ -36,7 +37,7 @@ def dept_calendar(request, year=timezone.now().year, month=timezone.now().month)
         if i.month == date.month:
             day.append(i)
     args['day'] = day
-    args['view_month'] = {'year': year, 'month': month, 'year_last': year-1, 'year_next': year+1}
+    args['view_month'] = {'year': year, 'month': month, 'year_last': year - 1, 'year_next': year + 1}
     test_list = Schedule.itermonthdates(year, month)
     day5 = Schedule.schedule_in5day(year, month)
     t = Holiday.modify_schedule(year, month, test_list)
