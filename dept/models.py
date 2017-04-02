@@ -164,51 +164,33 @@ class Holiday(models.Model):
         # ----------------------------------------------------------
 
     @staticmethod
-    def modify_schedule_in5day(persons=None, day5=None):
-        """
-        Удаляет персоны у которых график работы не отличается от стандартного графика
-        :param persons:
-        :param day5:
-        :return:
-        """
-        result_return = {}
-        out_persons = []
-        for person in persons['persons']:
-            if person['data'] != day5:
-                out_persons.append(person)
-        result_return['persons'] = out_persons
-        result_return['schedules'] = persons['schedules']
-        result_return['day_in_month'] = persons['day_in_month']
-        return result_return
-
-    @staticmethod
     def day_in_year(year=None, month=None, day=None):
         d = datetime.date(year, month, day)
         result = d.toordinal()
         return result
 
-    @staticmethod
-    def modify_schedule_v2(year=None, month=None, persons=None):
-        # persons = {'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
-        result_return = {}
-        t_persons = copy.deepcopy(persons['persons'])
-        out_persons = []
-
-        list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month).filter(stopday__month=month)
-        for holiday in list_holiday:
-            for person in t_persons:
-                l_fio = copy.deepcopy(person['fio'])
-                l_schedule = copy.deepcopy(person['schedule'])
-                l_data = copy.deepcopy(person['data'])
-                if holiday.people.fio() == l_fio:
-                    for i in range(0, holiday.lenght):
-                        l_data[holiday.startday.day + i - 1] = 'h'
-                t_persons.person = {'fio': l_fio, 'schedule': l_schedule, 'data': l_data}
-
-        result_return['persons'] = out_persons
-        result_return['schedules'] = persons['schedules']
-        result_return['day_in_month'] = persons['day_in_month']
-        return result_return
+        # @staticmethod
+        # def modify_schedule_v2(year=None, month=None, persons=None):
+        #     # persons = {'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
+        #     result_return = {}
+        #     t_persons = copy.deepcopy(persons['persons'])
+        #     out_persons = []
+        #
+        #     list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month).filter(stopday__month=month)
+        #     for holiday in list_holiday:
+        #         for person in t_persons:
+        #             l_fio = copy.deepcopy(person['fio'])
+        #             l_schedule = copy.deepcopy(person['schedule'])
+        #             l_data = copy.deepcopy(person['data'])
+        #             if holiday.people.fio() == l_fio:
+        #                 for i in range(0, holiday.lenght):
+        #                     l_data[holiday.startday.day + i - 1] = 'h'
+        #             t_persons.person = {'fio': l_fio, 'schedule': l_schedule, 'data': l_data}
+        #
+        #     result_return['persons'] = out_persons
+        #     result_return['schedules'] = persons['schedules']
+        #     result_return['day_in_month'] = persons['day_in_month']
+        #     return result_return
 
 
 # График работы
@@ -238,17 +220,18 @@ class Schedule(models.Model):
             return Schedule.objects.filter(startday=std)
 
     @staticmethod
-    def itermonthdates(year=None, month=None):
+    def itermonthdates(year=None, month=None, schedule_filter=None):
         """
         Получение массива кодов(d - день, n - ночь, w - выходной) для указанного месяца
         для смен выбранных по фильтру: (.filter(title__icontains='№'))
 
         :param year: 2016
         :param month: 11 = декабрь
-        :return: format=<class 'list'>: [{'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n']},
-                                         {'fio':'Володин Ю.А.','schedule':'Cмена №2', 'data':['w', 'w', 'd', 'n']},
-                                         {'fio':'Петров А.Б.', 'schedule':'Cмена №3', 'data':['w', 'w', 'd', 'n']},
-                                         {'fio':'Игошев С.О.', 'schedule':'Cмена №4', 'data':['w', 'w', 'd', 'n']}]
+        :param schedule_filter:
+        :return: format=<class 'list'>: [{'fio_id':11, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n']},
+                                         {'fio_id':12, 'fio':'Володин Ю.А.','schedule':'Cмена №2', 'data':['w', 'w', 'd', 'n']},
+                                         {'fio_id':13, 'fio':'Петров А.Б.', 'schedule':'Cмена №3', 'data':['w', 'w', 'd', 'n']},
+                                         {'fio_id':14, 'fio':'Игошев С.О.', 'schedule':'Cмена №4', 'data':['w', 'w', 'd', 'n']}]
 
 
         """
@@ -256,8 +239,10 @@ class Schedule(models.Model):
             return None
         # result = {}
         result = {'schedules': [], 'day_in_month': calendar.monthrange(year, month)[1], 'persons': []}  # структура
-        schedules = Schedule.objects.all()
-        # schedules = Schedule.objects.filter(title__icontains='№')
+        if schedule_filter is None:
+            schedules = Schedule.objects.all()
+        else:
+            schedules = Schedule.objects.filter(title__icontains=schedule_filter)
 
         for schedule in schedules:
             result['schedules'].append(schedule.title)
@@ -278,16 +263,21 @@ class Schedule(models.Model):
         return result
 
     @staticmethod
-    def schedule_in5day(year=None, month=None):
+    def schedule_in_day(year=None, month=None, schedule=None):
         """
         возвращает data для обычной рабочей недели для организации фильтра.
         После проверки на наличие отпусков и т.д. все записи с стандартным графиком будут удалены из календаря
 
         :param year:
         :param month:
+        :param schedule:
         :return: возвращает data для обычной рабочей недели 'data':['w', 'w', 'd', 'n']
         """
-        schedule = Schedule.objects.filter(title__icontains='Дневная')[0]
+        if schedule is None:
+            schedule = Schedule.objects.filter(title__icontains='Дневная')[0]
+        else:
+            schedule = Schedule.objects.filter(id=schedule)[0]
+
         schedule_data = []
         changes = Change.objects.filter(schedule=schedule)
         schedule_data_bloc = []
@@ -299,6 +289,24 @@ class Schedule(models.Model):
                 t = (d.toordinal() - schedule.startday.toordinal()) % len(schedule_data_bloc)
                 schedule_data.append(copy.deepcopy(schedule_data_bloc[t]))
         return schedule_data
+
+    @staticmethod
+    def delete_standart_person_in5day(persons=None, day5=None):
+        """
+        Удаляет персоны у которых график работы не отличается от стандартного графика
+        :param persons:
+        :param day5:
+        :return:
+        """
+        result_return = {}
+        out_persons = []
+        for person in persons['persons']:
+            if person['data'] != day5:
+                out_persons.append(person)
+        result_return['persons'] = out_persons
+        result_return['schedules'] = persons['schedules']
+        result_return['day_in_month'] = persons['day_in_month']
+        return result_return
 
 
 # Описание смен
@@ -364,5 +372,93 @@ class MicroSchedule(models.Model):
         super(MicroSchedule, self).save(*args, **kw)
 
     def __str__(self):
-        return "%s %s - c %s по %s)" % (People.fio(self.people),
-                                        self.schedule, self.startday, self.stopday)
+        return "%s %s - c %s по %s" % (People.fio(self.people),
+                                       self.schedule, self.startday, self.stopday)
+
+    @staticmethod
+    def modify_schedule(year=None, month=None, persons=None):
+        """
+        Replacement - замена
+        Производится поиск отпусков для persons['fio_id'], и произвдится замена полей persons['data'][n] на 'h'
+        'h' - код для отпуска
+        :param year: год
+        :param month: месяц
+        :param persons: = {'fio_id':16, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n', ...]}
+        :return: = {'fio_id':16, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'h', 'h', ...]}
+        """
+
+        result_return = {}
+        out_persons = copy.deepcopy(persons['persons'])
+
+        for person in persons['persons']:
+            l_fio = copy.deepcopy(person['fio'])
+            l_schedule = copy.deepcopy(person['schedule'])
+            l_data = copy.deepcopy(person['data'])
+            l_fio_id = copy.deepcopy(person['fio_id'])
+
+            replacements = MicroSchedule.objects.filter(people_id=person['fio_id'])
+            for replacement in replacements:
+                d_start = replacement.startday.toordinal()
+                d_end = d_start + replacement.lenght
+                d_replac_sched = Schedule.schedule_in_day(year, month, replacement.schedule_id)
+                d_mount_start = datetime.date(year, month, 1).toordinal()
+                d_mount_end = datetime.date(year, month + 1, 1).toordinal()
+
+                # месяц   |-----|
+                # отпуск  | --  |
+                if d_start >= d_mount_start and d_end <= d_mount_end:
+                    pass
+                    # p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+                    # out_persons.pop(p)
+                    a = replacement.startday.day
+                    for i in range(a, a + replacement.lenght):
+                        l_data[i - 1] = d_replac_sched[i - 1]
+                        # out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+
+                # месяц   |  -----|
+                # отпуск  | --    |
+                elif d_start < d_mount_start and d_end > d_mount_start:
+                    # начинается до этого месяца
+                    # p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+                    # out_persons.pop(p)
+                    a = 1
+                    for i in range(a, a + d_end - d_mount_start):
+                        l_data[i - 1] = d_replac_sched[i - 1]
+                        # out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+
+                # месяц   |-----  |
+                # отпуск  |    -- |
+                elif d_start < d_mount_end and d_end > d_mount_end:
+                    # после
+                    # p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+                    # out_persons.pop(p)
+                    # out_persons.remove(person)
+                    try:
+                        a = replacement.startday.day
+                        for i in range(a, a + replacement.lenght):
+                            l_data[i - 1] = d_replac_sched[i - 1]
+                    except IndexError:
+                        pass
+                        # out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+                        # out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+                # месяц   |-----    |
+                # отпуск  |      -- |
+                elif d_start > d_mount_end:
+                    pass
+
+                # месяц   |   -----|
+                # отпуск  |--      |
+                elif d_end < d_mount_start:
+                    pass
+
+                else:
+                    pass
+
+            p = out_persons.index(person)  # номер позиции персоны в списке, для модификации
+            out_persons.pop(p)
+            out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+        result_return['persons'] = out_persons
+        result_return['schedules'] = persons['schedules']
+        result_return['day_in_month'] = persons['day_in_month']
+        # result_return['fio_id'] = persons['fio_id']
+        return result_return

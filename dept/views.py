@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Schedule, People, Holiday
+from .models import Schedule, People, Holiday, MicroSchedule
 import calendar
 
 # import datetime
@@ -38,9 +38,10 @@ def dept_calendar(request, year=timezone.now().year, month=timezone.now().month)
             day.append(i)
     args['day'] = day
     args['view_month'] = {'year': year, 'month': month, 'year_last': year - 1, 'year_next': year + 1}
-    test_list = Schedule.itermonthdates(year, month)
-    day5 = Schedule.schedule_in5day(year, month)
-    t = Holiday.modify_schedule(year, month, test_list)
-    t2 = Holiday.modify_schedule_in5day(t, day5)
-    args.update(t2)
+    day5 = Schedule.schedule_in_day(year, month)
+    persons = Schedule.itermonthdates(year, month)  # Заполнение графика работы
+    persons = Holiday.modify_schedule(year, month, persons)  # Заполнение отпусков
+    persons = MicroSchedule.modify_schedule(year, month, persons)  # Заполнение подмена сменных
+    persons = Schedule.delete_standart_person_in5day(persons, day5)  # Вырез персон с обычным графиком работы
+    args.update(persons)
     return render(request, 'dept/dept_calendar.html', {'args': args})
