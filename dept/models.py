@@ -177,7 +177,8 @@ class Holiday(models.Model):
         #     t_persons = copy.deepcopy(persons['persons'])
         #     out_persons = []
         #
-        #     list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month).filter(stopday__month=month)
+        #     list_holiday = Holiday.objects.filter(year=year).filter(startday__month=month)
+        # .filter(stopday__month=month)
         #     for holiday in list_holiday:
         #         for person in t_persons:
         #             l_fio = copy.deepcopy(person['fio'])
@@ -224,15 +225,16 @@ class Schedule(models.Model):
     def itermonthdates(year=None, month=None, schedule_filter=None):
         """
         Получение массива кодов(d - день, n - ночь, w - выходной) для указанного месяца
-        для смен выбранных по фильтру: (.filter(title__icontains='№'))
+        для смен выбранных по фильтру: (.filter(title_icontains='№'))
 
         :param year: 2016
         :param month: 11 = декабрь
         :param schedule_filter:
-        :return: format=<class 'list'>: [{'fio_id':11, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n']},
-                                         {'fio_id':12, 'fio':'Володин Ю.А.','schedule':'Cмена №2', 'data':['w', 'w', 'd', 'n']},
-                                         {'fio_id':13, 'fio':'Петров А.Б.', 'schedule':'Cмена №3', 'data':['w', 'w', 'd', 'n']},
-                                         {'fio_id':14, 'fio':'Игошев С.О.', 'schedule':'Cмена №4', 'data':['w', 'w', 'd', 'n']}]
+        :return: format=<class 'list'>:
+            [{'fio_id':11, 'fio':'Иняшев О.Ю.', 'schedule':'Cмена №1', 'data':['w', 'w', 'd', 'n']},
+             {'fio_id':12, 'fio':'Володин Ю.А.','schedule':'Cмена №2', 'data':['w', 'w', 'd', 'n']},
+             {'fio_id':13, 'fio':'Петров А.Б.', 'schedule':'Cмена №3', 'data':['w', 'w', 'd', 'n']},
+             {'fio_id':14, 'fio':'Игошев С.О.', 'schedule':'Cмена №4', 'data':['w', 'w', 'd', 'n']}]
 
 
         """
@@ -295,8 +297,9 @@ class Schedule(models.Model):
     def delete_standart_person_in5day(year=None, month=None, persons=None):
         """
         Удаляет персоны у которых график работы не отличается от стандартного графика
+        :param year:
+        :param month:
         :param persons:
-        :param day5: массив данных с типовым графиком
         :return:
         """
         day5 = Schedule.schedule_in_day(year, month)
@@ -328,7 +331,7 @@ class Schedule(models.Model):
                     l_data = copy.deepcopy(person['data'])
                     l_fio_id = copy.deepcopy(person['fio_id'])
                     try:
-                        for i in range(d_quit-d_mount_start, d_mount_end-d_mount_start):
+                        for i in range(d_quit - d_mount_start, d_mount_end - d_mount_start):
                             l_data[i] = 'w'
                     except IndexError:
                         pass
@@ -454,7 +457,6 @@ class MicroSchedule(models.Model):
                     a = replacement.startday.day
                     for i in range(a, a + replacement.lenght):
                         l_data[i - 1] = d_replac_sched[i - 1]
-                        # out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
 
                 # месяц   |  -----|
                 # отпуск  | --    |
@@ -465,7 +467,6 @@ class MicroSchedule(models.Model):
                     a = 1
                     for i in range(a, a + d_end - d_mount_start):
                         l_data[i - 1] = d_replac_sched[i - 1]
-                        # out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
 
                 # месяц   |-----  |
                 # отпуск  |    -- |
@@ -480,8 +481,7 @@ class MicroSchedule(models.Model):
                             l_data[i - 1] = d_replac_sched[i - 1]
                     except IndexError:
                         pass
-                        # out_persons.append({'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
-                        # out_persons.insert(p, {'fio': l_fio, 'schedule': l_schedule, 'data': l_data, 'fio_id': l_fio_id})
+
                 # месяц   |-----    |
                 # отпуск  |      -- |
                 elif d_start > d_mount_end:
@@ -501,5 +501,4 @@ class MicroSchedule(models.Model):
         result_return['persons'] = out_persons
         result_return['schedules'] = persons['schedules']
         result_return['day_in_month'] = persons['day_in_month']
-        # result_return['fio_id'] = persons['fio_id']
         return result_return
