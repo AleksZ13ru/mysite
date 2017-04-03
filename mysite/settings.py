@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dept',
     'si8device',
-    'si8parsing'
+    'si8parsing',
+    'easy_thumbnails',
+    'filer',
+    'mptt'
+
     # 'django_celery_results',
     # 'chartjs',
     # 'require'
