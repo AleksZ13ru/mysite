@@ -205,14 +205,14 @@ FILER_SERVERS = {
             'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
             'OPTIONS': {
                 'location': '/home/ubuntu/mysite/smedia/filer',
-                'nginx_location': '/nginx_filer_private',
+                'nginx_location': '/filer_private',
             },
         },
         'thumbnails': {
             'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
             'OPTIONS': {
                 'location': '/home/ubuntu/mysite/smedia/filer_thumbnails',
-                'nginx_location': '/nginx_filer_private_thumbnails',
+                'nginx_location': '/filer_private_thumbnails',
             },
         },
     },

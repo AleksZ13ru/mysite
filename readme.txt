@@ -42,6 +42,10 @@ gunicorn mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2 # время 
 /etc/systemd/system/mysite.service - настройки
 sudo systemctl start mysite
 sudo systemctl enable mysite
+sudo systemctl restart mysite
+
+nginx -s reload
+
 -------------- nginx setting ----------------------------
 
 ##
