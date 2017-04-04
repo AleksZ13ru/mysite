@@ -156,3 +156,61 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # - для указания папки при разворачивании сервера
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+FILER_STORAGES = {
+    'public': {
+        'main': {
+            'ENGINE': 'filer.storage.PublicFileSystemStorage',
+            'OPTIONS': {
+                'location': '/home/ubuntu/mysite/media/filer',
+                'base_url': '/media/filer/',
+            },
+            'UPLOAD_TO': 'filer.utils.generate_filename.randomized',
+            'UPLOAD_TO_PREFIX': 'filer_public',
+        },
+        'thumbnails': {
+            'ENGINE': 'filer.storage.PublicFileSystemStorage',
+            'OPTIONS': {
+                'location': '/home/ubuntu/mysite/media/filer_thumbnails',
+                'base_url': '/media/filer_thumbnails/',
+            },
+        },
+    },
+    'private': {
+        'main': {
+            'ENGINE': 'filer.storage.PrivateFileSystemStorage',
+            'OPTIONS': {
+                'location': '/home/ubuntu/mysite/smedia/filer',
+                'base_url': '/smedia/filer/',
+            },
+            'UPLOAD_TO': 'filer.utils.generate_filename.randomized',
+            'UPLOAD_TO_PREFIX': 'filer_public',
+        },
+        'thumbnails': {
+            'ENGINE': 'filer.storage.PrivateFileSystemStorage',
+            'OPTIONS': {
+                'location': '/home/ubuntu/mysite/smedia/filer_thumbnails',
+                'base_url': '/smedia/filer_thumbnails/',
+            },
+        },
+    },
+}
+
+FILER_SERVERS = {
+    'private': {
+        'main': {
+            'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
+            'OPTIONS': {
+                'location': '/home/ubuntu/mysite/smedia/filer',
+                'nginx_location': '/nginx_filer_private',
+            },
+        },
+        'thumbnails': {
+            'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
+            'OPTIONS': {
+                'location': '/home/ubuntu/mysite/smedia/filer_thumbnails',
+                'nginx_location': '/nginx_filer_private_thumbnails',
+            },
+        },
+    },
+}

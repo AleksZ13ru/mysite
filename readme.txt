@@ -38,6 +38,10 @@ source ~/celeryenv/bin/activate
 cd mysite
 gunicorn mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2 # время ожидания 120 сек, 2 процесса
 
+запуск через systemd
+/etc/systemd/system/mysite.service - настройки
+sudo systemctl start mysite
+sudo systemctl enable mysite
 -------------- nginx setting ----------------------------
 
 ##
@@ -91,3 +95,21 @@ server {
   }
 
 -------------- nginx setting end ------------------------
+
+-------------- systemd config file ----------------------
+[Unit]
+Description=My Script Service
+After=multi-user.target
+
+
+[Service]
+Restart=always
+RestartSec=10
+Type=idle
+WorkingDirectory=/home/ubuntu/mysite
+ExecStart=/home/ubuntu/celeryenv/bin/gunicorn mysite.wsgi:application --bind 127.0.0.1:8000 -t 120 -w 2
+
+[Install]
+WantedBy=multi-user.target
+
+-------------- systemd config file end ------------------
