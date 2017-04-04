@@ -185,7 +185,7 @@ FILER_STORAGES = {
                 'base_url': '/smedia/filer/',
             },
             'UPLOAD_TO': 'filer.utils.generate_filename.randomized',
-            'UPLOAD_TO_PREFIX': 'filer_public',
+            'UPLOAD_TO_PREFIX': 'filer_private',
         },
         'thumbnails': {
             'ENGINE': 'filer.storage.PrivateFileSystemStorage',
