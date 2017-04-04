@@ -157,8 +157,12 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # - для указания папки при разворачивании сервера
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# FILER_IS_PUBLIC_DEFAULT = False
-# FILER_ENABLE_PERMISSIONS = True
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/ubuntu/filermedia/media'
+
+FILER_ENABLE_PERMISSIONS = True  # в админ. панели появляются настройки доступа к папкам
+FILER_IS_PUBLIC_DEFAULT = False  # помещает файлы в приватную папку: smedia/filer_private
 
 # FILER_STORAGES = {
 #     'public': {
