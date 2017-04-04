@@ -158,6 +158,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 FILER_IS_PUBLIC_DEFAULT = False
+FILER_ENABLE_PERMISSIONSвTrue = True
+
 FILER_STORAGES = {
     'public': {
         'main': {
