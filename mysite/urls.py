@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^si8/', include('si8device.urls')),
     url(r'^pars/', include('si8parsing.urls')),
     url(r'^filer/', include('filer.urls')),
-    url(r'^', include('filer.server.urls'))
+    url(r'^', include('filer.server.urls')),
+    url(r'^docx/', include('docx.urls')),
+
 
 ]

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dept',
+    'docx',
     'si8device',
     'si8parsing',
     'easy_thumbnails',
@@ -99,7 +100,8 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'post1234',
-        'HOST': '35.163.174.99',  # Set to empty string for localhost.
+        #'HOST': '35.163.174.99',  # Set to empty string for localhost.
+        'HOST': 'localhost',  # Set to empty string for localhost.
         'PORT': '5432',  # Set to empty string for default.
     }
 }

@@ -1,0 +1,68 @@
+from django.db import models
+
+
+# Служебная записка
+class Memo(models.Model):
+    class Meta:
+        verbose_name = "Служебная записка"
+        verbose_name_plural = "Служебные записки"
+
+    number = models.IntegerField()  # номер
+    title = models.CharField(max_length=100)    # заголовок
+    # to_whom = models.CharField(max_length=100)  # кому
+    to_whom = models.ForeignKey('PeopleToWhom')
+    day_create = models.DateField(blank=True, null=True)  # дата создания
+    text = models.CharField(max_length=500, null=True)
+    event = models.ForeignKey('Event')
+    note = models.ForeignKey('Note')
+    # schedule = models.ForeignKey('Schedule', blank=True, null=True)
+
+    def __str__(self):
+        # Голубеву А.В. №123 от 12.08.2017 - запчасти для маркиров август
+        memo = '%s №%s от %s - %s' % (
+            self.to_whom,
+            self.number,
+            self.day_create,
+            self.title,
+        )
+        return memo
+
+
+class PeopleToWhom(models.Model):
+    class Meta:
+        verbose_name = "Адресат"
+        verbose_name_plural = "Адресаты"
+    name = models.CharField(max_length=100)    # заголовок
+
+    def __str__(self):
+        return self.name
+
+
+# События
+class Event(models.Model):
+    class Meta:
+        verbose_name = "Событие"
+        verbose_name_plural = "События"
+
+    title = models.CharField(max_length=100)    # заголовок
+    day_create = models.DateField(blank=True, null=True)  # дата события
+    comment = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+# Заметки
+class Note(models.Model):
+    class Meta:
+        verbose_name = "Заметка"
+        verbose_name_plural = "Заметки"
+
+    title = models.CharField(max_length=100)    # заголовок
+    day_create = models.DateField(blank=True, null=True)  # дата события
+    comment = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.title
+
+
