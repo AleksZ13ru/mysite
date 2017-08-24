@@ -16,13 +16,21 @@
 <body>
 <div class="top-bar">
     <div class="top-bar-left">
-        <ul class="menu">
+        <ul class="dropdown menu" data-dropdown-menu>
             <li><a href="/">Dept</a></li>
             <!--li><a href="/">Заметки</a></li>
             <li><a href="/">Дела</a></li>
             <li><a href="/">Кадры</a></li-->
             <li><a href="{% url 'dept_calendar' %}">Календарь</a></li>
-            <li><a href="{% url 'docx_list' %}">Служебные записки</a></li>
+            <li>
+                <a href="{% url 'docx_list' %}">Служебные записки</a>
+                <ul class="menu vertical">
+                    <li><a href="#">Все</a></li>
+                    <li><a href="#">Актуальные</a></li>
+                    <li><a href="#">Новая записка</a></li>
+                </ul>
+            </li>
+
             <!--li><a href="{% url 'si8_list' %}">Машинное время (chartjs)</a></li-->
             <!--li><a href="{% url 'si8_d3_list' %}">Машинное время (d3)</a></li>
             <li><a href="{% url 'si8_c3_list' %}">Машинное время (c3)</a></li>

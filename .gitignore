@@ -58,3 +58,4 @@ si8device/migrations/__pycache__/
 si8parsing/__pycache__/
 si8parsing/code/__pycache__/
 si8parsing/migrations/__pycache__/
+/db.json

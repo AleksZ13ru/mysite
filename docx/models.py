@@ -10,11 +10,12 @@ class Memo(models.Model):
     number = models.IntegerField()  # номер
     title = models.CharField(max_length=100)    # заголовок
     # to_whom = models.CharField(max_length=100)  # кому
-    to_whom = models.ForeignKey('PeopleToWhom')
+    to_whom = models.ForeignKey('PeopleToWhom')  # кому
+    who = models.ForeignKey('PeopleWho', blank=True, null=True)  # исполнитель
     day_create = models.DateField(blank=True, null=True)  # дата создания
     text = models.CharField(max_length=500, null=True)
-    event = models.ForeignKey('Event')
-    note = models.ForeignKey('Note')
+    # event = models.ForeignKey('Event', blank=True, null=True)  # События
+    # note = models.ForeignKey('Note', blank=True, null=True)  # Заметки
     # schedule = models.ForeignKey('Schedule', blank=True, null=True)
 
     def __str__(self):
@@ -38,15 +39,26 @@ class PeopleToWhom(models.Model):
         return self.name
 
 
+class PeopleWho(models.Model):
+    class Meta:
+        verbose_name = "Исполнитель"
+        verbose_name_plural = "Исполнители"
+    name = models.CharField(max_length=100)    # заголовок
+
+    def __str__(self):
+        return self.name
+
+
 # События
 class Event(models.Model):
     class Meta:
         verbose_name = "Событие"
         verbose_name_plural = "События"
 
+    memo = models.ForeignKey('Memo')
     title = models.CharField(max_length=100)    # заголовок
-    day_create = models.DateField(blank=True, null=True)  # дата события
-    comment = models.CharField(max_length=100, null=True)
+    day_create = models.DateField()  # дата события
+    comment = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -58,11 +70,10 @@ class Note(models.Model):
         verbose_name = "Заметка"
         verbose_name_plural = "Заметки"
 
+    memo = models.ForeignKey('Memo')
     title = models.CharField(max_length=100)    # заголовок
-    day_create = models.DateField(blank=True, null=True)  # дата события
-    comment = models.CharField(max_length=100, null=True)
+    day_create = models.DateField()  # дата события
+    comment = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.title
-
-
