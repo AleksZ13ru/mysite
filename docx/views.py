@@ -1,7 +1,5 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Memo
 
 
 def docx_list(request):
@@ -15,7 +13,7 @@ def docx_list(request):
     #date = timezone.datetime(year=year, month=month, day=1)
     #my_cal = calendar.Calendar(firstweekday=0)
     args = {}
-    day = []
+    # day = []
     #for i in my_cal.itermonthdates(year, month):
     #    if i.month == date.month:
     #        day.append(i)
@@ -29,4 +27,10 @@ def docx_list(request):
     #persons = Schedule.delete_quit_person(year, month, persons)  # удаление уволевшихся
 
     #args.update(persons)
-    return render(request, 'docx/docx_list.html', {'args': args})
+
+    memos = Memo.objects.all()  # Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    #for memo in memos:
+    #    event = Memo.objects.filter(event__in=memo.id).len()
+
+    # return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'docx/docx_list.html', {'memos': memos})

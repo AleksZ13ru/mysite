@@ -1,75 +1,86 @@
 {% extends 'base.html' %}
 {% block content %}
-<form class="fieldset">
-    <div class="row">
-        <!--div class="small-2 large-4 columns">
-            <div class="callout">
-                <h5>Заметки</h5>
-                <p>Простой текст</p>
-                <a href="">Добавить</a>
-            </div>
-        </div>
-        <div class="small-4 large-4 columns">
-            <div class="callout">
-                <h5>Дело №1</h5>
-                <p>Преобретение запасных частей</p>
-                <p>Служебная №125</p>
-                <a href="">Изменить</a>
-            </div>
-            <div class="callout">
-                <h5>Дело №2</h5>
-                <p>Преобретение запасных частей</p>
-                <p>Служебная №125</p>
-                <a href="">Изменить</a>
-            </div>
-        </div-->
-        <div class="small-6 large-10 columns">
-            <div class="callout">
-                <div class="row">
-                    <div class="small-8 large-8 columns">
-                        <h5><a href="#">Иванов И.И. №2 от 2017-08-24 - Преобретение запасных частей</a></h5>
-                        <h6>Исполнитель: <a href="#">Петров П.П.</a></h6>
-                        <div>
-                            <label for="exampleFileUpload" class="button small">DOC загрузить</label>
-                            <input type="file" id="exampleFileUpload" class="show-for-sr">
-                            <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
-                            <input type="file" id="exampleFileUpload" class="show-for-sr">
-                        </div>
-                    </div>
-                    <div class="small-2 large-2 columns text-center">
-                        <p >Событий</p>
-                        <h5><a href="#">12</a></h5>
-                    </div>
-                    <div class="small-2 large-2 columns text-center">
-                        <p>Заметок</p>
-                        <h5><a href="#">4</a></h5>
-                    </div>
+    <form class="fieldset">
+        <div class="row">
+            <!--div class="small-2 large-4 columns">
+                <div class="callout">
+                    <h5>Заметки</h5>
+                    <p>Простой текст</p>
+                    <a href="">Добавить</a>
                 </div>
             </div>
+            <div class="small-4 large-4 columns">
+                <div class="callout">
+                    <h5>Дело №1</h5>
+                    <p>Преобретение запасных частей</p>
+                    <p>Служебная №125</p>
+                    <a href="">Изменить</a>
+                </div>
+                <div class="callout">
+                    <h5>Дело №2</h5>
+                    <p>Преобретение запасных частей</p>
+                    <p>Служебная №125</p>
+                    <a href="">Изменить</a>
+                </div>
+            </div-->
+            <div class="small-6 large-10 columns">
+                {% if user.is_authenticated %}
+                    {% for memo in memos %}
+                        <div class="callout">
+                            <div class="row">
+                                <div class="small-8 large-8 columns">
+                                    {#                        <h5><a href="#">Иванов И.И. №2 от 2017-08-24 - Преобретение запасных частей</a></h5>#}
+                                    <h5><a href="#">{{ memo }}</a></h5>
+                                    {% if memo.who == None %}
+                                        <h6>Исполнитель: <a href="#">Назначить</a></h6>
+                                    {% else %}
+                                        <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
+                                    {% endif %}
+                                    <div>
+                                        <label for="exampleFileUpload" class="button small">DOC загрузить</label>
+                                        <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                        <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
+                                        <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                    </div>
+                                </div>
+                                <div class="small-2 large-2 columns text-center">
+                                    <p>Событий</p>
+                                    {#                       {% for event in memo.event_set.all %}#}
+                                    <h5><a href="#">{{ memo.event_set.all.count }}</a></h5>
+                                    {#                        {% endfor %}#}
+                                </div>
+                                <div class="small-2 large-2 columns text-center">
+                                    <p>Заметок</p>
+                                    <h5><a href="#">{{ memo.note_set.all.count }}</a></h5>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="callout alert">
-                <div class="row">
-                    <div class="small-8 large-8 columns">
-                        <h5><a href="#">Иванов И.И. №1 от 2017-08-24 - Ремонт изолировочной машины</a></h5>
-                        <h6>Исполнитель: <a href="#">Петров П.П.</a></h6>
-                        <div>
-                            <label for="exampleFileUpload" class="button small">DOC открыть</label>
-                            <input type="file" id="exampleFileUpload" class="show-for-sr">
-                            <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
-                            <input type="file" id="exampleFileUpload" class="show-for-sr">
-                        </div>
-                    </div>
-                    <div class="small-2 large-2 columns text-center">
-                        <p>Событий</p>
-                        <h5><a href="#">12</a></h5>
-                    </div>
-                    <div class="small-2 large-2 columns text-center">
-                        <p>Заметок</p>
-                        <h5><a href="#">4</a></h5>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
+                {#            <div class="callout alert">#}
+                {#                <div class="row">#}
+                {#                    <div class="small-8 large-8 columns">#}
+                {#                        <h5><a href="#">Иванов И.И. №1 от 2017-08-24 - Ремонт изолировочной машины</a></h5>#}
+                {#                        <h6>Исполнитель: <a href="#">Петров П.П.</a></h6>#}
+                {#                        <div>#}
+                {#                            <label for="exampleFileUpload" class="button small">DOC открыть</label>#}
+                {#                            <input type="file" id="exampleFileUpload" class="show-for-sr">#}
+                {#                            <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>#}
+                {#                            <input type="file" id="exampleFileUpload" class="show-for-sr">#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                    <div class="small-2 large-2 columns text-center">#}
+                {#                        <p>Событий</p>#}
+                {#                        <h5><a href="#">12</a></h5>#}
+                {#                    </div>#}
+                {#                    <div class="small-2 large-2 columns text-center">#}
+                {#                        <p>Заметок</p>#}
+                {#                        <h5><a href="#">4</a></h5>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#            </div>#}
             </div>
         </div>
-    </div>
-</form>
+    </form>
 {% endblock content %}
