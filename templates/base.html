@@ -42,7 +42,12 @@
             <li>
                 <input type="text" class="span2" id="dp1">
             </li>
-            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'admin:index' %}">Setting</a></li>
+                <li><a href="{% url 'admin:logout' %}">Exit</a></li>
+            {% else %}
+                <li><a href="{% url 'admin:index' %}">Enter</a></li>
+            {% endif %}
         </ul>
     </div>
 </div>
@@ -64,8 +69,8 @@
 </script>
 <script>
     var now = new Date();
-    var initialDate = now.day+'-'+now.month+'-'+now.year;
-    $(function(){
+    var initialDate = now.day + '-' + now.month + '-' + now.year;
+    $(function () {
         $('#dp1').fdatepicker({
             language: 'ru',
             initialDate: initialDate, //'30-07-2016',
