@@ -61,7 +61,12 @@ class Event(models.Model):
     comment = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return self.title
+        event = '%s: %s, %s' % (
+            self.day_create,
+            self.title,
+            self.comment
+        )
+        return event
 
 
 # Заметки
@@ -76,4 +81,9 @@ class Note(models.Model):
     comment = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return self.title
+        note = '%s: %s, %s' % (
+            self.day_create,
+            self.title,
+            self.comment
+        )
+        return note

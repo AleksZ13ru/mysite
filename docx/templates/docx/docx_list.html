@@ -45,14 +45,63 @@
                                 </div>
                                 <div class="small-2 large-2 columns text-center">
                                     <p>Событий</p>
-                                    {#                       {% for event in memo.event_set.all %}#}
-                                    <h5><a href="#">{{ memo.event_set.all.count }}</a></h5>
-                                    {#                        {% endfor %}#}
+                                    <h5 data-open="ModalEvent{{ memo.pk }}"><a
+                                            href="#">{{ memo.event_set.all.count }}</a></h5>
+                                </div>
+                                <div class="reveal" id="ModalEvent{{ memo.pk }}" data-reveal>
+                                    <h5>События</h5>
+                                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>Дата</th>
+                                            <th>Событие</th>
+                                            <th>Комментарий</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            {% for event in memo.note_set.all %}
+                                                <td>{{ event.day_create }}</td>
+                                                <td>{{ event.title }}</td>
+                                                <td>{{ event.comment }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="small-2 large-2 columns text-center">
                                     <p>Заметок</p>
-                                    <h5><a href="#">{{ memo.note_set.all.count }}</a></h5>
+                                    <h5><a data-open="ModalMemo{{ memo.pk }}"
+                                           href="#">{{ memo.note_set.all.count }}</a></h5>
                                 </div>
+                                <div class="reveal" id="ModalMemo{{ memo.pk }}" data-reveal>
+                                    <h5>Заметки</h5>
+                                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>Дата</th>
+                                            <th>Заметка</th>
+                                            <th>Комментарий</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            {% for note in memo.note_set.all %}
+                                                <td>{{ note.day_create }}</td>
+                                                <td>{{ note.title }}</td>
+                                                <td>{{ note.comment }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
 
