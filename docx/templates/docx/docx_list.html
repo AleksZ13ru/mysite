@@ -61,13 +61,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            {% for event in memo.event_set.all %}
+                                        {% for event in memo.event_set.all %}
+                                            <tr>
                                                 <td>{{ event.day_create }}</td>
                                                 <td>{{ event.title }}</td>
                                                 <td>{{ event.comment }}</td>
-                                            {% endfor %}
-                                        </tr>
+                                            </tr>
+                                        {% endfor %}
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -90,13 +91,13 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            {% for note in memo.note_set.all %}
+                                        {% for note in memo.note_set.all %}
+                                            <tr>
                                                 <td>{{ note.day_create }}</td>
                                                 <td>{{ note.title }}</td>
                                                 <td>{{ note.comment }}</td>
-                                            {% endfor %}
-                                        </tr>
+                                            </tr>
+                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
