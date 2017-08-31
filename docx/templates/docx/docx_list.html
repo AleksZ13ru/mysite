@@ -45,8 +45,7 @@
                                 </div>
                                 <div class="small-2 large-2 columns text-center">
                                     <p>Событий</p>
-                                    <h5 data-open="ModalEvent{{ memo.pk }}"><a
-                                            href="#">{{ memo.event_set.all.count }}</a></h5>
+                                    <h5 data-open="ModalEvent{{ memo.pk }}"><a>{{ memo.event_set.all.count }}</a></h5>
                                 </div>
                                 <div class="reveal" id="ModalEvent{{ memo.pk }}" data-reveal>
                                     <h5>События</h5>
@@ -63,7 +62,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            {% for event in memo.note_set.all %}
+                                            {% for event in memo.event_set.all %}
                                                 <td>{{ event.day_create }}</td>
                                                 <td>{{ event.title }}</td>
                                                 <td>{{ event.comment }}</td>
