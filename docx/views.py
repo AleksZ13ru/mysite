@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Memo
 
 
@@ -34,3 +34,8 @@ def docx_list(request):
 
     # return render(request, 'blog/post_list.html', {'posts': posts})
     return render(request, 'docx/docx_list.html', {'memos': memos})
+
+
+def docx_detail(request, pk):
+    memo = get_object_or_404(Memo, pk=pk)
+    return render(request, 'docx/docx_detail.html', {'memo': memo})

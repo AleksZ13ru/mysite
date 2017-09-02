@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form class="fieldset">
+        <div class="row">
+            <div class="small-6 large-10 columns">
+                {% if user.is_authenticated %}
+                    {#                    {% for memo in memos %}#}
+                    <div class="callout">
+                        <div class="row">
+                            <div class="small-12 large-12 columns">
+                                <h5><a href="#">{{ memo }}</a></h5>
+                                <div class="small-8 large-8 columns">
+                                    {% if memo.who == None %}
+                                        <h6>Исполнитель: <a href="#">Назначить</a></h6>
+                                    {% else %}
+                                        <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
+                                    {% endif %}
+                                </div>
+                                <div class="small-4 large-4 columns text-right">
+                                    <label for="exampleFileUpload" class="button small">DOC загрузить</label>
+                                    <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                    <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
+                                    <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                </div>
+                                <hr>
+                                <h5>Содержание:</h5>
+                                <p>{{ memo.text }}</p>
+                                <hr>
+                                <h5>События:</h5>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Событие</th>
+                                        <th>Комментарий</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for event in memo.event_set.all %}
+                                        <tr>
+                                            <td>{{ event.day_create }}</td>
+                                            <td>{{ event.title }}</td>
+                                            <td>{{ event.comment }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                                <div class="column text-right">
+                                    <button class="button" data-open="ModalEventCreate{{ memo.pk }}">Новое
+                                        событие(заглушка)
+                                    </button>
+                                </div>
+                                <hr>
+                                <h5>Заметки:</h5>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Заметка</th>
+                                        <th>Комментарий</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for note in memo.note_set.all %}
+                                        <tr>
+                                            <td>{{ note.day_create }}</td>
+                                            <td>{{ note.title }}</td>
+                                            <td>{{ note.comment }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="column text-right">
+                                    <button class="button" data-open="ModalMemoCreate{{ memo.pk }}">Новая
+                                        заметка(заглушка)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#                    {% endfor %}#}
+                {% endif %}
+            </div>
+        </div>
+    </form>
+{% endblock content %}

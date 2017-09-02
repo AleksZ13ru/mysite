@@ -28,22 +28,24 @@
                     {% for memo in memos %}
                         <div class="callout">
                             <div class="row">
-                                <div class="small-8 large-8 columns">
+                                <div class="small-10 large-8 columns">
                                     {#                        <h5><a href="#">Иванов И.И. №2 от 2017-08-24 - Преобретение запасных частей</a></h5>#}
-                                    <h5><a href="#">{{ memo }}</a></h5>
-                                    {% if memo.who == None %}
-                                        <h6>Исполнитель: <a href="#">Назначить</a></h6>
-                                    {% else %}
-                                        <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
-                                    {% endif %}
-                                    <div>
-                                        <label for="exampleFileUpload" class="button small">DOC загрузить</label>
+                                    <h5><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo }}</a></h5>
+                                    <div class="small-6 large-6 columns">
+                                        {% if memo.who == None %}
+                                            <h6>Исполнитель: <a href="#">Назначить</a></h6>
+                                        {% else %}
+                                            <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
+                                        {% endif %}
+                                    </div>
+                                    <div class="small-6 large-6 columns text-right">
+                                        <label for="exampleFileUpload" class="button small">DOC</label>
                                         <input type="file" id="exampleFileUpload" class="show-for-sr">
-                                        <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
+                                        <label for="exampleFileUpload" class="button alert small">PDF</label>
                                         <input type="file" id="exampleFileUpload" class="show-for-sr">
                                     </div>
                                 </div>
-                                <div class="small-2 large-2 columns text-center">
+                                <div class="small-1 large-2 columns text-center">
                                     <p>Событий</p>
                                     <h5 data-open="ModalEvent{{ memo.pk }}"><a>{{ memo.event_set.all.count }}</a></h5>
                                 </div>
@@ -71,8 +73,11 @@
 
                                         </tbody>
                                     </table>
+                                    <hr>
+                                    <button class="button" data-open="ModalEventCreate{{ memo.pk }}">Новое событие(заглушка)</button>
                                 </div>
-                                <div class="small-2 large-2 columns text-center">
+
+                                <div class="small-1 large-2 columns text-center">
                                     <p>Заметок</p>
                                     <h5><a data-open="ModalMemo{{ memo.pk }}"
                                            href="#">{{ memo.note_set.all.count }}</a></h5>
@@ -100,6 +105,8 @@
                                         {% endfor %}
                                         </tbody>
                                     </table>
+                                <hr>
+                                    <button class="button" data-open="ModalMemoCreate{{ memo.pk }}">Новая заметка(заглушка)</button>
                                 </div>
 
                             </div>
