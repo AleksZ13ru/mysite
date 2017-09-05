@@ -24,11 +24,11 @@
             <li><a href="{% url 'dept_calendar' %}">Календарь</a></li>
             <li>
                 <a href="{% url 'docx_list' %}">Служебные записки</a>
-{#                <ul class="menu vertical">#}
+                <ul class="menu vertical">
 {#                    <li><a href="#">Все</a></li>#}
 {#                    <li><a href="#">Актуальные</a></li>#}
-{#                    <li><a href="#">Новая записка</a></li>#}
-{#                </ul>#}
+                    <li><a href="{% url 'docx_new' %}">Новая записка</a></li>
+                </ul>
             </li>
 
 {#            <!--li><a href="{% url 'si8_list' %}">Машинное время (chartjs)</a></li-->#}

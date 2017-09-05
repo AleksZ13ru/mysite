@@ -6,6 +6,7 @@
                 {% if user.is_authenticated %}
                     {#                    {% for memo in memos %}#}
                     <div class="callout">
+                        <a class="button" href="{% url 'docx_edit' pk=memo.pk %}">Редактировать</a>
                         <div class="row">
                             <div class="small-12 large-12 columns">
                                 <h5><a href="#">{{ memo }}</a></h5>
@@ -25,6 +26,13 @@
                                 <hr>
                                 <h5>Содержание:</h5>
                                 <p>{{ memo.text }}</p>
+                                <hr>
+                                {#                                <form method="post" class="post-form">#}
+                                {#                                    {% csrf_token %}#}
+                                {#                                    {{ form }}#}
+                                {#                                    <button type="submit" class="save btn btn-default">Save</button>#}
+                                {#                                    <button type="submit" class="button">Сохранить</button>#}
+                                {#                                </form>#}
                                 <hr>
                                 <h5>События:</h5>
                                 <table>
@@ -47,9 +55,7 @@
                                     </tbody>
                                 </table>
                                 <div class="column text-right">
-                                    <button class="button" data-open="ModalEventCreate{{ memo.pk }}">Новое
-                                        событие(заглушка)
-                                    </button>
+                                    <a class="button" data-open="ModalEventCreate">Новое событие</a>
                                 </div>
                                 <hr>
                                 <h5>Заметки:</h5>
@@ -72,17 +78,120 @@
                                     </tbody>
                                 </table>
                                 <div class="column text-right">
-                                    <button class="button" data-open="ModalMemoCreate{{ memo.pk }}">Новая
-                                        заметка(заглушка)
-                                    </button>
+                                    <a class="button" data-open="ModalNoteCreate">Новая заметка</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {#                    {% endfor %}#}
+                    {#------------------Новое событие--------------------------------------------#}
+
+                    {#                    'title', 'day_create', 'comment'#}
+                    {#                    <div class="reveal large" id="ModalEventCreate" data-reveal>#}
+                    {#                        <h5>Новое событие</h5>#}
+                    {#                        <form method="POST" class="post-form">{% csrf_token %}#}
+                    {#                            <div class="row">#}
+                    {#                                <div class="medium-2 columns">#}
+                    {#                                    <label>Дата#}
+                    {#                                    <input type="text" class="span2" id="dp_event">#}
+                    {#                                        {{ form.day_create }}#}
+                    {#                                    </label>#}
+                    {#                                </div>#}
+                    {#                                <div class="medium-4 columns">#}
+                    {#                                    <label>Событие#}
+                    {#                                    <input id="event_title" type="text" placeholder="Событие">#}
+                    {#                                        {{ form.title }}#}
+                    {#                                    </label>#}
+                    {#                                </div>#}
+                    {#                                <div class="medium-6 columns">#}
+                    {#                                    <label>Комментарий#}
+                    {#                                    <input id="event_comment" type="text" placeholder="Комментарий">#}
+                    {#                                        {{ form.comment }}#}
+                    {#                                    </label>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                            <button class="close-button" data-close aria-label="Close modal" type="button">#}
+                    {#                                <span aria-hidden="true">&times;</span>#}
+                    {#                            </button>#}
+                    {#                            <hr>#}
+                    {#                            <div class="column text-right">#}
+                    {#                            <button class="button">Сохранить Event</button>#}
+                    {#                                <button type="submit" class="save btn btn-default">Save</button>#}
+                    {#                                <a class="button" type="submit">Сохранить Event</a>#}
+                    {#                                <button class="success button" type="submit button">Save</button>#}
+                    {#                            </div>#}
+                    {#                        </form>#}
+                    {#                    </div>#}
+
+                    {#------------------Новая заметка--------------------------------------------#}
+                    <div class="reveal large" id="ModalNoteCreate" data-reveal>
+                        <h5>Новая заметка</h5>
+                        <div class="row">
+                            <div class="medium-2 columns">
+                                <label>Дата
+                                    <input type="text" class="span2" id="dp_memo">
+                                </label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>Заметка
+                                    <input type="text" placeholder="Заметка">
+                                </label>
+                            </div>
+                            <div class="medium-6 columns">
+                                <label>Комментарий
+                                    <input type="text" placeholder="Комментарий">
+                                </label>
+                            </div>
+                        </div>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <hr>
+                        <div class="column text-right">
+                            <button class="button">Сохранить Note</button>
+                        </div>
+                    </div>
+
                 {% endif %}
             </div>
         </div>
     </form>
+    <form method="POST" class="post-form">{% csrf_token %}
+        <div class="reveal large" id="ModalEventCreate" data-reveal>
+            <h5>Новое событие</h5>
+
+            {{ form.as_p }}
+            {#                            <button type="submit" data-close class="save btn btn-default">Save</button>#}
+            <input type="submit" class="button" value="Submit">
+
+        </div>
+    </form>
 {% endblock content %}
+
+{% block script %}
+    <script>
+        var now = new Date();
+        var initialDate = now.day + '-' + now.month + '-' + now.year;
+        $(function () {
+            $('#dp_event').fdatepicker({
+                language: 'ru',
+                initialDate: initialDate, //'30-07-2016',
+                format: 'dd-mm-yyyy',
+                disableDblClickSelection: true
+            });
+        });
+    </script>
+    <script>
+        var now = new Date();
+        var initialDate = now.day + '-' + now.month + '-' + now.year;
+        $(function () {
+            $('#dp_memo').fdatepicker({
+                language: 'ru',
+                initialDate: initialDate, //'30-07-2016',
+                format: 'dd-mm-yyyy',
+                disableDblClickSelection: true
+            });
+        });
+    </script>
+{% endblock %}
+
