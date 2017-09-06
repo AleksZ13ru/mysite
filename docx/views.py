@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Memo
-from .forms import EventForm, MemoForm
+from .forms import EventForm, MemoForm, NoteForm
 
 
 def docx_list(request):
@@ -39,23 +39,22 @@ def docx_list(request):
 
 def docx_detail(request, pk):
     memo = get_object_or_404(Memo, pk=pk)
-    form = EventForm()
+    # form = EventForm()
     # if request.method == "POST":
     #     form = EventForm(request.POST)
     #     if form.is_valid():
     #         event = form.save(commit=False)
     #
-    #         event.memo = pk
-    #         event.title = request.title
-    #         event.day_create = request.day_create
-    #         event.comment = request.comment
+    #         event.memo = memo
+    #         # event.title = request.title
+    #         # event.day_create = request.day_create
+    #         # event.comment = request.comment
     #
     #         event.save()
     # else:
-    #     form = EventForm()
-    # # if request.method == "POST":
-    # #     data = request.POST
-    return render(request, 'docx/docx_detail.html', {'memo': memo, 'form': form})
+    form_event = EventForm()
+    form_note = NoteForm()
+    return render(request, 'docx/docx_detail.html', {'memo': memo, 'form_event': form_event, 'form_note': form_note})
 
 
 def docx_new(request):
@@ -88,15 +87,25 @@ def docx_edit(request, pk):
 
 
 def event_new(request, pk):
+    memo = get_object_or_404(Memo, pk=pk)
+    # form = EventForm()
     if request.method == "POST":
         form = EventForm(request.POST)
         if form.is_valid():
             event = form.save(commit=False)
-            event.memo = pk
-            # post.author = request.user
-            # post.published_date = timezone.now()
+            event.memo = memo
             event.save()
-            return redirect('docx_detail', pk=pk)
-            # else:
-            # form = MemoForm()
     return redirect('docx_detail', pk=pk)
+
+
+def note_new(request, pk):
+    memo = get_object_or_404(Memo, pk=pk)
+    # form = EventForm()
+    if request.method == "POST":
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.memo = memo
+            note.save()
+    return redirect('docx_detail', pk=pk)
+
