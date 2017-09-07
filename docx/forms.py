@@ -7,7 +7,7 @@ class EventForm(forms.ModelForm):
         model = Event
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Событие'}),
-            'day_create': forms.TextInput(attrs={'class': 'span2', 'id': 'dp_memo'}),
+            'day_create': forms.TextInput(attrs={'class': 'span2', 'id': 'dp_event'}),
             'comment': forms.TextInput(attrs={'placeholder': 'Комментарий'})
         }
         fields = ('title', 'day_create', 'comment')
