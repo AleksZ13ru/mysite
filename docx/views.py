@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Memo
+from .models import Memo, Event, Note
 from .forms import EventForm, MemoForm, NoteForm
 
 
@@ -35,6 +35,11 @@ def docx_list(request):
 
     # return render(request, 'blog/post_list.html', {'posts': posts})
     return render(request, 'docx/docx_list.html', {'memos': memos})
+
+
+def docx_all(request):
+    memos = Memo.objects.all()
+    return render(request, 'docx/docx_all.html', {'memos': memos})
 
 
 def docx_detail(request, pk):
@@ -77,8 +82,6 @@ def docx_edit(request, pk):
         form = MemoForm(request.POST, instance=memo)
         if form.is_valid():
             memo = form.save(commit=False)
-            # post.author = request.user
-            # post.published_date = timezone.now()
             memo.save()
             return redirect('docx_detail', pk=memo.pk)
     else:
@@ -98,6 +101,13 @@ def event_new(request, pk):
     return redirect('docx_detail', pk=pk)
 
 
+def event_del(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    pk_memo = event.memo.pk
+    event.delete()
+    return redirect('docx_detail', pk=pk_memo)
+
+
 def note_new(request, pk):
     memo = get_object_or_404(Memo, pk=pk)
     # form = EventForm()
@@ -108,4 +118,12 @@ def note_new(request, pk):
             note.memo = memo
             note.save()
     return redirect('docx_detail', pk=pk)
+
+
+def note_del(request, pk):
+    note = get_object_or_404(Note, pk=pk)
+    pk_memo = note.memo.pk
+    note.delete()
+    return redirect('docx_detail', pk=pk_memo)
+
 

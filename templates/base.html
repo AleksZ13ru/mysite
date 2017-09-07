@@ -27,6 +27,7 @@
                 <ul class="menu vertical">
 {#                    <li><a href="#">Все</a></li>#}
 {#                    <li><a href="#">Актуальные</a></li>#}
+                    <li><a href="{% url 'docx_all' %}">Все</a></li>
                     <li><a href="{% url 'docx_new' %}">Новая записка</a></li>
                 </ul>
             </li>
@@ -74,7 +75,7 @@
         $('#dp1').fdatepicker({
             language: 'ru',
             initialDate: initialDate, //'30-07-2016',
-            format: 'dd-mm-yyyy',
+            format: 'dd.mm.yyyy',
             disableDblClickSelection: true
         });
     });

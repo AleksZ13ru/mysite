@@ -1,206 +1,254 @@
 {% extends 'base.html' %}
 {% block content %}
-    {#    <form class="fieldset">#}
-    <div class="row">
-        <div class="small-6 large-10 columns">
-            {% if user.is_authenticated %}
-                {#                    {% for memo in memos %}#}
-                <div class="callout">
-                    <a class="button" href="{% url 'docx_edit' pk=memo.pk %}">Редактировать</a>
-                    <div class="row">
-                        <div class="small-12 large-12 columns">
-                            <h5><a href="#">{{ memo }}</a></h5>
-                            <div class="small-8 large-8 columns">
-                                {% if memo.who == None %}
-                                    <h6>Исполнитель: <a href="#">Назначить</a></h6>
-                                {% else %}
-                                    <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
-                                {% endif %}
-                            </div>
-                            <div class="small-4 large-4 columns text-right">
-                                <label for="exampleFileUpload" class="button small">DOC загрузить</label>
-                                <input type="file" id="exampleFileUpload" class="show-for-sr">
-                                <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
-                                <input type="file" id="exampleFileUpload" class="show-for-sr">
-                            </div>
-                            <hr>
-                            <h5>Содержание:</h5>
-                            <p>{{ memo.text }}</p>
-                            <hr>
-                            {#                                <form method="post" class="post-form">#}
-                            {#                                    {% csrf_token %}#}
-                            {#                                    {{ form }}#}
-                            {#                                    <button type="submit" class="save btn btn-default">Save</button>#}
-                            {#                                    <button type="submit" class="button">Сохранить</button>#}
-                            {#                                </form>#}
-                            <hr>
-                            <h5>События:</h5>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Дата</th>
-                                    <th>Событие</th>
-                                    <th>Комментарий</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for event in memo.event_set.all %}
-                                    <tr>
-                                        <td>{{ event.day_create }}</td>
-                                        <td>{{ event.title }}</td>
-                                        <td>{{ event.comment }}</td>
-                                    </tr>
-                                {% endfor %}
-
-                                </tbody>
-                            </table>
-                            <hr>
-                            <form method="POST" class="post-form" action="{% url 'event_new' pk=memo.pk %}">{% csrf_token %}
-                                {#                                {{ form.as_table }}                                #}
-                                <div class="row">
-                                    <div class="medium-2 columns">
-                                        <label>Дата
-                                            {{ form_event.day_create }}
-                                        </label>
-                                    </div>
-                                    <div class="medium-3 columns">
-                                        <label>Событие
-                                            {{ form_event.title }}
-                                        </label>
-                                    </div>
-                                    <div class="medium-4 columns">
-                                        <label>Комментарий
-                                            {{ form_event.comment }}
-                                        </label>
-                                    </div>
-                                    <div class="medium-3 columns">
-                                        <p></p>
-                                        <button type="submit" class="button">Добавить событие</button>
-                                    </div>
+    <div class="fieldset">
+        <div class="row">
+            <div class="small-6 large-10 columns">
+                {% if user.is_authenticated %}
+                    {#                    {% for memo in memos %}#}
+                    <div class="callout">
+                        <a class="button" href="{% url 'docx_edit' pk=memo.pk %}">Редактировать</a>
+                        <div class="row">
+                            <div class="small-12 large-12 columns">
+                                <h5><a href="#">{{ memo }}</a></h5>
+                                <div class="small-8 large-8 columns">
+                                    {% if memo.who == None %}
+                                        <h6>Исполнитель: <a href="#">Назначить</a></h6>
+                                    {% else %}
+                                        <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
+                                    {% endif %}
                                 </div>
-                            </form>
-                            <hr>
-                            <h5>Заметки:</h5>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Дата</th>
-                                    <th>Заметка</th>
-                                    <th>Комментарий</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for note in memo.note_set.all %}
-                                    <tr>
-                                        <td>{{ note.day_create }}</td>
-                                        <td>{{ note.title }}</td>
-                                        <td>{{ note.comment }}</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                            <hr>
-                            <form method="POST" class="post-form" action="{% url 'note_new' pk=memo.pk %}">{% csrf_token %}
-                                {#                                {{ form.as_table }}                                #}
-                                <div class="row">
-                                    <div class="medium-2 columns">
-                                        <label>Дата
-                                            {{ form_note.day_create }}
-                                        </label>
-                                    </div>
-                                    <div class="medium-3 columns">
-                                        <label>Заметка
-                                            {{ form_note.title }}
-                                        </label>
-                                    </div>
-                                    <div class="medium-4 columns">
-                                        <label>Комментарий
-                                            {{ form_note.comment }}
-                                        </label>
-                                    </div>
-                                    <div class="medium-3 columns">
-                                        <p></p>
-                                        <button type="submit" class="button">Добавить заметку</button>
-                                    </div>
+                                <div class="small-4 large-4 columns text-right">
+                                    <label for="exampleFileUpload" class="button small">DOC загрузить</label>
+                                    <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                    <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
+                                    <input type="file" id="exampleFileUpload" class="show-for-sr">
                                 </div>
-                            </form>
-                            <hr>
+                                <hr>
+                                <h5>Содержание:</h5>
+                                <p>{{ memo.text }}</p>
+                                <hr>
+                                <h5>События:</h5>
+                                <table class="stack">
+                                    <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Событие</th>
+                                        <th>Комментарий</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <form method="POST" class="post-form"
+                                              action="{% url 'event_new' pk=memo.pk %}">{% csrf_token %}
+
+                                            <td>{{ form_event.day_create }}</td>
+                                            <td>{{ form_event.title }}</td>
+                                            <td>{{ form_event.comment }}</td>
+                                            <td>
+                                                <button type="submit" class="button small">+</button>
+                                                {#                                            <a type="submit" class="button small">+</a>#}
+                                            </td>
+
+                                        </form>
+                                    </tr>
+                                    {% for event in memo.event_set.all %}
+                                        <tr>
+                                            <form method="POST" class="post-form"
+                                                  action="{% url 'event_del' pk=event.pk %}">{% csrf_token %}
+                                                <td>{{ event.day_create }}</td>
+                                                <td>{{ event.title }}</td>
+                                                <td>{{ event.comment }}</td>
+                                                <td>
+                                                    <button type="submit" class="button small alert"
+                                                            style="margin-bottom: 0">x
+                                                    </button>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                                {#                            <hr>#}
+                                {#                            <form method="POST" class="post-form"#}
+                                {#                                  action="{% url 'event_new' pk=memo.pk %}">{% csrf_token %}#}
+                                {#                                {{ form.as_table }}                                #}
+                                {#                                <div class="row">#}
+                                {#                                    <div class="medium-2 columns">#}
+                                {#                                        <label>Дата#}
+                                {#                                            {{ form_event.day_create }}#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="medium-3 columns">#}
+                                {#                                        <label>Событие#}
+                                {#                                            {{ form_event.title }}#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="medium-4 columns">#}
+                                {#                                        <label>Комментарий#}
+                                {#                                            {{ form_event.comment }}#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="medium-3 columns">#}
+                                {#                                        <p></p>#}
+                                {#                                        <button type="submit" class="button">Добавить событие</button>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                            </form>#}
+                                <hr>
+                                <h5>Заметки:</h5>
+                                {#                            <form method="POST" class="post-form"#}
+                                {#                                  action="{% url 'note_new' pk=memo.pk %}">{% csrf_token %}#}
+                                {#                                {{ form.as_table }}                                #}
+                                {#                                <div class="row">#}
+                                {#                                    <div class="medium-2 columns">#}
+                                {#                                        <label>Дата#}
+                                {#                                            {{ form_note.day_create }}#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="medium-4 columns">#}
+                                {#                                        <label>Заметка#}
+                                {#                                            {{ form_note.title }}#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="medium-4 columns">#}
+                                {#                                        <label>Комментарий#}
+                                {#                                            {{ form_note.comment }}#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="medium-2 columns">#}
+                                {#                                        <label>Добавить#}
+                                {#                                            <button type="submit" class="button">Заметку</button>#}
+                                {#                                        </label>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                            </form>#}
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Заметка</th>
+                                        <th>Комментарий</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {#                                {% for note in memo.note_set.all %}#}
+                                    {#                                    <tr>#}
+                                    {#                                        <td>{{ note.day_create }}</td>#}
+                                    {#                                        <td>{{ note.title }}</td>#}
+                                    {#                                        <td>{{ note.comment }}</td>#}
+                                    {#                                    </tr>#}
+                                    {#                                {% endfor %}#}
+                                    <tr>
+                                        <form method="POST" class="post-form"
+                                              action="{% url 'note_new' pk=memo.pk %}">{% csrf_token %}
+
+                                            <td>{{ form_note.day_create }}</td>
+                                            <td>{{ form_note.title }}</td>
+                                            <td>{{ form_note.comment }}</td>
+                                            <td>
+                                                <button type="submit" class="button small">+</button>
+                                                {#                                            <a type="submit" class="button small">+</a>#}
+                                            </td>
+
+                                        </form>
+                                    </tr>
+                                    {% for note in memo.note_set.all %}
+                                        <tr>
+                                            <form method="POST" class="post-form"
+                                                  action="{% url 'note_del' pk=note.pk %}">{% csrf_token %}
+                                                <td>{{ note.day_create }}</td>
+                                                <td>{{ note.title }}</td>
+                                                <td>{{ note.comment }}</td>
+                                                <td>
+                                                    <button type="submit" class="button small alert"
+                                                            style="margin-bottom: 0">x
+                                                    </button>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <hr>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {#------------------Новое событие--------------------------------------------#}
+                    {#------------------Новое событие--------------------------------------------#}
 
-                {#                    'title', 'day_create', 'comment'#}
-                {#                    <div class="reveal large" id="ModalEventCreate" data-reveal>#}
-                {#                        <h5>Новое событие</h5>#}
-                {#                        <form method="POST" class="post-form">{% csrf_token %}#}
-                {#                            <div class="row">#}
-                {#                                <div class="medium-2 columns">#}
-                {#                                    <label>Дата#}
-                {#                                    <input type="text" class="span2" id="dp_event">#}
-                {#                                        {{ form.day_create }}#}
-                {#                                    </label>#}
-                {#                                </div>#}
-                {#                                <div class="medium-4 columns">#}
-                {#                                    <label>Событие#}
-                {#                                    <input id="event_title" type="text" placeholder="Событие">#}
-                {#                                        {{ form.title }}#}
-                {#                                    </label>#}
-                {#                                </div>#}
-                {#                                <div class="medium-6 columns">#}
-                {#                                    <label>Комментарий#}
-                {#                                    <input id="event_comment" type="text" placeholder="Комментарий">#}
-                {#                                        {{ form.comment }}#}
-                {#                                    </label>#}
-                {#                                </div>#}
-                {#                            </div>#}
-                {#                            <button class="close-button" data-close aria-label="Close modal" type="button">#}
-                {#                                <span aria-hidden="true">&times;</span>#}
-                {#                            </button>#}
-                {#                            <hr>#}
-                {#                            <div class="column text-right">#}
-                {#                            <button class="button">Сохранить Event</button>#}
-                {#                                <button type="submit" class="save btn btn-default">Save</button>#}
-                {#                                <a class="button" type="submit">Сохранить Event</a>#}
-                {#                                <button class="success button" type="submit button">Save</button>#}
-                {#                            </div>#}
-                {#                        </form>#}
-                {#                    </div>#}
+                    {#                    'title', 'day_create', 'comment'#}
+                    {#                    <div class="reveal large" id="ModalEventCreate" data-reveal>#}
+                    {#                        <h5>Новое событие</h5>#}
+                    {#                        <form method="POST" class="post-form">{% csrf_token %}#}
+                    {#                            <div class="row">#}
+                    {#                                <div class="medium-2 columns">#}
+                    {#                                    <label>Дата#}
+                    {#                                    <input type="text" class="span2" id="dp_event">#}
+                    {#                                        {{ form.day_create }}#}
+                    {#                                    </label>#}
+                    {#                                </div>#}
+                    {#                                <div class="medium-4 columns">#}
+                    {#                                    <label>Событие#}
+                    {#                                    <input id="event_title" type="text" placeholder="Событие">#}
+                    {#                                        {{ form.title }}#}
+                    {#                                    </label>#}
+                    {#                                </div>#}
+                    {#                                <div class="medium-6 columns">#}
+                    {#                                    <label>Комментарий#}
+                    {#                                    <input id="event_comment" type="text" placeholder="Комментарий">#}
+                    {#                                        {{ form.comment }}#}
+                    {#                                    </label>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                            <button class="close-button" data-close aria-label="Close modal" type="button">#}
+                    {#                                <span aria-hidden="true">&times;</span>#}
+                    {#                            </button>#}
+                    {#                            <hr>#}
+                    {#                            <div class="column text-right">#}
+                    {#                            <button class="button">Сохранить Event</button>#}
+                    {#                                <button type="submit" class="save btn btn-default">Save</button>#}
+                    {#                                <a class="button" type="submit">Сохранить Event</a>#}
+                    {#                                <button class="success button" type="submit button">Save</button>#}
+                    {#                            </div>#}
+                    {#                        </form>#}
+                    {#                    </div>#}
 
-                {#------------------Новая заметка--------------------------------------------#}
-                <div class="reveal large" id="ModalNoteCreate" data-reveal>
-                    <h5>Новая заметка</h5>
-                    <div class="row">
-                        <div class="medium-2 columns">
-                            <label>Дата
-                                <input type="text" class="span2" id="dp_memo">
-                            </label>
+                    {#------------------Новая заметка--------------------------------------------#}
+                    <div class="reveal large" id="ModalNoteCreate" data-reveal>
+                        <h5>Новая заметка</h5>
+                        <div class="row">
+                            <div class="medium-2 columns">
+                                <label>Дата
+                                    <input type="text" class="span2" id="dp_memo">
+                                </label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>Заметка
+                                    <input type="text" placeholder="Заметка">
+                                </label>
+                            </div>
+                            <div class="medium-6 columns">
+                                <label>Комментарий
+                                    <input type="text" placeholder="Комментарий">
+                                </label>
+                            </div>
                         </div>
-                        <div class="medium-4 columns">
-                            <label>Заметка
-                                <input type="text" placeholder="Заметка">
-                            </label>
-                        </div>
-                        <div class="medium-6 columns">
-                            <label>Комментарий
-                                <input type="text" placeholder="Комментарий">
-                            </label>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <hr>
+                        <div class="column text-right">
+                            <button class="button">Сохранить Note</button>
                         </div>
                     </div>
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <hr>
-                    <div class="column text-right">
-                        <button class="button">Сохранить Note</button>
-                    </div>
-                </div>
 
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
-    {#    </form>#}
 
 {% endblock content %}
 

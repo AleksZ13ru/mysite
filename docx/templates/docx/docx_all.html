@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="fieldset">
+        <div class="row">
+            <div class="small-6 large-10 columns">
+                {% if user.is_authenticated %}
+                    <table class="hover">
+                        <thead>
+                        <tr>
+                            <th>Номер</th>
+                            <th>Адресат</th>
+                            <th>Название</th>
+                            <th>Дата</th>
+                            <th>Статус</th>
+                        </tr>
+                        </thead>
+{#                        <h5><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo }}</a></h5>#}
+                        <tbody>
+                        {% for memo in memos %}
+                            <tr>
+                                <td><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo.number }}</a></td>
+                                <td>{{ memo.to_whom }}</td>
+                                <td>{{ memo.title }}</td>
+                                <td>{{ memo.day_create }}</td>
+                                <td>В работе</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
