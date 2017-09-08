@@ -6,10 +6,10 @@
                 {% if user.is_authenticated %}
                     {#                    {% for memo in memos %}#}
                     <div class="callout">
-                        <a class="button" href="{% url 'docx_edit' pk=memo.pk %}">Редактировать</a>
+                        {#                        <a class="button" href="{% url 'docx_edit' pk=memo.pk %}">Редактировать</a>#}
                         <div class="row">
                             <div class="small-12 large-12 columns">
-                                <h5><a href="#">{{ memo }}</a></h5>
+                                <h5><a href="{% url 'docx_edit' pk=memo.pk %}">{{ memo }}</a></h5>
                                 <div class="small-8 large-8 columns">
                                     {% if memo.who == None %}
                                         <h6>Исполнитель: <a href="#">Назначить</a></h6>
@@ -25,7 +25,7 @@
                                 </div>
                                 <hr>
                                 <h5>Содержание:</h5>
-                                <p>{{ memo.text }}</p>
+                                <p><textarea rows="12">{{ memo.text }}</textarea></p>
                                 <hr>
                                 <h5>События:</h5>
                                 <table class="stack">

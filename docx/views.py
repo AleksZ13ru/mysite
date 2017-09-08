@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Memo, Event, Note
 from .forms import EventForm, MemoForm, NoteForm
+from django.utils import timezone
 
 
 def docx_list(request):
@@ -38,7 +39,28 @@ def docx_list(request):
 
 
 def docx_all(request):
-    memos = Memo.objects.all()
+    memos = Memo.objects.all().order_by('number').reverse()
+    return render(request, 'docx/docx_all.html', {'memos': memos})
+
+
+# адресат
+def docx_destination(request, pk):
+    memos = Memo.objects.filter(to_whom=pk)
+    # memos = Memo.objects.all()
+    return render(request, 'docx/docx_all.html', {'memos': memos})
+
+
+# исполнитель
+def docx_executor(request, pk):
+    memos = Memo.objects.filter(who=pk)
+    # memos = Memo.objects.all()
+    return render(request, 'docx/docx_all.html', {'memos': memos})
+
+
+# по дате - год, месяц
+def docx_calendar(request, year=timezone.now().year, month=timezone.now().month):
+    memos = Memo.objects.filter(day_create__month=month).filter(day_create__year=year)
+    # memos = Memo.objects.all()
     return render(request, 'docx/docx_all.html', {'memos': memos})
 
 
@@ -86,7 +108,7 @@ def docx_edit(request, pk):
             return redirect('docx_detail', pk=memo.pk)
     else:
         form = MemoForm(instance=memo)
-    return render(request, 'docx/docx_edit.html', {'form': form})
+    return render(request, 'docx/docx_edit.html', {'memo': memo, 'form': form})
 
 
 def event_new(request, pk):

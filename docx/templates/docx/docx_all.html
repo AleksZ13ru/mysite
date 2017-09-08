@@ -9,6 +9,7 @@
                         <tr>
                             <th>Номер</th>
                             <th>Адресат</th>
+                            <th>Исполнитель</th>
                             <th>Название</th>
                             <th>Дата</th>
                             <th>Статус</th>
@@ -19,9 +20,14 @@
                         {% for memo in memos %}
                             <tr>
                                 <td><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo.number }}</a></td>
-                                <td>{{ memo.to_whom }}</td>
-                                <td>{{ memo.title }}</td>
-                                <td>{{ memo.day_create }}</td>
+                                <td><a href="{% url 'docx_destination' pk=memo.to_whom.pk %}">{{ memo.to_whom }}</a></td>
+                                {% if memo.who is not None %}
+                                    <td><a href="{% url 'docx_executor' pk=memo.who.pk %}">{{ memo.who }}</a></td>
+                                {% else %}
+                                    <td><a href="#">Назначить</a></td>
+                                {% endif %}
+                                <td><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo.title }}</a></td>
+                                <td><a href="{% url 'docx_calendar' year=memo.day_create.year month=memo.day_create.month %}">{{ memo.day_create }}</a></td>
                                 <td>В работе</td>
                             </tr>
                         {% endfor %}

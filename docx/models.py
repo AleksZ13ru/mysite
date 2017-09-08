@@ -10,8 +10,8 @@ class Memo(models.Model):
     number = models.IntegerField()  # номер
     title = models.CharField(max_length=100)    # заголовок
     # to_whom = models.CharField(max_length=100)  # кому
-    to_whom = models.ForeignKey('PeopleToWhom')  # кому
-    who = models.ForeignKey('PeopleWho', blank=True, null=True)  # исполнитель
+    to_whom = models.ForeignKey('PeopleToWhom')  # кому адресат = destination
+    who = models.ForeignKey('PeopleWho', blank=True, null=True)  # исполнитель = executor
     day_create = models.DateField(blank=True, null=True)  # дата создания
     text = models.CharField(max_length=500, null=True)
     # event = models.ForeignKey('Event', blank=True, null=True)  # События

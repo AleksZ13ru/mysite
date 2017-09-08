@@ -33,12 +33,17 @@
                                 {{ form.title }}
                             </label>
                         </div>
+                        <div class="medium-2 columns">
+                            <label>Исполнитель
+                                {{ form.who }}
+                            </label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="medium-12 columns">
                             <label>
-                                Текст служебной записки
-{#                                <textarea>{{ form.text }}</textarea>#}
+                                Содержание:
+                                {#                                <textarea>{{ form.text }}</textarea>#}
                                 {{ form.text }}
                             </label>
                         </div>
@@ -46,6 +51,11 @@
                     <div class="text-right">
                         {#                    <button type="submit" class="save btn btn-default">Save</button>#}
                         <button type="submit" class="button">Сохранить</button>
+                        {% if memo is not None %}
+                            <a href="{% url 'docx_detail' pk=memo.pk %}" class="button alert">Отмена</a>
+                        {% else %}
+                            <a href="{% url 'docx_all' %}" class="button alert">Отмена</a>
+                        {% endif %}
                     </div>
                 </form>
             </div>
