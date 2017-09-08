@@ -45,21 +45,21 @@ def docx_all(request):
 
 # адресат
 def docx_destination(request, pk):
-    memos = Memo.objects.filter(to_whom=pk)
+    memos = Memo.objects.filter(to_whom=pk).order_by('number').reverse()
     # memos = Memo.objects.all()
     return render(request, 'docx/docx_all.html', {'memos': memos})
 
 
 # исполнитель
 def docx_executor(request, pk):
-    memos = Memo.objects.filter(who=pk)
+    memos = Memo.objects.filter(who=pk).order_by('number').reverse()
     # memos = Memo.objects.all()
     return render(request, 'docx/docx_all.html', {'memos': memos})
 
 
 # по дате - год, месяц
 def docx_calendar(request, year=timezone.now().year, month=timezone.now().month):
-    memos = Memo.objects.filter(day_create__month=month).filter(day_create__year=year)
+    memos = Memo.objects.filter(day_create__month=month).filter(day_create__year=year).order_by('number').reverse()
     # memos = Memo.objects.all()
     return render(request, 'docx/docx_all.html', {'memos': memos})
 
