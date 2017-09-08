@@ -14,14 +14,25 @@ def dept_list(request):
     args = {}
     # schedules = Schedule.objects.all()
     schedules = Schedule.today()
+    schedules_night = Schedule.today_night()
     for schedule in schedules:
         args['sched'] = schedule.title
-        peoples = People.objects.filter(schedule=schedule)
+        peoples = People.objects.filter(schedule=schedule).filter(dayofquit=None)
         args_peoples = []
         for people in peoples:
             args_people = {'function': people.function, 'fio': people.fio()}
             args_peoples.append(args_people)
         args['args_peoples'] = args_peoples
+
+        for schedule in schedules_night:
+            args['sched_n'] = schedule.title
+        peoples = People.objects.filter(schedule=schedule).filter(dayofquit=None)
+        args_peoples = []
+        for people in peoples:
+            args_people = {'function': people.function, 'fio': people.fio()}
+            args_peoples.append(args_people)
+        args['args_peoples_n'] = args_peoples
+
     args['time'] = timezone.now()
     return render(request, 'dept/dept_list.html', {'args': args})
 

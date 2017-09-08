@@ -222,6 +222,19 @@ class Schedule(models.Model):
             return Schedule.objects.filter(startday=std)
 
     @staticmethod
+    def today_night():
+        schedules = Schedule.objects.exclude(title='Дневная')
+        std = None
+        for schedule in schedules:
+            t = (timezone.now().toordinal() - schedule.startday.toordinal()) % 4
+            if t == 1:
+                std = schedule.startday
+        if std is None:
+            return None
+        else:
+            return Schedule.objects.filter(startday=std)
+
+    @staticmethod
     def itermonthdates(year=None, month=None, schedule_filter=None):
         """
         Получение массива кодов(d - день, n - ночь, w - выходной) для указанного месяца

@@ -1,44 +1,118 @@
 {% extends 'base.html' %}
 {% block content %}
-<form class="fieldset">
-    <div class="row">
-        <!--div class="small-2 large-4 columns">
-            <div class="callout">
-                <h5>Заметки</h5>
-                <p>Простой текст</p>
-                <a href="">Добавить</a>
-            </div>
-        </div>
-        <div class="small-4 large-4 columns">
-            <div class="callout">
-                <h5>Дело №1</h5>
-                <p>Преобретение запасных частей</p>
-                <p>Служебная №125</p>
-                <a href="">Изменить</a>
-            </div>
-            <div class="callout">
-                <h5>Дело №2</h5>
-                <p>Преобретение запасных частей</p>
-                <p>Служебная №125</p>
-                <a href="">Изменить</a>
-            </div>
-        </div-->
-        <div class="small-6 large-4 columns">
-            <div class="callout secondary">
-                <h5>{{args.time|date:'d E Y'}}   {{args.sched}}</h5>
-                {% for people in args.args_peoples%}
-                <div class="row">
-                  <div class="medium-7 columns">
-                    <p>{{ people.function}}</p>
-                  </div>
-                  <div class="medium-5 columns">
-                    <p>{{ people.fio}}</p>
-                  </div>
+    <form class="fieldset">
+        <div class="row">
+            <!--div class="small-2 large-4 columns">
+                <div class="callout">
+                    <h5>Заметки</h5>
+                    <p>Простой текст</p>
+                    <a href="">Добавить</a>
                 </div>
-                {% endfor%}
-                <a href="{% url 'dept_calendar' %}">Календарь</a>
+            </div>
+            <div class="small-4 large-4 columns">
+                <div class="callout">
+                    <h5>Дело №1</h5>
+                    <p>Преобретение запасных частей</p>
+                    <p>Служебная №125</p>
+                    <a href="">Изменить</a>
+                </div>
+                <div class="callout">
+                    <h5>Дело №2</h5>
+                    <p>Преобретение запасных частей</p>
+                    <p>Служебная №125</p>
+                    <a href="">Изменить</a>
+                </div>
+            </div-->
+            <div class="small-6 large-4 columns">
+                <div class="callout secondary">
+                    <h5>{{ args.time|date:'d E Y' }}</h5>
+                    <h5>День: {{ args.sched }}</h5>
+                    {% for people in args.args_peoples %}
+                        <div class="row">
+                            <div class="medium-7 columns">
+                                <p>{{ people.function }}</p>
+                            </div>
+                            <div class="medium-5 columns">
+                                <p>{{ people.fio }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <h5>Ночь: {{ args.sched_n }}</h5>
+                    {% for people in args.args_peoples_n %}
+                        <div class="row">
+                            <div class="medium-7 columns">
+                                <p>{{ people.function }}</p>
+                            </div>
+                            <div class="medium-5 columns">
+                                <p>{{ people.fio }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <a href="{% url 'dept_calendar' %}">Календарь</a>
+                </div>
+            </div>
+            <div class="small-4 large-4 columns">
+                <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+                    <div class="orbit-wrapper">
+                        <div class="orbit-controls">
+                            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;
+                            </button>
+                            <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;
+                            </button>
+                        </div>
+                        <ul class="orbit-container">
+                            <li class="orbit-slide">
+                                <div class="callout secondary">
+                                    <h3 class="text-center">Вчера</h3>
+                                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+                                    <h3 class="text-center">This Orbit slider does not use animations.</h3>
+                                </div>
+                            </li>
+                            <li class="is-active orbit-slide">
+                                <div class="callout secondary">
+                                    <h5 class="text-center">Сегодня: {{ args.time|date:'d E Y' }}</h5>
+                                    <h5 class="text-center">День: {{ args.sched }}</h5>
+                                    {% for people in args.args_peoples %}
+                                        <div class="row">
+                                            <div class="medium-7 columns">
+                                                <p>{{ people.function }}</p>
+                                            </div>
+                                            <div class="medium-5 columns">
+                                                <p>{{ people.fio }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                    <h5 class="text-center">Ночь: {{ args.sched_n }}</h5>
+                                    {% for people in args.args_peoples_n %}
+                                        <div class="row">
+                                            <div class="medium-7 columns">
+                                                <p>{{ people.function }}</p>
+                                            </div>
+                                            <div class="medium-5 columns">
+                                                <p>{{ people.fio }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                            <li class="orbit-slide">
+                                <div class="callout secondary">
+                                    <h3 class="text-center">Завтра</h3>
+                                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde harum rem, beatae ipsa consectetur quisquam. Rerum ratione, delectus atque tempore sed, suscipit ullam, beatae distinctio cupiditate ipsam eligendi tempora expedita.</p>
+                                    <h3 class="text-center">This Orbit slider does not use animations.</h3>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="orbit-bullets">
+                        <button data-slide="0">                     <span class="show-for-sr">First slide details.</span></button>
+                        <button data-slide="1" class="is-active">   <span class="show-for-sr">Second slide details.</span></button>
+                        <button data-slide="2">                     <span class="show-for-sr">Third slide details.</span></button>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 {% endblock content %}
