@@ -13,8 +13,13 @@ DATE_FORMAT = 'd E Y'
 def dept_list(request):
     args = {}
     # schedules = Schedule.objects.all()
-    schedules = Schedule.today()
-    schedules_night = Schedule.today_night()
+    # schedules = Schedule.today()
+    # schedules_night = Schedule.today_night()
+    schedules = Schedule.day()
+    schedules_night = Schedule.day(night=True)
+    # args = {'yesterday' : {sched: 'Смена№1', args_peoples_n:{'function': 'инженер', 'fio': 'Иванов'}},
+    #         'today': 0,
+    #         'tomorrow': +1}
     for schedule in schedules:
         args['sched'] = schedule.title
         peoples = People.objects.filter(schedule=schedule).filter(dayofquit=None)
@@ -24,8 +29,8 @@ def dept_list(request):
             args_peoples.append(args_people)
         args['args_peoples'] = args_peoples
 
-        for schedule in schedules_night:
-            args['sched_n'] = schedule.title
+    for schedule in schedules_night:
+        args['sched_n'] = schedule.title
         peoples = People.objects.filter(schedule=schedule).filter(dayofquit=None)
         args_peoples = []
         for people in peoples:
