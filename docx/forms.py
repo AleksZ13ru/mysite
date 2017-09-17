@@ -43,7 +43,7 @@ class MemoForm(forms.ModelForm):
             'text': forms.Textarea(attrs={'rows': 10}),
             'day_create': forms.TextInput(attrs={'class': 'span2', 'id': 'dp_memo'})
         }
-        fields = ('number', 'title', 'to_whom', 'day_create', 'text', 'who')
+        fields = ('number', 'title', 'to_whom', 'day_create', 'text', 'who', 'status')
 
     # def __init__(self, *args, **kwargs):
     #     super(MemoForm, self).__init__(*args, **kwargs)

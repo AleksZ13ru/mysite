@@ -2,7 +2,30 @@
 {% block content %}
     <div class="fieldset">
         <div class="row">
-            <div class="small-6 large-10 columns"  style="width: 100%">
+            <div class="small-12 medium-6  large-6 columns">
+                {% if PeopleToWhom_text is not None %}
+                    <h5> {{ PeopleToWhom_text }} </h5>
+                {% elif PeopleWho_text is not None %}
+                    <h5> {{ PeopleWho_text }} </h5>
+                {% else %}
+                    <h5> Все служебные записки </h5>
+                {% endif %}
+                <a href="{% url 'docx_new' %}" class="button">Создать</a>
+            </div>
+            <div class="small-1 medium-1  large-2 columns">
+            </div>
+            <div class="small-12 medium-5  large-4 columns">
+                <ul class="menu">
+                    <li><input type="search" placeholder="Поиск"></li>
+                    <li>
+                        <button type="button" class="button">Поиск</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="small-6 large-10 columns" style="width: 100%">
                 {% if user.is_authenticated %}
                     <table class="hover">
                         <thead>
@@ -35,7 +58,7 @@
                                 {% else %}
                                     <td> ---</td>
                                 {% endif %}
-                                <td>В работе</td>
+                                <td>{{ memo.status }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

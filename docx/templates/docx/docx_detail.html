@@ -18,6 +18,7 @@
                                         <hr>
                                         <p>Рабочий телефон: {{ memo.who.phone_number }}</p>
                                         <p>Мобильный телефон: {{ memo.who.phone_mobile_number }}</p>
+                                        <p>Электронная почта: {{ memo.who.email }}</p>
                                     {% endif %}
                                 </div>
                                 <div class="small-3 large-4 columns text-right">
@@ -130,6 +131,7 @@
                                 <table>
                                     <thead>
                                     <tr>
+                                        <th></th>
                                         <th>Дата</th>
                                         <th>Заметка</th>
                                         <th>Комментарий</th>
@@ -146,7 +148,7 @@
                                     <tr>
                                         <form method="POST" class="post-form"
                                               action="{% url 'note_new' pk=memo.pk %}">{% csrf_token %}
-
+                                            <td></td>
                                             <td>{{ form_note.day_create }}</td>
                                             <td>{{ form_note.title }}</td>
                                             <td>{{ form_note.comment }}</td>
@@ -159,6 +161,9 @@
                                     </tr>
                                     {% for note in memo.note_set.all %}
                                         <tr>
+                                            <td>
+{#                                                Нужно вставить галочку о выполнении задания#}
+                                            </td>
                                             <form method="POST" class="post-form"
                                                   action="{% url 'note_del' pk=note.pk %}">{% csrf_token %}
                                                 <td>{{ note.day_create }}</td>

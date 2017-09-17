@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Memo, Event, Note
+from .models import Memo, Event, Note, PeopleToWhom, PeopleWho
 from .forms import EventForm, MemoForm, NoteForm
 from django.utils import timezone
 
@@ -47,14 +47,16 @@ def docx_all(request):
 def docx_destination(request, pk):
     memos = Memo.objects.filter(to_whom=pk).order_by('number').reverse()
     # memos = Memo.objects.all()
-    return render(request, 'docx/docx_all.html', {'memos': memos})
+    PeopleToWhom_text = "Адресат: " + PeopleToWhom.objects.get(pk=pk).name
+    return render(request, 'docx/docx_all.html', {'memos': memos, "PeopleToWhom_text": PeopleToWhom_text})
 
 
 # исполнитель
 def docx_executor(request, pk):
     memos = Memo.objects.filter(who=pk).order_by('number').reverse()
     # memos = Memo.objects.all()
-    return render(request, 'docx/docx_all.html', {'memos': memos})
+    PeopleWho_text = "Исполнитель: " + PeopleWho.objects.get(pk=pk).fio()
+    return render(request, 'docx/docx_all.html', {'memos': memos, "PeopleWho_text": PeopleWho_text})
 
 
 # по дате - год, месяц
@@ -149,3 +151,12 @@ def note_del(request, pk):
     return redirect('docx_detail', pk=pk_memo)
 
 
+def note_end(request, pk):
+    note = get_object_or_404(Note, pk=pk)
+    pk_memo = note.memo.pk
+    if note.note_end:
+        note.note_end = False
+    else:
+        note.note_end = True
+    note.save()
+    return redirect('docx_detail', pk=pk_memo)

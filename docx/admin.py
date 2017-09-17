@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Memo, PeopleToWhom, PeopleWho, Event, Note
+from .models import Memo, PeopleToWhom, PeopleWho, Event, Note, MemoStatus
 
 
 class EventInline(admin.TabularInline):
@@ -38,6 +38,7 @@ class PeopleWhoAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Memo, MemoAdmin)
+admin.site.register(MemoStatus)
 admin.site.register(PeopleToWhom, PeopleToWhomAdmin)
 admin.site.register(PeopleWho, PeopleWhoAdmin)
 admin.site.register(Event)

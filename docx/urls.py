@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/event_del/$', views.event_del, name='event_del'),
     url(r'^(?P<pk>[0-9]+)/note_new/$', views.note_new, name='note_new'),
     url(r'^(?P<pk>[0-9]+)/note_del/$', views.note_del, name='note_del'),
+    url(r'^(?P<pk>[0-9]+)/note_end/$', views.note_end, name='note_end'),
     url(r'^(?P<pk>[0-9]+)/edit/$', views.docx_edit, name='docx_edit'),
     # url(r'^calendar/$', views.dept_calendar, name='dept_calendar'),
     # url(r'^calendar/(?P<year>[0-9]+)/(?P<month>[0-9]+)/$', views.dept_calendar, name='dept_calendar')
