@@ -2,7 +2,7 @@
 {% block content %}
     <div class="fieldset">
         <div class="row">
-            <div class="small-6 large-10 columns">
+            <div class="small-6 large-10 columns"  style="width: 100%">
                 {% if user.is_authenticated %}
                     <table class="hover">
                         <thead>
@@ -15,19 +15,26 @@
                             <th>Статус</th>
                         </tr>
                         </thead>
-{#                        <h5><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo }}</a></h5>#}
+                        {#                        <h5><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo }}</a></h5>#}
                         <tbody>
                         {% for memo in memos %}
                             <tr>
                                 <td><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo.number }}</a></td>
-                                <td><a href="{% url 'docx_destination' pk=memo.to_whom.pk %}">{{ memo.to_whom }}</a></td>
+                                <td><a href="{% url 'docx_destination' pk=memo.to_whom.pk %}">{{ memo.to_whom }}</a>
+                                </td>
                                 {% if memo.who is not None %}
-                                    <td><a href="{% url 'docx_executor' pk=memo.who.pk %}">{{ memo.who }}</a></td>
+                                    <td><a href="{% url 'docx_executor' pk=memo.who.pk %}">{{ memo.who.fio }}</a></td>
                                 {% else %}
                                     <td><a href="#">Назначить</a></td>
                                 {% endif %}
                                 <td><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo.title }}</a></td>
-                                <td><a href="{% url 'docx_calendar' year=memo.day_create.year month=memo.day_create.month %}">{{ memo.day_create }}</a></td>
+                                {% if  memo.day_create is not None %}
+                                    <td>
+                                        <a href="{% url 'docx_calendar' year=memo.day_create.year month=memo.day_create.month %}">{{ memo.day_create }}</a>
+                                    </td>
+                                {% else %}
+                                    <td> ---</td>
+                                {% endif %}
                                 <td>В работе</td>
                             </tr>
                         {% endfor %}

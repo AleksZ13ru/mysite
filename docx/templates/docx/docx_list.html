@@ -9,17 +9,17 @@
                             <div class="row">
                                 <div class="small-10 large-8 columns">
                                     <h5><a href="{% url 'docx_detail' pk=memo.pk %}">{{ memo }}</a></h5>
-                                    <div class="small-6 large-6 columns">
+                                    <div class="small-8 large-8 columns">
                                         {% if memo.who == None %}
                                             <h6>Исполнитель: <a href="#">Назначить</a></h6>
                                         {% else %}
                                             <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
                                         {% endif %}
                                     </div>
-                                    <div class="small-6 large-6 columns text-right">
-                                        <label for="exampleFileUpload" class="button small">DOC</label>
+                                    <div class="small-4 large-4 columns text-right">
+                                        <label for="exampleFileUpload" class="button small" style="margin-bottom: 0">DOC</label>
                                         <input type="file" id="exampleFileUpload" class="show-for-sr">
-                                        <label for="exampleFileUpload" class="button alert small">PDF</label>
+                                        <label for="exampleFileUpload" class="button alert small" style="margin-bottom: 0">PDF</label>
                                         <input type="file" id="exampleFileUpload" class="show-for-sr">
                                     </div>
                                 </div>

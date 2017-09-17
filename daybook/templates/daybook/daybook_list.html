@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="fieldset">
+        <div class="row">
+            <div class="small-6 large-10 columns">
+                <p>Day Book</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        var now = new Date();
+        var initialDate = now.day + '-' + now.month + '-' + now.year;
+        $(function () {
+            $('#dp_memo').fdatepicker({
+                language: 'ru',
+                initialDate: initialDate, //'30-07-2016',
+                format: 'dd.mm.yyyy',
+                disableDblClickSelection: true
+            });
+        });
+    </script>
+{% endblock %}

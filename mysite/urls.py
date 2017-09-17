@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^filer/', include('filer.urls')),
     url(r'^', include('filer.server.urls')),
     url(r'^docx/', include('docx.urls')),
+    url(r'^daybook/', include('daybook.urls')),
 
 
 ]

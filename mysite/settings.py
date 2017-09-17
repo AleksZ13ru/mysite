@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dept',
     'docx',
+    'daybook',
     'si8device',
     'si8parsing',
     'easy_thumbnails',

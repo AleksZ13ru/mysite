@@ -2,7 +2,7 @@
 {% block content %}
     <div class="fieldset">
         <div class="row">
-            <div class="small-6 large-10 columns">
+            <div class="small-12 large-10 columns">
                 {% if user.is_authenticated %}
                     {#                    {% for memo in memos %}#}
                     <div class="callout">
@@ -14,10 +14,13 @@
                                     {% if memo.who == None %}
                                         <h6>Исполнитель: <a href="#">Назначить</a></h6>
                                     {% else %}
-                                        <h6>Исполнитель: <a href="#">{{ memo.who }}</a></h6>
+                                        <h6>Исполнитель: <a href="#">{{ memo.who.fio }}</a></h6>
+                                        <hr>
+                                        <p>Рабочий телефон: {{ memo.who.phone_number }}</p>
+                                        <p>Мобильный телефон: {{ memo.who.phone_mobile_number }}</p>
                                     {% endif %}
                                 </div>
-                                <div class="small-4 large-4 columns text-right">
+                                <div class="small-3 large-4 columns text-right">
                                     <label for="exampleFileUpload" class="button small">DOC загрузить</label>
                                     <input type="file" id="exampleFileUpload" class="show-for-sr">
                                     <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>

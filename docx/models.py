@@ -43,10 +43,31 @@ class PeopleWho(models.Model):
     class Meta:
         verbose_name = "Исполнитель"
         verbose_name_plural = "Исполнители"
-    name = models.CharField(max_length=100)    # заголовок
+    # name = models.CharField(max_length=100)    # заголовок
+    family = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=30, default='')
+    second_name = models.CharField(max_length=30, blank=True, null=True)
+    position = models.CharField(max_length=100, blank=True, null=True)  # должность
+    phone_number = models.CharField(max_length=100, blank=True, null=True)  # номер телефона
+    phone_mobile_number = models.CharField(max_length=100, blank=True, null=True)  # номер мобильного телефона
+
+    def fio(self):
+        fio = '%s %s.%s.' % (
+            self.family,
+            self.first_name[0],  # берем первую букву
+            self.second_name[0]  # берем первую букву
+
+        )
+        return fio
 
     def __str__(self):
-        return self.name
+        fio = '%s %s.%s. - %s' % (
+            self.family,
+            self.first_name[0],   # берем первую букву
+            self.second_name[0],  # берем первую букву
+            self.position
+        )
+        return fio
 
 
 # События
