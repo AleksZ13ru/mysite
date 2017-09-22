@@ -2,45 +2,70 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Memo, Event, Note, PeopleToWhom, PeopleWho
 from .forms import EventForm, MemoForm, NoteForm
 from django.utils import timezone
+# from django.http import HttpResponse, JsonResponse
+# from django.core import serializers
+
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from .serializers import MemoSerializer
 
 
 def docx_list(request):
-    # parsing_si8()
-    # {'value': 51.8, 'now_date': datetime.datetime(2016, 12, 26, 7, 30), 'id_si8': 1}
-
-    # html = "<html><body> This is %s view</body></html>" % "hello!"
-    # return HttpResponse(html)
-    # year = int(year)
-    # month = int(month)
-    # date = timezone.datetime(year=year, month=month, day=1)
-    # my_cal = calendar.Calendar(firstweekday=0)
-    args = {}
-    # day = []
-    # for i in my_cal.itermonthdates(year, month):
-    #    if i.month == date.month:
-    #        day.append(i)
-    # args['day'] = day
-    # args['view_month'] = {'year': year, 'month': month, 'year_last': year - 1, 'year_next': year + 1}
-
-    # persons = Schedule.itermonthdates(year, month)  # Заполнение графика работы
-    # persons = Holiday.modify_schedule(year, month, persons)  # Заполнение отпусков
-    # persons = MicroSchedule.modify_schedule(year, month, persons)  # Заполнение подмена сменных
-    # persons = Schedule.delete_standart_person_in5day(year, month, persons)  # Вырез персон с обычным графиком работы
-    # persons = Schedule.delete_quit_person(year, month, persons)  # удаление уволевшихся
-
-    # args.update(persons)
-
-    memos = Memo.objects.all()  # Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    # for memo in memos:
-    #    event = Memo.objects.filter(event__in=memo.id).len()
-
-    # return render(request, 'blog/post_list.html', {'posts': posts})
+    memos = Memo.objects.all()
     return render(request, 'docx/docx_list.html', {'memos': memos})
 
 
 def docx_all(request):
     memos = Memo.objects.all().order_by('number').reverse()
     return render(request, 'docx/docx_all.html', {'memos': memos})
+
+
+@csrf_exempt
+def docx_json(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        memos = Memo.objects.all()
+        serializer = MemoSerializer(memos, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = MemoSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def docx_json_detail(request, pk):
+    """
+    Retrieve, update or delete a code snippet.
+    """
+    try:
+        memo = Memo.objects.get(pk=pk)
+    except Memo.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = MemoSerializer(memo)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = MemoSerializer(memo, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        memo.delete()
+        return HttpResponse(status=204)
 
 
 # адресат
@@ -68,19 +93,6 @@ def docx_calendar(request, year=timezone.now().year, month=timezone.now().month)
 
 def docx_detail(request, pk):
     memo = get_object_or_404(Memo, pk=pk)
-    # form = EventForm()
-    # if request.method == "POST":
-    #     form = EventForm(request.POST)
-    #     if form.is_valid():
-    #         event = form.save(commit=False)
-    #
-    #         event.memo = memo
-    #         # event.title = request.title
-    #         # event.day_create = request.day_create
-    #         # event.comment = request.comment
-    #
-    #         event.save()
-    # else:
     form_event = EventForm()
     form_note = NoteForm()
     return render(request, 'docx/docx_detail.html', {'memo': memo, 'form_event': form_event, 'form_note': form_note})

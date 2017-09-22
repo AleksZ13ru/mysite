@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'dept',
     'docx',
     'daybook',
@@ -107,9 +108,14 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}
 
 # Celery settings
-
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 # backend='redis://localhost', broker='redis://localhost'

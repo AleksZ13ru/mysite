@@ -3,20 +3,12 @@ from django.db import models
 
 # Служебная записка
 class Memo(models.Model):
-    # STATUS_LIST = (
-    #     ('D', ''),
-    #     ('S', 'Заведено'),
-    #     ('W', 'В работе'),
-    #     ('F', 'Завершено'),
-    # )
-
     class Meta:
         verbose_name = "Служебная записка"
         verbose_name_plural = "Служебные записки"
 
     number = models.IntegerField()  # номер
     title = models.CharField(max_length=100)    # заголовок
-    # to_whom = models.CharField(max_length=100)  # кому
     to_whom = models.ForeignKey('PeopleToWhom')  # кому адресат = destination
     who = models.ForeignKey('PeopleWho', blank=True, null=True)  # исполнитель = executor
     day_create = models.DateField(blank=True, null=True)  # дата создания

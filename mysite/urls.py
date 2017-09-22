@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^', include('filer.server.urls')),
     url(r'^docx/', include('docx.urls')),
     url(r'^daybook/', include('daybook.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 
 ]

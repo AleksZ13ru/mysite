@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.docx_list, name='docx_list'),
     url(r'^all/$', views.docx_all, name='docx_all'),
+    url(r'^json/$', views.docx_json, name='docx_json'),
+    url(r'^json/(?P<pk>[0-9]+)/$', views.docx_json_detail, name='docx_json_detail'),
     url(r'^executor/(?P<pk>[0-9]+)/$', views.docx_executor, name='docx_executor'),
     url(r'^destination/(?P<pk>[0-9]+)/$', views.docx_destination, name='docx_destination'),
     url(r'^calendar/(?P<year>[0-9]+)/(?P<month>[0-9]+)/$', views.docx_calendar, name='docx_calendar'),
