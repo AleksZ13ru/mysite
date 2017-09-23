@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="fieldset">
+            <div class="row">
+                <div class="small-6 large-10 columns" style="width: 100%">
+                    <table class="hover" id="table_memo">
+                        <thead>
+                        <tr>
+                            <th>Номер</th>
+                            <th>Адресат</th>
+                            <th>Исполнитель</th>
+                            <th>Название</th>
+                            <th>Дата</th>
+                            <th>Статус</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}
+{% block script %}
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8"
+            src="//cdn.datatables.net/1.10.16/js/dataTables.foundation.min.js"></script>
+    <script>$(document).ready(function () {
+{#        Flat array data source#}
+        $('#table_memo').DataTable({
+            "ajax": {
+                "url": "{% url 'docx_json' %}",
+                "dataSrc": ""
+            },
+            "columns": [
+                {"data": "number"},
+                {"data": "people_to_whom.name"},
+                {"data": "people_who.fio"},
+                {"data": "title"},
+                {"data": "day_create"},
+                {"data": "memo_status.title"}
+            ]
+        });
+    });</script>
+
+{% endblock %}
+
+

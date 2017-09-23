@@ -19,7 +19,7 @@ def docx_list(request):
 
 def docx_all(request):
     memos = Memo.objects.all().order_by('number').reverse()
-    return render(request, 'docx/docx_all.html', {'memos': memos})
+    return render(request, 'docx/docx_all2.html', {'memos': memos})
 
 
 @csrf_exempt

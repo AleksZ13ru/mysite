@@ -1,28 +1,36 @@
 from rest_framework import serializers
-from .models import Memo  # Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
+from .models import Memo, PeopleToWhom, PeopleWho, MemoStatus  # Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
+
+
+class PeopleToWhomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PeopleToWhom
+        fields = ('id', 'name')
+
+
+class PeopleWhoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PeopleWho
+        fields = ('id', 'fio')
+
+
+class MemoStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MemoStatus
+        fields = ('id', 'title')
 
 
 class MemoSerializer(serializers.ModelSerializer):
+    # category = CategorySerializer(many=True, read_only=True, source='category_id')
+    people_to_whom = PeopleToWhomSerializer(many=False, read_only=True, source='to_whom')
+    people_who = PeopleWhoSerializer(many=False, read_only=True, source='who')
+    memo_status = MemoStatusSerializer(many=False, read_only=True, source='status')
+
     class Meta:
         model = Memo
-        fields = ('id', 'number', 'title', 'to_whom', 'day_create', 'text', 'who', 'status')
-
-    # def create(self, validated_data):
-    #     """
-    #     Create and return a new `Snippet` instance, given the validated data.
-    #     """
-    #     return Memo.objects.create(**validated_data)
-    #
-    # def update(self, instance, validated_data):
-    #     """
-    #     Update and return an existing `Snippet` instance, given the validated data.
-    #     """
-    #     instance.number = validated_data.get('number', instance.number)
-    #     instance.title = validated_data.get('title', instance.title)
-    #     instance.to_whom = validated_data.get('to_whom', instance.to_whom)
-    #     instance.language = validated_data.get('day_create', instance.day_create)
-    #     instance.day_create = validated_data.get('text', instance.text)
-    #     instance.who = validated_data.get('who', instance.who)
-    #     instance.status = validated_data.get('status', instance.status)
-    #     instance.save()
-    #     return instance
+        fields = ('id', 'number', 'title', 'day_create', 'text', 'people_to_whom', 'people_who', 'memo_status')
+        extra_kwargs = {
+            'to_whom': {
+                'write_only': True,
+            },
+        }
