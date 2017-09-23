@@ -3,6 +3,10 @@
     {% if user.is_authenticated %}
         <div class="fieldset">
             <div class="row">
+                <div class="small-12 medium-6  large-6 columns">
+{#                    <h5> Все служебные записки </h5>#}
+                    <a href="{% url 'docx_new' %}" class="button">Новая записка</a>
+                </div>
                 <div class="small-6 large-10 columns" style="width: 100%">
                     <table class="hover" id="table_memo">
                         <thead>
@@ -13,7 +17,7 @@
                             <th>Название</th>
                             <th>Дата</th>
                             <th>Статус</th>
-                            <th>Edit</th>
+                            <th>URL</th>
                         </tr>
                         </thead>
                     </table>
@@ -23,7 +27,9 @@
     {% endif %}
 {% endblock content %}
 {% block script %}
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+{#    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">#}
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/dataTables.foundation.min.css">
+
 
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8"
@@ -41,7 +47,17 @@
                 {"data": "people_who.fio"},
                 {"data": "title"},
                 {"data": "day_create"},
-                {"data": "memo_status.title"}
+                {"data": "memo_status.title"},
+                {
+                    "data": "id",
+                    "render": function(data, type, row, meta){
+                        if(type === 'display'){
+                            data = '<a href="/docx/' + data + '/">Edit</a>';
+                        }
+
+                        return data;
+                    }
+                }
             ]
         });
     });</script>
