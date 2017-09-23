@@ -13,7 +13,7 @@
     {% endblock %}
 </head>
 
-<body>
+<body style="background: #F5F5F5">
 <div class="top-bar">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
@@ -49,9 +49,9 @@
     </div>
     <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
-{#            <li>#}
-{#                <input type="text" class="span2" id="dp1">#}
-{#            </li>#}
+            {#            <li>#}
+            {#                <input type="text" class="span2" id="dp1">#}
+            {#            </li>#}
             {% if user.is_authenticated %}
                 <li><a href="{% url 'admin:index' %}">{{ user.first_name }}</a>
                     <ul class="menu vertical">
@@ -65,7 +65,18 @@
         </ul>
     </div>
 </div>
-{% block content %} {% endblock %}
+
+{#{% block content %} {% endblock %}#}
+
+<div class="fieldset">
+    <div class="row">
+{#        <div class="small-12 large-12 columns">#}
+            {% if user.is_authenticated %}
+                {% block content %} {% endblock %}
+            {% endif %}
+{#        </div>#}
+    </div>
+</div>
 <script src="{% static 'js/vendor/jquery-3.1.0.min.js' %}"></script>
 <script src="{% static 'js/vendor/what-input.js' %}"></script>
 <script src="{% static 'js/vendor/foundation.js' %}"></script>
@@ -81,18 +92,18 @@
         $('.menu li a[href="' + link + '"]').parent().addClass('active');
     });
 </script>
-<script>
-    var now = new Date();
-    var initialDate = now.day + '-' + now.month + '-' + now.year;
-    $(function () {
-        $('#dp1').fdatepicker({
-            language: 'ru',
-            initialDate: initialDate, //'30-07-2016',
-            format: 'dd.mm.yyyy',
-            disableDblClickSelection: true
-        });
-    });
-</script>
+{#<script>#}
+{#    var now = new Date();#}
+{#    var initialDate = now.day + '-' + now.month + '-' + now.year;#}
+{#    $(function () {#}
+{#        $('#dp1').fdatepicker({#}
+{#            language: 'ru',#}
+{#            initialDate: initialDate, //'30-07-2016',#}
+{#            format: 'dd.mm.yyyy',#}
+{#            disableDblClickSelection: true#}
+{#        });#}
+{#    });#}
+{#</script>#}
 {% block script %}
 {% endblock %}
 </body>
