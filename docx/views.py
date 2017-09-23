@@ -28,7 +28,7 @@ def docx_json(request):
     List all code snippets, or create a new snippet.
     """
     if request.method == 'GET':
-        memos = Memo.objects.all()
+        memos = Memo.objects.filter(status__title='В работе')  # 11- статус в работе, костыль
         serializer = MemoSerializer(memos, many=True)
         return JsonResponse(serializer.data, safe=False)
 
