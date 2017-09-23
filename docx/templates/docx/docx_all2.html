@@ -37,6 +37,7 @@
     <script>$(document).ready(function () {
 {#        Flat array data source#}
         $('#table_memo').DataTable({
+            "order": [[ 0, "desc" ]],
             "ajax": {
                 "url": "{% url 'docx_json' %}",
                 "dataSrc": ""
