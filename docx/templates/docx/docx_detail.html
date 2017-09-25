@@ -3,24 +3,32 @@
     <div class="small-12 large-12 columns">
         <div class="callout">
             <div class="row">
-                <div class="columns">
-                    <h5><a href="{% url 'docx_edit' pk=memo.pk %}">{{ memo }}</a></h5>
-                    <div class="small-8 large-8 columns">
+                <div class="small-12 columns">
+                    <div class="small-8 medium-10 large-10 columns">
+                        <h5><a href="{% url 'docx_edit' pk=memo.pk %}">{{ memo }}</a></h5>
                         {% if memo.who == None %}
                             <h6>Исполнитель: <a href="#">Назначить</a></h6>
                         {% else %}
-                            <h6>Исполнитель: <a href="#">{{ memo.who.fio }}</a></h6>
                             <hr>
                             <p>Рабочий телефон: {{ memo.who.phone_number }}</p>
                             <p>Мобильный телефон: {{ memo.who.phone_mobile_number }}</p>
                             <p>Электронная почта: {{ memo.who.email }}</p>
                         {% endif %}
+                        <h6>Исполнитель: <a href="#">{{ memo.who.fio }}</a></h6>
                     </div>
-                    <div class="small-3 large-4 columns text-right">
+                    <div class="small-4 medium-2 large-2 columns">
                         <label for="exampleFileUpload" class="button small">DOC загрузить</label>
                         <input type="file" id="exampleFileUpload" class="show-for-sr">
                         <label for="exampleFileUpload" class="button alert small">PDF загрузить</label>
                         <input type="file" id="exampleFileUpload" class="show-for-sr">
+                    </div>
+
+
+                    <div class="small-8 large-8 columns">
+
+                    </div>
+                    <div class="small-3 large-4 columns text-right">
+
                     </div>
                     <hr>
                     <h5>Содержание:</h5>
@@ -71,7 +79,7 @@
                     </table>
                     <hr>
                     <h5>Заметки:</h5>
-                    <table>
+                    <table class="stack">
                         <thead>
                         <tr>
                             <th></th>

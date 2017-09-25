@@ -36,3 +36,4 @@ table.hover tbody tr:hover {
 
 table.hover:not(.unstriped) tr:nth-of-type(even):hover {
     background-color: #ececec; }
+

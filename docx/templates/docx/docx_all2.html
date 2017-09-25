@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% block link %}
+{#    <link rel="stylesheet" href="{% static 'css/app2.css' %}">#}
+{% endblock %}
 {% block content %}
     <div class="small-12 large-12 columns">
         <div class="callout">
@@ -60,7 +64,10 @@
                     }
                 }
             ],
-            "pageLength": 25
+            "pageLength": 25,
+{#            "scrollX": true,#}
+            "sScrollX": "100%",
+            "sScrollXInner": "100%"
         });
     });</script>
 
