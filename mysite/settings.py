@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'dept',
     'docx',
     'daybook',
+    'simple_history',
     'si8device',
     'si8parsing',
     'easy_thumbnails',
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware'
 ]
 
 ROOT_URLCONF = 'mysite.urls'

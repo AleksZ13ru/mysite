@@ -1,6 +1,7 @@
 from django.db import models
 from si8device.models import Equipment
 from django.utils import timezone
+from simple_history.models import HistoricalRecords
 
 
 class Memo(models.Model):
@@ -13,11 +14,13 @@ class Memo(models.Model):
     working = models.TextField(blank=True, null=True)  # выполненая работа
     working_ok = models.BooleanField(default=False)  # ремонт завершен
     time_start = models.DateTimeField(default=timezone.now)  # время наступления неисправности
-    time_ok = models.DateTimeField()  # время завершения ремонта
+    time_repair = models.DateTimeField(blank=True, null=True)  # время завершения ремонта, repair = восстановление
     # people = models.ManyToManyField()  # привлеченные люди
+    history = HistoricalRecords()
 
     def __str__(self):
-        title = '%s - %s' % (
+        title = '#%03d : %s - %s' % (
+            self.pk,
             self.equipment,
             self.defect
         )
