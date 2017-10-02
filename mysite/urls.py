@@ -20,7 +20,7 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', views.LoginFormView.as_view()),
+    url(r'^login/', views.LoginFormView.as_view(), name='login'),
 
     # url(r'^blog/', include('blog.urls')),
     url(r'^', include('dept.urls')),

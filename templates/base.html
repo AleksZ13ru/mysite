@@ -41,7 +41,7 @@
                 {#                </ul>#}
             </li>
 
-            {#            <!--li><a href="{% url 'si8_list' %}">Машинное время (chartjs)</a></li-->#}
+            {#            <!--li><a href="{% url 'si8_list' %}docx_peoplewho">Машинное время (chartjs)</a></li-->#}
             {#            <!--li><a href="{% url 'si8_d3_list' %}">Машинное время (d3)</a></li>#}
             {#            <li><a href="{% url 'si8_c3_list' %}">Машинное время (c3)</a></li>#}
             {#            <li><a href="{% url 'si8_parsing' %}">Парсинг</a></li-->#}
@@ -70,9 +70,12 @@
 
 <div class="fieldset">
     <div class="row">
+{#    <div class="expanded row">#}
 {#        <div class="small-12 large-12 columns">#}
             {% if user.is_authenticated %}
                 {% block content %} {% endblock %}
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a>
             {% endif %}
 {#        </div>#}
     </div>
@@ -88,7 +91,7 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        var link = window.location.pathname;
+        let link = window.location.pathname;
         $('.menu li a[href="' + link + '"]').parent().addClass('active');
     });
 </script>
