@@ -4,7 +4,7 @@
     {#        <div class="row">#}
     <div class="small-3 columns">
         <div class="callout">
-{#            <p>Смена №1</p>#}
+            {#            <p>Смена №1</p>#}
             <a href="#" class="button small">Новая запись</a>
             <ul class="vertical menu accordion-menu" data-accordion-menu>
                 <li>
@@ -33,18 +33,38 @@
     <div class="small-9 columns">
         <div class="callout">
             <p>Смена №1 - Иванов И.И., Петров П.П. Режим работы с 7-20 до 19-20</p>
-{#            <p>Обеденный перерыв №1 с 11-00 по 12-00 (30 мин.) </p>#}
-{#            <p>Обеденный перерыв №2 с 17-00 по 18-00 (30 мин.) </p>#}
+            {#            <p>Обеденный перерыв №1 с 11-00 по 12-00 (30 мин.) </p>#}
+            {#            <p>Обеденный перерыв №2 с 17-00 по 18-00 (30 мин.) </p>#}
             <ul class="accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
-                <li class="accordion-item" data-accordion-item>
+                <li class="accordion-item is-active" data-accordion-item>
                     <!-- Accordion tab title -->
-                    <a href="#" class="accordion-title">Записи (4 шт.)</a>
+                    <a href="#" class="accordion-title">Записи (4 шт.) </a>
 
                     <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
                     <div class="accordion-content" data-tab-content>
-                        <a href="#" class="button small">Новая запись в журнал</a>
-                        <p>Panel 1. Lorem ipsum dolor</p>
-                        <a href="#">Nowhere to Go</a>
+                        <a href="{% url 'daybook_new' %}" class="button">Новая записка</a>
+                        <table class="hover" id="table_memo">
+                            <thead>
+                            <tr>
+                                <th>Оборудование</th>
+                                <th>Неисправность</th>
+                                <th>Выполненая работа</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Бронемашина</td>
+                                <td>Выбило автомат</td>
+                                <td>Проверка тока</td>
+                            </tr>
+                            <tr>
+                                <td>Розендаль</td>
+                                <td>Маркир</td>
+                                <td>Промывка системы, запуск в работу</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
                     </div>
                 </li>
                 <li class="accordion-item" data-accordion-item>

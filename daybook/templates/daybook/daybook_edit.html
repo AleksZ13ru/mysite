@@ -11,50 +11,52 @@
 
                 <form method="POST" class="post-form">{% csrf_token %}
                     <div class="row">
-                        <div class="medium-2 columns">
-                            <label>№ служебной
-                                {{ form.number }}
+                        <div class="small-4 columns">
+                            <label>Оборудование
+                                {{ form.equipment }}
                             </label>
                         </div>
-                        <div class="medium-2 columns">
-                            <label>Дата
-                                {{ form.day_create }}
-                            </label>
-                        </div>
-                        <div class="medium-2 columns">
-                            <label>На имя
-                                {{ form.to_whom }}
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="medium-6 columns">
-                            <label>Название
-                                {{ form.title }}
-                            </label>
-                        </div>
-                        <div class="medium-2 columns">
-                            <label>Исполнитель
-                                {{ form.who }}
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="medium-12 columns">
+                        <div class="small-4 columns">
                             <label>
-                                Содержание:
-                                {#                                <textarea>{{ form.text }}</textarea>#}
-                                {{ form.text }}
+                                Неисправность:
+                                {{ form.defect }}
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                Выполненая работа:
+                                {{ form.working }}
                             </label>
                         </div>
                     </div>
+                    {#                    <div class="row">#}
+                    {#                        <div class="medium-6 columns">#}
+                    {#                            <label>Название#}
+                    {#                                {{ form.title }}#}
+                    {#                            </label>#}
+                    {#                        </div>#}
+                    {#                        <div class="medium-2 columns">#}
+                    {#                            <label>Исполнитель#}
+                    {#                                {{ form.who }}#}
+                    {#                            </label>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    {#                    <div class="row">#}
+                    {#                        <div class="medium-12 columns">#}
+                    {#                            <label>#}
+                    {#                                Содержание:#}
+                    {#                                <textarea>{{ form.text }}</textarea>#}
+                    {#                                {{ form.text }}#}
+                    {#                            </label>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="text-right">
                         {#                    <button type="submit" class="save btn btn-default">Save</button>#}
                         <button type="submit" class="button">Сохранить</button>
                         {% if memo is not None %}
-                            <a href="{% url 'docx_detail' pk=memo.pk %}" class="button alert">Отмена</a>
+                            <a href="{% url 'daybook_list' %}" class="button alert">Отмена</a>
                         {% else %}
-                            <a href="{% url 'docx_all' %}" class="button alert">Отмена</a>
+                            <a href="{% url 'daybook_list' %}" class="button alert">Отмена</a>
                         {% endif %}
                     </div>
                 </form>
